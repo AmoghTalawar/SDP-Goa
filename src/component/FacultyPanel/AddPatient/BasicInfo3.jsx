@@ -71,9 +71,7 @@ const financialDebtOption = [
   "None",
 ];
 
-function BasicInfo3({ prevData, data, setData, setStep, setLoading, campId }) {
-  console.log("BasicInfo3 - received campId:", campId);
-  console.log("BasicInfo3 - received data.campId:", data?.campId);
+function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
   const navigate = useNavigate();
 
@@ -245,7 +243,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading, campId }) {
       family_health_status: familyHealth,
     };
 
-    setData({ ...data, ...obj, campId });
+    setData({ ...data, ...obj });
     setStep(4);
   };
 

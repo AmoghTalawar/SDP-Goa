@@ -8,8 +8,6 @@ import "./AddPatient.scss";
 const choice = ["yes", "no"];
 
 function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
-   console.log("BasicInfo5 - received data.campId:", data?.campId);
-   console.log("BasicInfo5 - full data object:", data);
 
    const navigate = useNavigate();
 
@@ -99,12 +97,15 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
       return;
     }
 
-    console.log("Auth token:", token);
-    console.log("Token length:", token.length);
-    console.log("Token starts with:", token.substring(0, 20) + "...");
+    // Clean the token (remove any extra spaces or quotes)
+    const cleanToken = token.replace(/['"]+/g, '').trim();
+
+    console.log("Auth token:", cleanToken);
+    console.log("Token length:", cleanToken.length);
+    console.log("Token starts with:", cleanToken.substring(0, 20) + "...");
 
     const headers = {
-      Authorization: `Bearer ${token}`,
+      Authorization: `Bearer ${cleanToken}`,
       'Content-Type': 'application/json',
     };
 
@@ -112,7 +113,6 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
        console.log("Sending request to:", ADD_PATIENT);
        console.log("Request headers:", headers);
        console.log("Request data keys:", Object.keys(newData));
-       console.log("Has campId:", newData.campId);
 
        const datum = await axios.post(
          ADD_PATIENT,
@@ -190,8 +190,11 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
     const auth = localStorage.getItem("facultyAuth");
 
+    // Clean the token (remove any extra spaces or quotes)
+    const cleanAuth = auth.replace(/['"]+/g, '').trim();
+
     const headers = {
-      Authorization: `Bearer ${auth}`,
+      Authorization: `Bearer ${cleanAuth}`,
     };
 
     try {

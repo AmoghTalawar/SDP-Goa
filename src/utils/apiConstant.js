@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:5001";
+export const BASE_URL = "https://sdp-backend-nu.vercel.app";
 export const ML_URL = "http://localhost:9000";
 // export const BASE_URL = "https://backendsurvey.herokuapp.com"
 
@@ -18,11 +18,10 @@ export const ADD_PATIENT = `${BASE_URL}/api/patient`;
 export const GET_PATIENT_USER = `${BASE_URL}/api/patient/user`;
 export const GET_UNALLOCATED_PATIENTS = `${BASE_URL}/api/patient/getUnallocated`;
 
-export const GET_RETAILER = `${BASE_URL}/api/retailer`;
-
-export const GET_TRUCK = `${BASE_URL}/api/truck`;
-
-export const GET_ORDER = `${BASE_URL}/api/order`;
+// Note: Retailer, Truck, and Order APIs are not implemented in current backend
+// export const GET_RETAILER = `${BASE_URL}/api/retailer`;
+// export const GET_TRUCK = `${BASE_URL}/api/truck`;
+// export const GET_ORDER = `${BASE_URL}/api/order`;
 
 const auth = localStorage.getItem("auth");
 

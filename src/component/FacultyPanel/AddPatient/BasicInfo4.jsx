@@ -12,9 +12,7 @@ const choice = [
 ]
 
 
-function BasicInfo4({ prevData, data, setData, setStep, setLoading, campId }) {
-    console.log("BasicInfo4 - received campId:", campId);
-    console.log("BasicInfo4 - received data.campId:", data?.campId);
+function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
 
     const navigate = useNavigate();
 
@@ -86,7 +84,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading, campId }) {
             history_of_previous_head_injureies: previousHeadInjury,
         };
 
-        setData({ ...data, ...obj, campId });
+        setData({ ...data, ...obj });
         setStep(5);
     };
 

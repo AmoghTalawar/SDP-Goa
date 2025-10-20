@@ -31,16 +31,16 @@ const RiskLevelPrediction = () => {
     "At present do you have any sexual problem ( if yes mention)": -1,
     "Living arrangement_Family": -1,
 
-    "AAO for alcohol in years": 0,
-    Age: 0,
-    "Weight while admission (In Kg)": 0,
-    "duration of use of alcohol": 0,
-    "At what age did you start working?": 0,
-    "duration of excessive use of alcohol": 0,
+    "AAO for alcohol in years": '',
+    Age: '',
+    "Weight while admission (In Kg)": '',
+    "duration of use of alcohol": '',
+    "At what age did you start working?": '',
+    "duration of excessive use of alcohol": '',
 
     "Family history of alcoholism / drug abuse, if any (who and which type of drug)":
       -1,
-    "How many first degree relatives had Substance addiction": 0,
+    "How many first degree relatives had Substance addiction": '',
 
     "Record extra marital experiences": -1,
     "any instance of family violence": -1,
@@ -63,18 +63,26 @@ const RiskLevelPrediction = () => {
       }));
     } else {
       if (type === "number") {
-        var integer = parseFloat(value, 10);
-        setFormData((prevFormData) => ({
-          ...prevFormData,
-          [name]: integer,
-        }));
+        // For number inputs, parse as float and handle empty values
+        const numValue = value === "" ? 0 : parseFloat(value, 10);
+        if (isNaN(numValue)) {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: 0,
+          }));
+        } else {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: numValue,
+          }));
+        }
       }
-      // For other input types (radio, text, etc.), update as usual
+      // For other input types (radio, text, etc.), convert to number if it's a valid number string
       else {
-        var integer = parseInt(value, 10);
+        const numValue = value === "" ? 0 : parseInt(value, 10);
         setFormData((prevFormData) => ({
           ...prevFormData,
-          [name]: integer,
+          [name]: isNaN(numValue) ? 0 : numValue,
         }));
       }
     }

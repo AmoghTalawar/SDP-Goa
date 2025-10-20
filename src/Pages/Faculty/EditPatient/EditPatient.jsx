@@ -46,13 +46,17 @@ function EditPatient() {
 
   const getPatientData = () => {
     console.log(id);
-    const patData = JSON.parse(localStorage.getItem("patients"));
+    const patData = JSON.parse(localStorage.getItem("patients") || "[]");
 
-    var filteredArray = patData.filter(function (itm) {
-      return itm._id == id;
-    });
+    if (patData && patData.length > 0) {
+      var filteredArray = patData.filter(function (itm) {
+        return itm._id == id;
+      });
 
-    setData(filteredArray[0]);
+      if (filteredArray.length > 0) {
+        setData(filteredArray[0]);
+      }
+    }
   };
 
   useEffect(() => {

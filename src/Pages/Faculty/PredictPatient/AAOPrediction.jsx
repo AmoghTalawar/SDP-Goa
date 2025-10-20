@@ -61,12 +61,29 @@ const AAOPrediction = () => {
         [name]: updatedValue,
       }));
     } else {
-      // For other input types (radio, text, etc.), update as usual
-      var integer = parseInt(value, 10);
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        [name]: integer,
-      }));
+      if (type === "number") {
+        // For number inputs, parse as float and handle empty values
+        const numValue = value === "" ? 0 : parseFloat(value, 10);
+        if (isNaN(numValue)) {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: 0,
+          }));
+        } else {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: numValue,
+          }));
+        }
+      }
+      // For other input types (radio, text, etc.), convert to number if it's a valid number string
+      else {
+        const numValue = value === "" ? 0 : parseInt(value, 10);
+        setFormData((prevFormData) => ({
+          ...prevFormData,
+          [name]: isNaN(numValue) ? 0 : numValue,
+        }));
+      }
     }
   };
 

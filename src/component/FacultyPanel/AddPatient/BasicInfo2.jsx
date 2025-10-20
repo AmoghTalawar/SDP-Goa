@@ -91,9 +91,7 @@ const pastPsychatricComplicationOptions = [
   "Paranoid Ideas",
 ];
 
-function BasicInfo2({ prevData, data, setData, setStep, setLoading, campId }) {
-  console.log("BasicInfo2 - received campId:", campId);
-  console.log("BasicInfo2 - received data.campId:", data?.campId);
+function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
   const navigate = useNavigate();
 
@@ -158,7 +156,7 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading, campId }) {
       history_of_previous_head_injureies: previousHeadInjury,
     };
 
-    setData({ ...data, ...obj, campId });
+    setData({ ...data, ...obj });
 
     console.log("After : ", setData);
     setStep(3);

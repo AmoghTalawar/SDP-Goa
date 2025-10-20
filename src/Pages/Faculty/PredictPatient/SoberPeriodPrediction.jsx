@@ -7,25 +7,37 @@ import { useNavigate } from "react-router";
 const SoberPeriodPrediction = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    "Marital Status": 0,
-    "smoking/smokeless": 0,
-    "Motivation factor": 0,
-    "Willingness for treatment": 0,
-    "Sugar(mg)": 0,
-    "Risk Level": 0,
-    "RCA_liked the effect and wanted more of it": 0,
-    MPPR_no: 0,
+    "Marital Status": -1,
+    "smoking/smokeless": -1,
+    "Motivation factor": -1,
+    "Willingness for treatment": -1,
+    "Sugar(mg)": -1,
+    "Risk Level": -1,
+    "RCA_liked the effect and wanted more of it": -1,
+    MPPR_no: -1,
     "Number of relapses (based on period of treatment)": 0,
     "Period of sober": 0,
   });
   const [outputData, setOutputData] = useState(null);
 
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
+    const { name, value, type } = event.target;
+
+    if (type === "number") {
+      // For number inputs, parse as float and handle empty values
+      const numValue = value === "" ? 0 : parseFloat(value, 10);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: isNaN(numValue) ? 0 : numValue,
+      }));
+    } else {
+      // For radio buttons, convert string values to numbers, keep -1 for no selection
+      const numValue = value === "" ? -1 : parseInt(value, 10);
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        [name]: isNaN(numValue) ? -1 : numValue,
+      }));
+    }
   };
 
   const handleSubmit = async (event) => {
@@ -62,7 +74,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Marital Status"
               value="0"
-              checked={formData["Marital Status"] === "0"}
+              checked={formData["Marital Status"] === 0}
               onChange={handleInputChange}
             />{" "}
             Yes
@@ -73,7 +85,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Marital Status"
               value="1"
-              checked={formData["Marital Status"] === "1"}
+              checked={formData["Marital Status"] === 1}
               onChange={handleInputChange}
             />{" "}
             No
@@ -87,7 +99,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="smoking/smokeless"
               value="0"
-              checked={formData["smoking/smokeless"] === "0"}
+              checked={formData["smoking/smokeless"] === 0}
               onChange={handleInputChange}
             />{" "}
             Yes
@@ -98,7 +110,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="smoking/smokeless"
               value="1"
-              checked={formData["smoking/smokeless"] === "1"}
+              checked={formData["smoking/smokeless"] === 1}
               onChange={handleInputChange}
             />{" "}
             No
@@ -112,7 +124,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Motivation factor"
               value="0"
-              checked={formData["Motivation factor"] === "0"}
+              checked={formData["Motivation factor"] === 0}
               onChange={handleInputChange}
             />{" "}
             Moderate
@@ -123,7 +135,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Motivation factor"
               value="1"
-              checked={formData["Motivation factor"] === "1"}
+              checked={formData["Motivation factor"] === 1}
               onChange={handleInputChange}
             />{" "}
             Severe
@@ -133,7 +145,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Motivation factor"
               value="2"
-              checked={formData["Motivation factor"] === "2"}
+              checked={formData["Motivation factor"] === 2}
               onChange={handleInputChange}
             />{" "}
             Willing
@@ -147,7 +159,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Willingness for treatment"
               value="0"
-              checked={formData["Willingness for treatment"] === "0"}
+              checked={formData["Willingness for treatment"] === 0}
               onChange={handleInputChange}
             />{" "}
             Willing
@@ -158,7 +170,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Willingness for treatment"
               value="1"
-              checked={formData["Willingness for treatment"] === "1"}
+              checked={formData["Willingness for treatment"] === 1}
               onChange={handleInputChange}
             />{" "}
             Ambivalent
@@ -169,7 +181,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Willingness for treatment"
               value="2"
-              checked={formData["Willingness for treatment"] === "2"}
+              checked={formData["Willingness for treatment"] === 2}
               onChange={handleInputChange}
             />{" "}
             UnWilling
@@ -183,7 +195,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Sugar(mg)"
               value="0"
-              checked={formData["Sugar(mg)"] === "0"}
+              checked={formData["Sugar(mg)"] === 0}
               onChange={handleInputChange}
             />{" "}
             Normal
@@ -194,7 +206,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Sugar(mg)"
               value="1"
-              checked={formData["Sugar(mg)"] === "1"}
+              checked={formData["Sugar(mg)"] === 1}
               onChange={handleInputChange}
             />{" "}
             No
@@ -205,7 +217,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Sugar(mg)"
               value="2"
-              checked={formData["Sugar(mg)"] === "2"}
+              checked={formData["Sugar(mg)"] === 2}
               onChange={handleInputChange}
             />{" "}
             Diabetic
@@ -219,7 +231,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Risk Level"
               value="1"
-              checked={formData["Risk Level"] === "1"}
+              checked={formData["Risk Level"] === 1}
               onChange={handleInputChange}
             />{" "}
             Low Risk
@@ -230,7 +242,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Risk Level"
               value="2"
-              checked={formData["Risk Level"] === "2"}
+              checked={formData["Risk Level"] === 2}
               onChange={handleInputChange}
             />{" "}
             Medium Risk
@@ -241,7 +253,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Risk Level"
               value="3"
-              checked={formData["Risk Level"] === "3"}
+              checked={formData["Risk Level"] === 3}
               onChange={handleInputChange}
             />{" "}
             High Risk
@@ -252,7 +264,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="Risk Level"
               value="4"
-              checked={formData["Risk Level"] === "4"}
+              checked={formData["Risk Level"] === 4}
               onChange={handleInputChange}
             />{" "}
             Very High Risk
@@ -267,7 +279,7 @@ const SoberPeriodPrediction = () => {
               name="RCA_liked the effect and wanted more of it"
               value="0"
               checked={
-                formData["RCA_liked the effect and wanted more of it"] === "0"
+                formData["RCA_liked the effect and wanted more of it"] === 0
               }
               onChange={handleInputChange}
             />{" "}
@@ -280,7 +292,7 @@ const SoberPeriodPrediction = () => {
               name="RCA_liked the effect and wanted more of it"
               value="1"
               checked={
-                formData["RCA_liked the effect and wanted more of it"] === "1"
+                formData["RCA_liked the effect and wanted more of it"] === 1
               }
               onChange={handleInputChange}
             />{" "}
@@ -295,7 +307,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="MPPR_no"
               value="0"
-              checked={formData["MPPR_no"] === "0"}
+              checked={formData["MPPR_no"] === 0}
               onChange={handleInputChange}
             />{" "}
             No
@@ -306,7 +318,7 @@ const SoberPeriodPrediction = () => {
               type="radio"
               name="MPPR_no"
               value="1"
-              checked={formData["MPPR_no"] === "1"}
+              checked={formData["MPPR_no"] === 1}
               onChange={handleInputChange}
             />{" "}
             Yes
@@ -323,7 +335,7 @@ const SoberPeriodPrediction = () => {
               checked={
                 formData[
                   "Number of relapses (based on period of treatment)"
-                ] === "0"
+                ] === 0
               }
               onChange={handleInputChange}
             />{" "}
@@ -338,7 +350,7 @@ const SoberPeriodPrediction = () => {
               checked={
                 formData[
                   "Number of relapses (based on period of treatment)"
-                ] === "1"
+                ] === 1
               }
               onChange={handleInputChange}
             />{" "}

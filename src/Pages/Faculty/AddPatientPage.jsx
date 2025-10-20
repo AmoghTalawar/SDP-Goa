@@ -45,7 +45,7 @@ function AddPatientPage() {
   const [data, setData] = useState(null);
   const [trigger, setTrigger] = useState(false);
 
-  console.log("AddPatientPage - campId from URL params:", id);
+  console.log("AddPatientPage - URL params id:", id);
 
   // Reset data when step changes to avoid conflicts
   const handleStepChange = (newStep) => {
@@ -63,7 +63,6 @@ function AddPatientPage() {
           setData={setData}
           data={data}
           setStep={setStep}
-          campId={id}
         />
       )}
 
@@ -74,7 +73,6 @@ function AddPatientPage() {
           data={data}
           setStep={setStep}
           setLoading={setLoading}
-          campId={id}
         />
       )}
 
@@ -85,7 +83,6 @@ function AddPatientPage() {
           data={data}
           setStep={setStep}
           setLoading={setLoading}
-          campId={id}
         />
       )}
 
@@ -96,7 +93,6 @@ function AddPatientPage() {
           data={data}
           setStep={setStep}
           setLoading={setLoading}
-          campId={id}
         />
       )}
 
@@ -107,7 +103,6 @@ function AddPatientPage() {
           data={data}
           setStep={setStep}
           setLoading={setLoading}
-          campId={id}
         />
       )}
 

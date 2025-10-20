@@ -19,6 +19,13 @@ function Patient({ setLoading, camp, patient, faculty }) {
   const [truck, setTruck] = useState();
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Store patient data in localStorage when it changes
+  useEffect(() => {
+    if (patient && patient.length > 0) {
+      localStorage.setItem("patients", JSON.stringify(patient));
+    }
+  }, [patient]);
+
   const getData = async () => {
     setLoading(true);
 
@@ -96,7 +103,10 @@ function Patient({ setLoading, camp, patient, faculty }) {
     setSearchQuery("");
   };
 
-  const filteredPatients = patient.filter((data) => {
+  const filteredPatients = patient ? patient.filter((data) => {
+    // Check if data.name exists before calling toLowerCase()
+    if (!data.name) return false;
+
     console.log(
       "data : ",
       data.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -106,7 +116,7 @@ function Patient({ setLoading, camp, patient, faculty }) {
     // data.phone.includes(searchQuery) ||
     // data.patientId.includes(searchQuery)
     // Add more fields here as needed
-  });
+  }) : [];
 
   return (
     <div className="content">
@@ -221,26 +231,38 @@ function Patient({ setLoading, camp, patient, faculty }) {
             </tr>
           </thead>
           <tbody className="table-body">
-            {filteredPatients.map((data, key) => (
-              <tr key={key}>
-                <th scope="row">{data.patientId}</th>
-                <td>
-                  {faculty?.map((d, k) => {
-                    if (d._id === data.faculty) return d.name;
-                  })}
-                </td>
-                <td>{data.name}</td>
-                <td>{data.phone}</td>
-                <td>
-                  <button
-                    className="edit-btn"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="bi bi-eye"></i>
-                  </button>
+            {filteredPatients && filteredPatients.length > 0 ? (
+              filteredPatients.map((data, key) => (
+                <tr key={key}>
+                  <th scope="row">{data.patientId}</th>
+                  <td>
+                    {faculty && faculty.length > 0 ? (
+                      faculty.map((d, k) => {
+                        if (d._id === data.faculty) return d.name;
+                      })
+                    ) : (
+                      "N/A"
+                    )}
+                  </td>
+                  <td>{data.name}</td>
+                  <td>{data.phone}</td>
+                  <td>
+                    <button
+                      className="edit-btn"
+                      onClick={() => navigate(`/patient/${data._id}`)}
+                    >
+                      <i className="bi bi-eye"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="5" className="text-center">
+                  No patients found
                 </td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </div>

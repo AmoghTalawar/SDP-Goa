@@ -107,8 +107,7 @@ const stressorsOptions = [
   "others",
 ];
 
-function BasicInfo({ setData, setStep, data, campId }) {
-  console.log("BasicInfo - received campId:", campId);
+function BasicInfo({ setData, setStep, data }) {
 
   //formData
   const [name, setName] = useState(null);
@@ -245,7 +244,6 @@ function BasicInfo({ setData, setStep, data, campId }) {
     };
     console.log(obj);
 
-    obj.campId = campId;
     var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
 
     //////////////////Previous code/////////////////////////////
@@ -268,7 +266,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
     // }
     // const newData = { ...data, ...obj }
 
-    setData({ ...data, ...obj, campId });
+    setData({ ...data, ...obj });
     setStep(2);
   };
 
@@ -377,7 +375,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
 
       <div className="row">
         <div className="col-lg-6 col-sm-12 mb-3">
-          <label class="input-lebel" for="">
+          <label className="input-lebel" htmlFor="sex">
             Sex <span className="imp-mark">*</span>
           </label>
           <select
@@ -393,7 +391,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
         </div>
 
         <div className="col-lg-6 col-sm-12 mb-3">
-          <label class="input-lebel" for="">
+          <label className="input-lebel" htmlFor="disctrict">
             Disctrict <span className="imp-mark">*</span>
           </label>
           <select
@@ -404,7 +402,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             <option>Please select</option>
             {disctrictOption
               ? disctrictOption.map((data, key) => {
-                  return <option value={data}>{data}</option>;
+                  return <option key={key} value={data}>{data}</option>;
                 })
               : null}
           </select>
@@ -486,7 +484,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
           >
             <option>Please select</option>
             {yearOptions.map((data, key) => {
-              return <option value={data}>{data}</option>;
+              return <option key={`year-${key}`} value={data}>{data}</option>;
             })}
           </select>
         </div> */}
@@ -516,7 +514,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             {annualInc &&
               annualInc.map((data, key) => {
                 return (
-                  <option key={key} value={data}>
+                  <option key={`annual-${key}`} value={data}>
                     {data}
                   </option>
                 );
@@ -537,7 +535,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             {maritalStat &&
               maritalStat.map((data, key) => {
                 return (
-                  <option key={key} value={data}>
+                  <option key={`marital-${key}`} value={data}>
                     {data}
                   </option>
                 );
@@ -557,7 +555,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             {livingArrangementOptions &&
               livingArrangementOptions.map((data, key) => {
                 return (
-                  <option key={key} value={data}>
+                  <option key={`living-${key}`} value={data}>
                     {data}
                   </option>
                 );
@@ -578,7 +576,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             {referralOptions &&
               referralOptions.map((data, key) => {
                 return (
-                  <option key={key} value={data}>
+                  <option key={`referral-${key}`} value={data}>
                     {data}
                   </option>
                 );
@@ -607,7 +605,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                     {drugTypeOption &&
                       drugTypeOption.map((data, key) => {
                         return (
-                          <option key={key} value={data}>
+                          <option key={`drug-type-${key}`} value={data}>
                             {data}
                           </option>
                         );
@@ -626,7 +624,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                     {drugOption &&
                       drugOption.map((data, key) => {
                         return (
-                          <option key={key} value={data}>
+                          <option key={`drug-${key}`} value={data}>
                             {data}
                           </option>
                         );
@@ -654,7 +652,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                   >
                     <option>Please select</option>
                     {yearOptions.map((data, key) => {
-                      return <option value={data}>{data}</option>;
+                      return <option key={`year-use-${key}`} value={data}>{data}</option>;
                     })}
                   </select>
                 </div>
@@ -670,7 +668,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                   >
                     <option>Please select</option>
                     {yearOptions.map((data, key) => {
-                      return <option value={data}>{data}</option>;
+                      return <option key={`year-excessive-use-${key}`} value={data}>{data}</option>;
                     })}
                   </select>
                 </div>
@@ -701,7 +699,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                   >
                     <option>Please select</option>
                     {drugFrequencyOptions?.map((dat, key) => {
-                      return <option value={dat}>{dat}</option>;
+                      return <option key={`frequency-${key}`} value={dat}>{dat}</option>;
                     })}
                   </select>
                 </div>
@@ -757,7 +755,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
               {drugOption &&
                 drugOption.map((data, key) => {
                   return (
-                    <option key={key} value={data}>
+                    <option key={`drug-option-${key}`} value={data}>
                       {data}
                     </option>
                   );
@@ -790,7 +788,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                 const options = [];
 
                 for (let i = 1990; i <= 2010; i++) {
-                  options.push(<option value={i}>{i}</option>);
+                  options.push(<option key={`year-${i}`} value={i}>{i}</option>);
                 }
 
                 return options;
@@ -812,7 +810,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
                 const options = [];
 
                 for (let i = 1990; i <= 2010; i++) {
-                  options.push(<option value={i}>{i}</option>);
+                  options.push(<option key={`year-excessive-${i}`} value={i}>{i}</option>);
                 }
 
                 return options;
@@ -848,7 +846,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
             >
               <option>Please select</option>
               {drugFrequencyOptions?.map((dat, key) => {
-                return <option value={dat}>{dat}</option>;
+                return <option key={`drug-freq-${key}`} value={dat}>{dat}</option>;
               })}
             </select>
           </div>
@@ -888,7 +886,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
           >
             <option>Please select</option>
             {reasonStartOptions.map((data, key) => {
-              return <option value={data}>{data}</option>;
+              return <option key={`reason-start-${key}`} value={data}>{data}</option>;
             })}
           </select>
         </div>
@@ -902,7 +900,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
           >
             <option>Please select</option>
             {reasonContinueOptions.map((data, key) => {
-              return <option value={data}>{data}</option>;
+              return <option key={`reason-continue-${key}`} value={data}>{data}</option>;
             })}
           </select>
         </div>
@@ -918,7 +916,7 @@ function BasicInfo({ setData, setStep, data, campId }) {
           >
             <option>Please select</option>
             {stressorsOptions?.map((data, key) => {
-              return <option value={data}>{data}</option>;
+              return <option key={`stressors-${key}`} value={data}>{data}</option>;
             })}
           </select>
         </div>
