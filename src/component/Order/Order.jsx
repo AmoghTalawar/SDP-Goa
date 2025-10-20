@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
-import { GET_ORDER, GET_RETAILER } from '../../utils/apiConstant';
-import axios from "axios"
-import OrderModal from '../Modal/OrderModal';
+// import { GET_ORDER, GET_RETAILER } from '../../utils/apiConstant';
+// import axios from "axios"
+// import OrderModal from '../Modal/OrderModal';
 
 function Order() {
 
@@ -11,22 +11,21 @@ function Order() {
     const [trigger, setTrigger] = useState()
 
 
-    const getData = async () => {
-        await axios.get(GET_ORDER)
-            .then(res => {
-                console.log(res)
-                setOrder(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    // Order functionality is not implemented in current backend
+    // const getData = async () => {
+    //     await axios.get(GET_ORDER)
+    //         .then(res => {
+    //             console.log(res)
+    //             setOrder(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
 
-    useEffect(() => {
-
-        getData();
-
-    }, [trigger])
+    // useEffect(() => {
+    //     getData();
+    // }, [trigger])
 
 
 
@@ -36,9 +35,16 @@ function Order() {
 
     return (
         <div className='content'>
-            <OrderModal showModal={showModal} setShowModal={setShowModal} data={data} setData={setData} setTrigger={setTrigger} />
+            {/* Order functionality is not implemented in current SDP backend */}
+            <div className="text-center">
+                <h3>Order Management</h3>
+                <p>Order management features are not available in the current SDP system.</p>
+                <p>This appears to be e-commerce functionality that is not part of the current healthcare management system.</p>
+            </div>
+            {/* Commented out Order functionality */}
+            {/* <OrderModal showModal={showModal} setShowModal={setShowModal} data={data} setData={setData} setTrigger={setTrigger} /> */}
 
-            <table class="table">
+            {/* <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -50,7 +56,7 @@ function Order() {
                         <th scope="col">Promo Id</th>
                         <th scope="col">Retailer id</th>
                         <th scope="col">Status</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -74,7 +80,7 @@ function Order() {
                         </tr>
                     })}
                 </tbody>
-            </table>
+            </table> */}
         </div>
     )
 }

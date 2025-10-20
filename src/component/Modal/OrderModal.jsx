@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react'
 import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import "./Modal.scss"
-import { ADD_PRODUCT, GET_ORDER, GET_TRUCK } from '../../utils/apiConstant';
-import axios from "axios"
+// import { ADD_PRODUCT, GET_ORDER, GET_TRUCK } from '../../utils/apiConstant';
+// import axios from "axios"
 
 const override = css`
   display: block;
@@ -33,20 +33,22 @@ function OrderModal({ showModal, setShowModal, data, setData, setTrigger }) {
 
 
     const handleUpdate = async () => {
+        // Order functionality is not implemented in current backend
+        // const obj = {
+        //     status: status
+        // }
 
-        const obj = {
-            status: status
-        }
+        // await axios.put(`${GET_ORDER}/${data.order_id}`, obj)
+        //     .then(res => {
+        //         console.log(res.data);
+        //         alert(res.data.message);
+        //         setTrigger(prev => !prev)
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     })
 
-        await axios.put(`${GET_ORDER}/${data.order_id}`, obj)
-            .then(res => {
-                console.log(res.data);
-                alert(res.data.message);
-                setTrigger(prev => !prev)
-            })
-            .catch(err => {
-                console.log(err);
-            })
+        alert("Order update functionality is not available in the current SDP system.");
     }
 
 
@@ -79,8 +81,8 @@ function OrderModal({ showModal, setShowModal, data, setData, setTrigger }) {
                 </div>
                 <div className="modal_content">
                     <div className="modal_top">
-                        <h2>Add Product </h2>
-                        <button  ><img src="./Assets/x.svg" alt="" /></button>
+                        <h2>Order Management</h2>
+                        <button onClick={closeModal}><img src="./Assets/x.svg" alt="" /></button>
                     </div>
                     <hr />
                     <div className="modal_body">
