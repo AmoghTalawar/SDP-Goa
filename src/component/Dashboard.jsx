@@ -4,9 +4,9 @@ import "./Dashboard.scss";
 import Location from "./Location/Location";
 import Faculty from "./Faculty/Faculty";
 import Camp from "./Camp/Camp";
-import Retailer from "./Retailer/Retailer";
+// import Retailer from "./Retailer/Retailer"; // Not used in current SDP system
 import Patient from "./Patient/Patient";
-import Order from "./Order/Order";
+// import Order from "./Order/Order"; // Not used in current SDP system
 import { useNavigate, Navigate, useLocation } from "react-router";
 import { useEffect } from "react";
 import Home from "./Home/Home";

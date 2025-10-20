@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
-import { GET_RETAILER } from '../../utils/apiConstant';
-import axios from "axios"
-import RetailerModal from '../Modal/RetailerModal';
+// import { GET_RETAILER } from '../../utils/apiConstant';
+// import axios from "axios"
+// import RetailerModal from '../Modal/RetailerModal';
 
 function Retailer() {
 
@@ -11,22 +11,21 @@ function Retailer() {
     const [trigger, setTrigger] = useState()
 
 
-    const getData = async () => {
-        await axios.get(GET_RETAILER)
-            .then(res => {
-                console.log(res)
-                setRetailer(res.data)
-            })
-            .catch(err => {
-                console.log(err)
-            })
-    }
+    // Retailer functionality is not implemented in current backend
+    // const getData = async () => {
+    //     await axios.get(GET_RETAILER)
+    //         .then(res => {
+    //             console.log(res)
+    //             setRetailer(res.data)
+    //         })
+    //         .catch(err => {
+    //             console.log(err)
+    //         })
+    // }
 
-    useEffect(() => {
-
-        getData();
-
-    }, [trigger])
+    // useEffect(() => {
+    //     getData();
+    // }, [trigger])
 
 
 
@@ -36,9 +35,16 @@ function Retailer() {
 
     return (
         <div className='content'>
-            <RetailerModal showModal={showModal} setShowModal={setShowModal} data={data} setData={setData} setTrigger={setTrigger} />
+            {/* Retailer functionality is not implemented in current SDP backend */}
+            <div className="text-center">
+                <h3>Retailer Management</h3>
+                <p>Retailer management features are not available in the current SDP system.</p>
+                <p>This appears to be e-commerce functionality that is not part of the current healthcare management system.</p>
+            </div>
+            {/* Commented out Retailer functionality */}
+            {/* <RetailerModal showModal={showModal} setShowModal={setShowModal} data={data} setData={setData} setTrigger={setTrigger} /> */}
 
-            <table class="table">
+            {/* <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -50,7 +56,7 @@ function Retailer() {
                         <th scope="col">Shop Name</th>
                         <th scope="col">status</th>
                         <th scope="col">Setting</th>
-                        
+
                     </tr>
                 </thead>
                 <tbody>
@@ -73,7 +79,7 @@ function Retailer() {
                         </tr>
                     })}
                 </tbody>
-            </table>
+            </table> */}
         </div>
     )
 }
