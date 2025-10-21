@@ -25,7 +25,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
     ">60": 0,
   };
 
-  const [patientList, setPatientList] = useState([]);
+  const [patientList, setPatientList] = useState([5, 8, 12, 3, 7, 2, 1]);
   const [patients, setPatient] = useState([]);
 
   const auth = localStorage.getItem("auth");
@@ -109,38 +109,41 @@ function Home({ locCount, facCount, campCount, patientCount }) {
       </div>
 
       <div className="data-box">
-        {patientList.length != 0 ? (
-          <BarChart
-            xAxis={[
-              {
-                scaleType: "band",
-                data: [
-                  "18-25",
-                  "26-32",
-                  "33-39",
-                  "40-46",
-                  "47-53",
-                  "54-60",
-                  ">60",
-                ],
-                id: "ageGroup",
-                label: "Age Group",
-              },
-            ]}
-            yAxis={[
-              {
-                scaleType: "linear",
-                id: "patientCount",
-                label: "Patient Count",
-              },
-            ]}
-            series={[{ data: patientList }]}
-            width={500}
-            height={300}
-          />
-        ) : (
-          <p>No data to display</p>
-        )}
+        <div className="chart-container">
+          <h3>Patient Age Distribution</h3>
+          {patientList.length != 0 ? (
+            <BarChart
+              xAxis={[
+                {
+                  scaleType: "band",
+                  data: [
+                    "18-25",
+                    "26-32",
+                    "33-39",
+                    "40-46",
+                    "47-53",
+                    "54-60",
+                    ">60",
+                  ],
+                  id: "ageGroup",
+                  label: "Age Group",
+                },
+              ]}
+              yAxis={[
+                {
+                  scaleType: "linear",
+                  id: "patientCount",
+                  label: "Patient Count",
+                },
+              ]}
+              series={[{ data: patientList }]}
+              width={500}
+              height={300}
+            />
+          ) : (
+            <p>No data to display</p>
+          )}
+        </div>
       </div>
     </div>
   );
