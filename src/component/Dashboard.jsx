@@ -57,15 +57,20 @@ function Dashboard() {
   };
 
   const getFaculty = async () => {
-    await axios
-      .get(GET_FACULTY, { headers: headers })
-      .then((res) => {
-        localStorage.setItem("faculty", res.data.users);
-        setFaculty(res.data.users);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(GET_FACULTY, { headers: headers });
+      if (response.data && response.data.users) {
+        localStorage.setItem("faculty", JSON.stringify(response.data.users));
+        setFaculty(response.data.users);
+      } else {
+        console.error("Invalid faculty data format:", response.data);
+        setFaculty([]);
+      }
+    } catch (err) {
+      console.error("Error fetching faculty:", err.response?.status, err.message);
+      setFaculty([]);
+      // Don't show error to user for dashboard data loading
+    }
   };
 
   const getLocation = async () => {
@@ -93,28 +98,37 @@ function Dashboard() {
   };
 
   const getPatient = async () => {
-    await axios
-      .get(ADD_PATIENT, { headers: headers })
-      .then((res) => {
-        // console.log("Paient : ", res);
-        localStorage.setItem("patientList", res.data.data);
-        setPatient(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(ADD_PATIENT, { headers: headers });
+      if (response.data && response.data.data) {
+        localStorage.setItem("patientList", JSON.stringify(response.data.data));
+        setPatient(response.data.data);
+      } else {
+        console.error("Invalid patient data format:", response.data);
+        setPatient([]);
+      }
+    } catch (err) {
+      console.error("Error fetching patients:", err.response?.status, err.message);
+      setPatient([]);
+      // Don't show error to user for dashboard data loading
+    }
   };
 
   const getUnallocatedPatients = async () => {
-    await axios
-      .get(GET_UNALLOCATED_PATIENTS, { headers: headers })
-      .then((res) => {
-        console.log("Hello from getUnallocatedPatients");
-        setUnallocatedPatients(res.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    try {
+      const response = await axios.get(GET_UNALLOCATED_PATIENTS, { headers: headers });
+      if (response.data && response.data.data) {
+        console.log("Unallocated patients loaded:", response.data.data.length);
+        setUnallocatedPatients(response.data.data);
+      } else {
+        console.error("Invalid unallocated patients data format:", response.data);
+        setUnallocatedPatients([]);
+      }
+    } catch (err) {
+      console.error("Error fetching unallocated patients:", err.response?.status, err.message);
+      setUnallocatedPatients([]);
+      // Don't show error to user for dashboard data loading
+    }
   };
 
   const getData = async () => {
