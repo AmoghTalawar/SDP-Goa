@@ -1,6 +1,8 @@
 import toast from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 import "./AddPatient.scss";
 
 const years = { upper: 2010, lower: 1990 };
@@ -108,6 +110,7 @@ const stressorsOptions = [
 ];
 
 function BasicInfo({ setData, setStep, data }) {
+  const { language } = useLanguage();
 
   //formData
   const [name, setName] = useState(null);
@@ -256,7 +259,7 @@ function BasicInfo({ setData, setStep, data }) {
     /////////////////////END/////////////////////
 
     if (!obj.name) {
-      toast.error("Please fill all the required Fileds");
+      toast.error(t('fieldRequired', language));
       return;
     }
 
@@ -272,7 +275,7 @@ function BasicInfo({ setData, setStep, data }) {
 
   const addComplaints = () => {
     if (!drug && !drugQuantity && !drugFrequency && !routeStration) {
-      toast.error("Please fill all the fields!");
+      toast.error(t('fieldRequired', language));
       return;
     }
 
@@ -343,17 +346,17 @@ function BasicInfo({ setData, setStep, data }) {
   return (
     <div className="basic-info">
       <div className="header">
-        <h2 className="w-100 text-center my-4">Basic Information</h2>
+        <h2 className="w-100 text-center my-4">{t('basicInfo', language)}</h2>
       </div>
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Name <span className="imp-mark">*</span>{" "}
+            {t('name', language)} <span className="imp-mark">*</span>{" "}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the name"
+            placeholder={t('name', language)}
             defaultValue={name}
             onChange={(e) => setName(e.target.value)}
           />
@@ -361,12 +364,12 @@ function BasicInfo({ setData, setStep, data }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Age <span className="imp-mark">*</span>
+            {t('age', language)} <span className="imp-mark">*</span>
           </label>
           <input
             type="number"
             className="form-control"
-            placeholder="Enter the age"
+            placeholder={t('age', language)}
             defaultValue={age}
             onChange={(e) => setAge(e.target.value)}
           />
@@ -376,23 +379,23 @@ function BasicInfo({ setData, setStep, data }) {
       <div className="row">
         <div className="col-lg-6 col-sm-12 mb-3">
           <label className="input-lebel" htmlFor="sex">
-            Sex <span className="imp-mark">*</span>
+            {t('gender', language)} <span className="imp-mark">*</span>
           </label>
           <select
             value={sex}
             class="form-select form-select-lg"
             onChange={(e) => setSex(e.target.value)}
           >
-            <option>Please select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="others">Others</option>
+            <option>{t('selectOption', language)}</option>
+            <option value="male">{t('male', language)}</option>
+            <option value="female">{t('female', language)}</option>
+            <option value="others">{t('other', language)}</option>
           </select>
         </div>
 
         <div className="col-lg-6 col-sm-12 mb-3">
           <label className="input-lebel" htmlFor="disctrict">
-            Disctrict <span className="imp-mark">*</span>
+            {t('disctrict', language)} <span className="imp-mark">*</span>
           </label>
           <select
             value={disctrict}
@@ -412,26 +415,26 @@ function BasicInfo({ setData, setStep, data }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6 ">
           <label className="input-lebel">
-            Address <span className="imp-mark">*</span>
+            {t('address', language)} <span className="imp-mark">*</span>
           </label>
           <textarea
             value={address}
             className="form-control"
             onChange={(e) => setAddress(e.target.value)}
-            placeholder="Enter the address"
+            placeholder={t('address', language)}
           ></textarea>
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6 ">
           <label className="input-lebel">
-            Aadhar <span className="imp-mark">*</span>
+            {t('aadharNumber', language)} <span className="imp-mark">*</span>
           </label>
           <input
             value={aadhar}
             name="aadhar"
             type="text"
             className="form-control"
-            placeholder="Enter the Adhaar Number"
+            placeholder={t('aadharNumber', language)}
             onChange={(e) => setAadhar(e.target.value)}
           />
         </div>
@@ -439,25 +442,25 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Taluk</label>
+          <label className="input-lebel">{t('taluk', language)}</label>
           <input
             value={taluk}
             type="text"
             className="form-control"
-            placeholder="Enter the taluk"
+            placeholder={t('taluk', language)}
             onChange={(e) => setTaluk(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Phone <span className="imp-mark">*</span>
+            {t('phoneNumber', language)} <span className="imp-mark">*</span>
           </label>
           <input
             value={phone}
             type="tel"
             className="form-control"
-            placeholder="Enter the phone"
+            placeholder={t('phoneNumber', language)}
             onChange={(e) => setPhone(e.target.value)}
           />
         </div>
@@ -465,12 +468,12 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Community</label>
+          <label className="input-lebel">{t('community', language)}</label>
           <input
             value={community}
             type="text"
             className="form-control"
-            placeholder="Enter the community"
+            placeholder={t('community', language)}
             onChange={(e) => setCommunity(e.target.value)}
           />
         </div>
@@ -492,12 +495,12 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Occupation</label>
+          <label className="input-lebel">{t('occupation', language)}</label>
           <input
             type="text"
             value={occupation}
             className="form-control"
-            placeholder="Enter the occupation"
+            placeholder={t('occupation', language)}
             onChange={(e) => setOccupation(e.target.value)}
           />
         </div>
@@ -586,7 +589,7 @@ function BasicInfo({ setData, setStep, data }) {
       </div>
 
       <hr />
-      <h4>Presenting Complaints</h4>
+      <h4>{t('presentingComplaints', language)}</h4>
 
       {complaints &&
         complaints.map((data, key) => {
@@ -1035,7 +1038,7 @@ function BasicInfo({ setData, setStep, data }) {
         <div className="col-12">
           <div className="form_buttons">
             <button className="btn btn-primary" onClick={() => nextStep()}>
-              Next
+              {t('next', language)}
             </button>
           </div>
         </div>
