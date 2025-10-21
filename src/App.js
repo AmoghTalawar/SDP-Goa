@@ -13,24 +13,11 @@ import AAOPrediction from "./Pages/Faculty/PredictPatient/AAOPrediction";
 import DashboardFaculty from "./component/FacultyPanel/Dashboard/Dashboard";
 import Home from "./Pages/Home/Home";
 import Topbar from "./component/Topbar/Topbar";
-import LanguageSwitcher from "./component/LanguageSwitcher/LanguageSwitcher";
 
 function App() {
   return (
     <LanguageProvider>
       <div className="App">
-        <div style={{
-          position: 'fixed',
-          top: '10px',
-          right: '10px',
-          zIndex: 1000,
-          background: 'rgba(255, 255, 255, 0.9)',
-          borderRadius: '8px',
-          padding: '8px',
-          boxShadow: '0 2px 10px rgba(0, 0, 0, 0.1)'
-        }}>
-          <LanguageSwitcher />
-        </div>
         <Topbar />
         <Routes>
           <Route path="/admin/:id" element={<Dashboard />}></Route>
