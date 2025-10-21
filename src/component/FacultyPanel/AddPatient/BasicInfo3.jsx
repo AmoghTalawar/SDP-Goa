@@ -2,6 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate, useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 import { ADD_PATIENT } from "../../../utils/apiConstant";
 import "./AddPatient.scss";
 
@@ -73,7 +75,8 @@ const financialDebtOption = [
 
 function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
-  const navigate = useNavigate();
+   const navigate = useNavigate();
+   const { language } = useLanguage();
 
   const { id } = useParams();
 
@@ -291,10 +294,10 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
   return (
     <div className="basic-info">
       <div className="header">
-        <h2 className="w-100 text-center my-4">Family Details</h2>
+        <h2 className="w-100 text-center my-4">{t('familyHistory', language)}</h2>
       </div>
 
-      <h4>FAMILY HISTORY</h4>
+      <h4>{t('familyHistory', language)}</h4>
 
       {family &&
         family.map((data, key) => {
@@ -302,7 +305,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
             <div className="complaints-table">
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Family Member</label>
+                  <label className="input-lebel">{t('familyMember', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"

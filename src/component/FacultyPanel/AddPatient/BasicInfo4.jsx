@@ -2,6 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate, useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 import { ADD_PATIENT } from "../../../utils/apiConstant";
 import "./AddPatient.scss";
 
@@ -15,6 +17,7 @@ const choice = [
 function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
 
     const navigate = useNavigate();
+    const { language } = useLanguage();
 
     const [weigthAdmission, setWeightAdmission] = useState(null);
     const [weigthDischarge, setWeightDischarge] = useState(null);
@@ -164,12 +167,12 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
     return (
         <div className="basic-info">
             <div className="header">
-                <h2 className="w-100 text-center my-4">Treatment</h2>
+                <h2 className="w-100 text-center my-4">{t('treatment', language)}</h2>
             </div>
 
             <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Any untoward incident occurred during treatment</label>
+                    <label className="input-lebel">{t('anyUntowardIncident', language)}</label>
 
                     <select
                         class="form-select form-select-lg"
@@ -189,7 +192,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                     <label className="input-lebel">If yes describe the incident</label>
+                     <label className="input-lebel">{t('ifYesDescribeIncident', language)}</label>
                      <input
                          type="text"
                          className="form-control"
@@ -204,7 +207,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
              <div className="row">
 
                  <div className="col-sm-12 mb-3 col-lg-6">
-                     <label className="input-lebel">Action taken</label>
+                     <label className="input-lebel">{t('actionTaken', language)}</label>
                      <input
                          type="text"
                          className="form-control"
@@ -217,11 +220,11 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
             </div>
 
 
-            <h4>Treatments Received in Other Centres Referred by the Counseling Centres</h4>
+            <h4>{t('treatmentsReceivedInOtherCentres', language)}</h4>
 
             <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Name of the Hospital / Deaddiction center</label>
+                    <label className="input-lebel">{t('nameOfHospital', language)}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -233,7 +236,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Year of treatment</label>
+                    <label className="input-lebel">{t('yearOfTreatment', language)}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -247,7 +250,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
 
             <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Period of treatment</label>
+                    <label className="input-lebel">{t('periodOfTreatment', language)}</label>
                     <select
                         class="form-select form-select-lg"
                         onChange={(e) => setTreatmentPeriod(e.target.value)}
@@ -266,7 +269,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Period of sober</label>
+                    <label className="input-lebel">{t('periodOfSober', language)}</label>
                     <input
                         type="text"
                         className="form-control"
@@ -281,7 +284,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
             <div className="row">
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Remarks</label>
+                    <label className="input-lebel">{t('remarks', language)}</label>
                     <input
                         type="text"
                         className="form-control"

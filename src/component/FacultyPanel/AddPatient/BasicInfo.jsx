@@ -214,7 +214,47 @@ function BasicInfo({ setData, setStep, data }) {
   const { id } = useParams();
 
   const nextStep = () => {
-    addComplaints();
+    // First validate required fields
+    if (!name) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!age) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!sex) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!address) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!disctrict) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!aadhar) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    if (!phone) {
+      toast.error(t('fieldRequired', language));
+      return;
+    }
+
+    // Add complaints if drug fields are filled
+    if (drugType && drug && drugFrequency && drugQuantity) {
+      addComplaints();
+    }
+
     const obj = {
       patientId: 0,
       aadharNumber: aadhar,
@@ -247,35 +287,13 @@ function BasicInfo({ setData, setStep, data }) {
     };
     console.log(obj);
 
-    var re = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
-
-    //////////////////Previous code/////////////////////////////
-
-    // if (!obj.name || !obj.phone || !obj.age || !obj.sex || !obj.address) {
-    //   cogoToast.error("Please fill all the required Fileds");
-    //   return
-    // }
-
-    /////////////////////END/////////////////////
-
-    if (!obj.name) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    // if (!re.test(obj.phone)) {
-    //   cogoToast.error("Phone Number Malformed");
-    //   return
-    // }
-    // const newData = { ...data, ...obj }
-
     setData({ ...data, ...obj });
     setStep(2);
   };
 
   const addComplaints = () => {
-    if (!drug && !drugQuantity && !drugFrequency && !routeStration) {
-      toast.error(t('fieldRequired', language));
+    // Only add complaints if all required drug fields are filled
+    if (!drugType || !drug || !drugFrequency || !drugQuantity) {
       return;
     }
 
@@ -290,16 +308,20 @@ function BasicInfo({ setData, setStep, data }) {
       route_stration: routeStration,
     };
 
-    const arr = complaints;
+    const arr = [...complaints]; // Create a new array instead of mutating
     arr.push(obj);
     setComplaints(arr);
+
+    // Clear the form fields after adding
     setDrug("");
     setDrugAgeFirst("");
     setDrugYearUse("");
     setDrugYearExessive("");
     setDrugFrequency("");
     setDrugQuantity("");
-    console.log("ARRAy : ", arr);
+    setRouteStration("");
+
+    console.log("Array : ", arr);
   };
 
   useEffect(() => {
@@ -383,7 +405,7 @@ function BasicInfo({ setData, setStep, data }) {
           </label>
           <select
             value={sex}
-            class="form-select form-select-lg"
+            className="form-select form-select-lg"
             onChange={(e) => setSex(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
@@ -399,7 +421,7 @@ function BasicInfo({ setData, setStep, data }) {
           </label>
           <select
             value={disctrict}
-            class="form-select form-select-lg"
+            className="form-select form-select-lg"
             onChange={(e) => setDisctrict(e.target.value)}
           >
             <option>Please select</option>
@@ -482,7 +504,7 @@ function BasicInfo({ setData, setStep, data }) {
           <label className="input-lebel">Education in Year</label>
           <select
             value={educationYear}
-            class="form-select form-select-lg"
+            className="form-select form-select-lg"
             onChange={(e) => setEducationYear(e.target.value)}
           >
             <option>Please select</option>
