@@ -86,11 +86,9 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
     //////////////////////Authentication Check//////////////////////
 
-    const facultyAuth = localStorage.getItem("facultyAuth");
     const auth = localStorage.getItem("auth");
-    const token = facultyAuth || auth;
 
-    if (!token) {
+    if (!auth) {
       toast.error("Authentication token not found. Please login again.");
       setLoading(false);
       navigate("/login");
@@ -98,7 +96,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
     }
 
     // Clean the token (remove any extra spaces or quotes)
-    const cleanToken = token.replace(/['"]+/g, '').trim();
+    const cleanToken = auth.replace(/['"]+/g, '').trim();
 
     console.log("Auth token:", cleanToken);
     console.log("Token length:", cleanToken.length);
@@ -122,7 +120,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
        if (datum) {
          toast.success("Patient Added successfully");
-         navigate("/faculty");
+         navigate("/admin/patient");
        }
      } catch (err) {
        console.error("Submit error:", err);
@@ -188,7 +186,13 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
     console.log("DATA1 : ", data);
 
-    const auth = localStorage.getItem("facultyAuth");
+    const auth = localStorage.getItem("auth");
+
+    if (!auth) {
+      toast.error("Authentication token not found. Please login again.");
+      navigate("/login");
+      return;
+    }
 
     // Clean the token (remove any extra spaces or quotes)
     const cleanAuth = auth.replace(/['"]+/g, '').trim();
