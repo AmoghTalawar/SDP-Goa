@@ -35,7 +35,7 @@ function Dashboard() {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname == "/admin") {
+    if (location.pathname == "/admin" || location.pathname == "/admin/home") {
       setSelected("home");
     } else if (location.pathname == "/admin/location") {
       setSelected("location");
@@ -46,7 +46,7 @@ function Dashboard() {
     } else if (location.pathname == "/admin/patient") {
       setSelected("patient");
     }
-  }, [selected]);
+  }, [location.pathname]);
 
   const [faculty, setFaculty] = useState([]);
   const [loc, setLoc] = useState([]);
