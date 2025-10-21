@@ -2,20 +2,6 @@
     display: flex;
     width: 100%;
     background-color: #11101d;
-    padding: 1rem 2rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
-    .topbar-content {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: center;
-
-        // App title removed as requested
-        // Keeping the container for potential future use
-    }
-
-    // Legacy dropdown styles (keeping for backward compatibility)
     .dropdown{
         margin-left: auto;
         padding: 5px;
@@ -26,38 +12,26 @@
             li{
                 padding: 5px;
                 display: flex;
-                align-items: center;
                 img{
-                    width: 25px;
-                    height: 20px;
-                    margin-right: 8px;
-                    border-radius: 2px;
+                    width: 40px;
                 }
             }
         }
-    }
 
+    }
     .btn-register{
         background-color: var(--red);
         color: var(--white);
-        padding: 8px 20px;
+        padding: 3px 20px;
         border-radius: 10px;
         font-weight: 500;
         margin: 0 10px;
-        font-size: 0.9rem;
+        font-size: 1.125em;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: none;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-
-        &:hover {
-            background-color: #ff5252;
-        }
-
         i{
-          margin-right: 8px;
+          margin-right: 10px;
         }
       }
 }

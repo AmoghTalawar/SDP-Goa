@@ -1,172 +1,115 @@
-.navbar-div {
+.navbar-div{
+
   font-size: 16px;
+ .navbar{ 
+  position: fixed;
+  width: 100vw; 
+  padding-bottom: 0px;
+  padding-top: 0px;
+  background-color: var(--white);
+  -webkit-box-shadow: 0px 1px 5px var(--black);
+  -moz-box-shadow:    0px 1px 5px var(--black);
+  box-shadow:         0px 1px 5px var(--black);
+  z-index: 2000;
+}
 
-  .navbar {
-    position: fixed;
-    width: 100vw;
-    padding: 8px 0;
-    background-color: #ffffff;
-    border-bottom: 1px solid #e5e7eb;
-    z-index: 2000;
-    min-height: 70px;
+.navbar-brand{
+  padding: 10px;
+  img{
+    height: 2.5em;
   }
+}
 
-  .navbar-actions {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    margin-left: auto;
-    margin-right: 1rem;
-  }
-
-  .navbar-brand {
-    padding: 10px;
-
-    img {
-      height: 2.5em;
-    }
-  }
-
-  .container-fluid {
+  .container-fluid{
     width: 90%;
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 70px;
-    padding: 0 1rem;
   }
 
-  .navbar-brand-section {
-    flex: 1;
+  .nav-item{
+    margin-right: 20px;
   }
 
-  .navbar-title {
-    color: #000000;
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin: 0;
-  }
-
-  .navbar-nav {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  .nav-item {
-    margin-right: 0;
-  }
-
-  .nav-link {
+  .nav-link{
     padding: 1rem;
     font-weight: 500;
     font-size: 1.125em;
     color: var(--gray4);
     cursor: pointer;
-    text-decoration: none;
-
-    &.active {
-      border-bottom: 3px solid var(--red);
-      color: var(--black2);
-      font-weight: 600;
-    }
   }
 
-  .btn-register {
-    background-color: #f3f4f6;
-    color: #374151;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    font-weight: normal;
-    font-size: 0.875rem;
-    border: 1px solid #d1d5db;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    min-width: 80px;
-
-    &:hover {
-      background-color: #e5e7eb;
-      border-color: #9ca3af;
-    }
+  .nav-link.active{
+    border-bottom: 3px solid var(--red);
+    color: var(--black2);
+    font-weight: 600;
   }
 
-  // Responsive design
+  .btn-login{
+    border: 1px solid var(--red);
+    color: var(--red);
+    margin-right: 20px;
+    padding: 3px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: 1.125em;
+  }
+
+  .btn-register{
+    background-color: var(--red);
+    color: var(--white);
+    padding: 3px 20px;
+    border-radius: 10px;
+    font-weight: 500;
+    margin: 0 10px;
+    font-size: 1.125em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i{
+      margin-right: 10px;
+    }
+  }
+  
+
+
+
+  .buttons{
+    display: flex;
+}
+
   @media only screen and (max-width: 1280px) {
-    font-size: 14px;
-
-    .container-fluid {
-      width: 90%;
-    }
-
-    .navbar-actions {
-      gap: 1rem;
-    }
+    font-size: 12px !important;
   }
-
   @media only screen and (max-width: 1024px) {
-    font-size: 13px;
-
-    .nav-link {
-      font-size: 1em;
-      padding: 0.75rem;
-    }
-
-    .navbar-actions {
-      gap: 0.75rem;
-    }
+    font-size: 10px !important;
   }
-
-  @media only screen and (max-width: 768px) {
-    .navbar {
-      padding: 5px 0;
-      min-height: 60px;
-    }
-
-    .container-fluid {
-      width: 100%;
-      flex-wrap: wrap;
-      min-height: 60px;
-    }
-
-    .navbar-nav {
-      order: 3;
-      width: 100%;
-      justify-content: center;
-      margin-top: 1rem;
-      gap: 1rem;
-    }
-
-    .navbar-actions {
-      gap: 1rem;
-      margin: 0;
-    }
-
-    .btn-register {
-      padding: 0.6rem 1.2rem;
-      font-size: 0.9rem;
-      min-width: 100px;
-    }
+  @media only screen and (max-width: 1600px) {
+    font-size: 13px;
   }
 
   @media only screen and (max-width: 600px) {
-    .navbar-collapse {
+    .navbar-collapse{
       margin-bottom: 20px;
     }
 
-    .navbar-actions {
-      gap: 0.5rem;
+    .navbar{
+      padding: 5px 0;
     }
 
-    .btn-register {
-      padding: 0.5rem 1rem;
-      font-size: 0.875rem;
-      min-width: 90px;
+    
+
+    .btn-register{
+      margin: 10px;
     }
+
+      .container-fluid{
+        width: 100% !important;
+
+        .navbar-brand{
+          padding: 0 !important;
+          margin: 0;
+          font-size: 1.25em;
+        }
+      }
+
   }
 }
 
