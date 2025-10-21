@@ -88,8 +88,8 @@ function Home({ locCount, facCount, campCount, patientCount }) {
           <p>TOTAL LOCATIONS</p>
         </div>
       </div> */}
-        <div class="container">
-          <div class="inner-circle">
+        <div className="container">
+          <div className="inner-circle">
             <h6>{facCount - 1}</h6>
             <p>TOTAL COUNSELLERS</p>
           </div>
@@ -100,8 +100,8 @@ function Home({ locCount, facCount, campCount, patientCount }) {
             <p>TOTAL CAMPS</p>
           </div>
         </div> */}
-        <div class="container">
-          <div class="inner-circle">
+        <div className="container">
+          <div className="inner-circle">
             <h6>{patientCount}</h6>
             <p>TOTAL PATIENTS</p>
           </div>
