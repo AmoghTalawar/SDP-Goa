@@ -45,7 +45,7 @@ function Navbar(props) {
 
               <div className="navbar-actions">
                 <LanguageSwitcher />
-                <button className="btn btn-login" type="submit" onClick={changeLogin}>Login</button>
+                <button className="btn btn-register" type="submit" onClick={changeLogin}>Login</button>
               </div>
             </div>
           </div>
