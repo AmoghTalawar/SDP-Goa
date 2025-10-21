@@ -270,6 +270,19 @@ export const translations = {
     phone: "Phone",
     mobile: "Mobile",
     email: "Email",
+
+    // Home Page Content
+    homeQuote: "That they might have life, and that they might have it more abundantly",
+    hopeDescription: "Hope is non government, non-profit, non religious organization. It is an initiative of the Claretian Missionaries of the Bangalore Province which is committed to \"the needs of the people especially the marginalized for the integral growth and development'.",
+    visionDescription: "Hope Recovery Centre visions addiction free society for a better humanity.",
+    missionPoint1: "To inspire and empower people affected by alcoholism and drug addiction towards better family and social living.",
+    missionPoint2: "Aims at creating a ADDICTION FREE SOCIETY through prevention, treatment and rehabilitation.",
+    missionPoint3: "promoting healthily values of life and humanity.",
+    missionPoint4: "Rehabilitating the victims of alcohol, drug abuse and their affected families.",
+    frPradeepCorrea: "FR. PRADEEP CORREA",
+    frPradeepDescription: "Fr Pradeep Correa, the determined director of Hope Recovery Centre at Peerandwadi, Belagavi, who has cured large number of liquor and other addicts, especially the youngsters, is celebrating his golden birthday today. Selfless, modest, devoted and prayerful priest Fr Correa is admired and sought after by scores of families across Belagavi, Southern Maharashtra and Goa region. He has brought hopes in lives of several families who had otherwise lost hope. A teetotaller and blessed with jovial nature Fr Pradeep has been serving Hope Recovery Centre since 2010 and has brought in transformation of liquor addicts. People of every religion, caste and creed visit Hope Centre that has treated thousands of addicted people from the region with a very higher success rate.",
+    hopeRecoveryCenter: "Hope Recovery Center",
+    janathaPlot: "Janatha Plot, Opp to KLS School, Piranwadi Village & Post, Belgaum 590014",
   },
 
   kn: {
@@ -541,6 +554,19 @@ export const translations = {
     phone: "ದೂರವಾಣಿ",
     mobile: "ಮೊಬೈಲ್",
     email: "ಇಮೇಲ್",
+
+    // Home Page Content (Kannada)
+    homeQuote: "ಅವರು ಜೀವನವನ್ನು ಹೊಂದಲಿ, ಮತ್ತು ಅದನ್ನು ಹೆಚ್ಚು ಪ್ರಮಾಣದಲ್ಲಿ ಹೊಂದಲಿ",
+    hopeDescription: "ಹೋಪ್ ಎಂಬುದು ಸರ್ಕಾರೇತರ, ಲಾಭರಹಿತ, ಧಾರ್ಮಿಕೇತರ ಸಂಸ್ಥೆಯಾಗಿದೆ. ಇದು ಬೆಂಗಳೂರು ಪ್ರಾಂತ್ಯದ ಕ್ಲಾರೇಶಿಯನ್ ಮಿಷನರಿಗಳ ಉಪಕ್ರಮವಾಗಿದ್ದು, ವಿಶೇಷವಾಗಿ ಅಂಚಿನಲ್ಲಿರುವ ಜನರ ಅಗತ್ಯಗಳಿಗೆ ಸಮಗ್ರ ಬೆಳವಣಿಗೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿಗಾಗಿ ಬದ್ಧವಾಗಿದೆ.",
+    visionDescription: "ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್ ಉತ್ತಮ ಮಾನವೀಯತೆಗಾಗಿ ಮದ್ಯ ಮತ್ತು ಮಾದಕವಸ್ತು ಮುಕ್ತ ಸಮಾಜವನ್ನು ಕಲ್ಪಿಸುತ್ತದೆ.",
+    missionPoint1: "ಮದ್ಯ ಮತ್ತು ಮಾದಕವಸ್ತು ದುರ್ಬಳಕೆಯಿಂದ ಬಳಲುತ್ತಿರುವ ಜನರನ್ನು ಉತ್ತಮ ಕುಟುಂಬ ಮತ್ತು ಸಾಮಾಜಿಕ ಜೀವನವನ್ನು ನಿರ್ಮಿಸಲು ಪ್ರೇರೇಪಿಸುವುದು ಮತ್ತು ಅಧಿಕಾರ ನೀಡುವುದು.",
+    missionPoint2: "ತಡೆಗಟ್ಟುವಿಕೆ, ಚಿಕಿತ್ಸೆ ಮತ್ತು ಪುನರ್ವಸತಿಯ ಮೂಲಕ ಮದ್ಯ ಮತ್ತು ಮಾದಕವಸ್ತು ಮುಕ್ತ ಸಮಾಜವನ್ನು ರಚಿಸುವ ಗುರಿಯನ್ನು ಹೊಂದಿದೆ.",
+    missionPoint3: "ಜೀವನ ಮತ್ತು ಮಾನವೀಯತೆಯ ಆರೋಗ್ಯಕರ ಮೌಲ್ಯಗಳನ್ನು ಉತ್ತೇಜಿಸುವುದು.",
+    missionPoint4: "ಮದ್ಯ, ಮಾದಕವಸ್ತು ದುರ್ಬಳಕೆಯ ಬಲಿಪಶುಗಳು ಮತ್ತು ಅವರ ಪೀಡಿತ ಕುಟುಂಬಗಳನ್ನು ಪುನರ್ವಸತಿ ಮಾಡುವುದು.",
+    frPradeepCorrea: "ಫಾ. ಪ್ರದೀಪ್ ಕೊರೆಯಾ",
+    frPradeepDescription: "ಪೀರನವಾಡಿ, ಬೆಳಗಾವಿಯಲ್ಲಿರುವ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನ ನಿರ್ಧಾರವಾದ ನಿರ್ದೇಶಕ ಫಾ. ಪ್ರದೀಪ್ ಕೊರೆಯಾ, ವಿಶೇಷವಾಗಿ ಯುವಕರನ್ನು ಸೇರಿದಂತೆ ಅಪಾರ ಸಂಖ್ಯೆಯ ಮದ್ಯ ಮತ್ತು ಇತರ ವ್ಯಸನಿಗಳನ್ನು ಗುಣಪಡಿಸಿದ್ದಾರೆ, ಇಂದು ತಮ್ಮ ಗೋಲ್ಡನ್ ಜನ್ಮದಿನವನ್ನು ಆಚರಿಸುತ್ತಿದ್ದಾರೆ. ನಿಸ್ವಾರ್ಥ, ವಿನಯಶೀಲ, ಸಮರ್ಪಿತ ಮತ್ತು ಪ್ರಾರ್ಥನಾಪರ ಫಾ. ಕೊರೆಯಾ ಅವರನ್ನು ಬೆಳಗಾವಿ, ದಕ್ಷಿಣ ಮಹಾರಾಷ್ಟ್ರ ಮತ್ತು ಗೋವಾ ಪ್ರದೇಶದ ಅನೇಕ ಕುಟುಂಬಗಳು ಗೌರವಿಸುತ್ತಾರೆ ಮತ್ತು ಅವರನ್ನು ಹುಡುಕುತ್ತಾರೆ. ಇತರವಾಗಿ ನಿರಾಶೆಗೊಂಡ ಹಲವಾರು ಕುಟುಂಬಗಳ ಜೀವನದಲ್ಲಿ ಅವರು ನಿರೀಕ್ಷೆಯನ್ನು ತಂದಿದ್ದಾರೆ. ಮದ್ಯವಿಲ್ಲದವರು ಮತ್ತು ಸಂತೋಷದ ಸ್ವಭಾವದವರಾದ ಫಾ. ಪ್ರದೀಪ್ ಅವರು 2010 ರಿಂದ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನಲ್ಲಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ ಮತ್ತು ಮದ್ಯ ವ್ಯಸನಿಗಳ ರೂಪಾಂತರವನ್ನು ತಂದಿದ್ದಾರೆ. ಪ್ರತಿಯೊಂದು ಧರ್ಮ, ಜಾತಿ ಮತ್ತು ಪಂಥದ ಜನರು ಭೇಟಿ ನೀಡುವ ಹೋಪ್ ಸೆಂಟರ್ ಪ್ರದೇಶದ ಸಾವಿರಾರು ವ್ಯಸನಿಗಳನ್ನು ಅತ್ಯಧಿಕ ಯಶಸ್ಸಿನ ಪ್ರಮಾಣದೊಂದಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಿದೆ.",
+    hopeRecoveryCenter: "ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್",
+    janathaPlot: "ಜನತಾ ಪ್ಲಾಟ್, ಕೆಎಲ್‌ಎಸ್ ಶಾಲೆಯ ಎದುರು, ಪೀರನವಾಡಿ ಗ್ರಾಮ ಮತ್ತು ಪೋಸ್ಟ್, ಬೆಳಗಾವಿ 590014",
   }
 };
 

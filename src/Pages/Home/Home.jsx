@@ -71,37 +71,36 @@ function Home() {
 
       <div className="content">
 
-        <h3 style={{ color: "var(--red)", textAlign: "center" }}>"That they might have life, and that they might have it more abundantly"</h3>
+        <h3 style={{ color: "var(--red)", textAlign: "center" }}>{t('homeQuote', language)}</h3>
 
         <br></br>
         <hr></hr>
 
         <h2>{t('aboutUs', language)}</h2>
 
-        <p>Hope is non government, non-profit, non religious organization. It is an initiative of the Claretian Missionaries of the Bangalore Province which is committed to "the needs of the people especially the marginalized for the integral growth and development'. </p>
+        <p>{t('hopeDescription', language)}</p>
 
         <br></br>
 
         <h2>{t('vision', language)}</h2>
 
-        <p>Hope Recovery Centre visions addiction free society for a better humanity.</p>
+        <p>{t('visionDescription', language)}</p>
         <br></br>
 
         <h2>{t('mission', language)}</h2>
 
         <ul>
           <li>
-
-            <p>To inspire and empower people affected by alcoholism and drug addiction towards better family and social living. </p>
+            <p>{t('missionPoint1', language)}</p>
           </li>
           <li>
-            <p>Aims at creating a ADDICTION FREE SOCIETY through prevention, treatment and rehabilitation. </p>
+            <p>{t('missionPoint2', language)}</p>
           </li>
           <li>
-            <p>promoting healthily values of life and humanity.</p>
+            <p>{t('missionPoint3', language)}</p>
           </li>
           <li>
-            <p>Rehabilitating the victims of alcohol, drug abuse and their affected families. </p>
+            <p>{t('missionPoint4', language)}</p>
           </li>
         </ul>
 
@@ -117,11 +116,8 @@ function Home() {
             <img src="https://www.belgaummirror.com/wp-content/uploads/2022/09/Pradeep-Korea.jpg" alt="" />
           </div>
           <div className="right">
-            <h4>FR. PRADEEP CORREA </h4>
-            <p>Fr Pradeep Correa, the determined director of Hope Recovery Centre at Peerandwadi, Belagavi, who has cured large number of liquor and other addicts , especially the yougsters, is celebrating his golden birthday today.
-
-              Selfless, modest, devoted and prayerful priest Fr Correa is admired and sought after by scores of families across Belagavi , Southern Maharashtra and Goa region. He has brought hopes in lives of several families who had otherwise lost hope. A teetotaller and blessed with jovial nature Fr Pradeep has been serving Hope Recovery Centre since 2010 and has brought in transformation of liquor addicts . People of every religion, caste and creed visit Hope Centre that has treated thousands of addicted people from the region with a very higher success rate.
-            </p>
+            <h4>{t('frPradeepCorrea', language)}</h4>
+            <p>{t('frPradeepDescription', language)}</p>
           </div>
         </div>
 
@@ -136,9 +132,8 @@ function Home() {
           </div>
           <div className="right">
             <h4>{t('contactUs', language)}</h4>
-            <p><strong>{t('address', language)}:</strong> Hope Recovery Center,
-              Janatha Plot, Opp to KLS School,
-              Piranwadi Village & Post, Belgaum 590014
+            <p><strong>{t('address', language)}:</strong> {t('hopeRecoveryCenter', language)},
+              {t('janathaPlot', language)}
               <br />
               <strong>{t('phone', language)}:</strong> 0831- 2400150
               <br></br>
