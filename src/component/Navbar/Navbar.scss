@@ -1,16 +1,22 @@
 .navbar-div{
 
   font-size: 16px;
- .navbar{ 
+  .navbar{
   position: fixed;
-  width: 100vw; 
+  width: 100vw;
   padding-bottom: 0px;
   padding-top: 0px;
   background-color: var(--white);
-  -webkit-box-shadow: 0px 1px 5px var(--black);
-  -moz-box-shadow:    0px 1px 5px var(--black);
-  box-shadow:         0px 1px 5px var(--black);
+  -webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+  -moz-box-shadow:    0px 1px 5px rgba(0,0,0,0.1);
+  box-shadow:         0px 1px 5px rgba(0,0,0,0.1);
   z-index: 2000;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .navbar-brand{
@@ -21,8 +27,7 @@
 }
 
   .container-fluid{
-    width: 95%;
-    max-width: 1400px;
+    width: 90%;
   }
 
   .nav-item{

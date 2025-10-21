@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Navbar.scss'
 import { useNavigate } from "react-router-dom";
 import logo from "../../assets/sdm-logo.png"
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher"
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -47,7 +48,10 @@ function Navbar(props) {
           </li> */}
 
             </ul>
-            <button className="btn btn-register" type="submit" onClick={changeLogin}>Login</button>
+            <div className="navbar-actions">
+              <LanguageSwitcher />
+              <button className="btn btn-register" type="submit" onClick={changeLogin}>Login</button>
+            </div>
           </div>
         </div>
       </nav>
