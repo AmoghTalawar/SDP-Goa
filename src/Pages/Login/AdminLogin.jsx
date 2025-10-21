@@ -5,8 +5,11 @@ import axios from "axios";
 import { LOGIN_URL } from "../../utils/apiConstant";
 import toast from "react-hot-toast";
 import Loader from "../../component/Loader/Loader";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 function AdminLogin() {
+  const { language } = useLanguage();
   const [passwordShown, setPasswordShown] = useState(false);
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -19,7 +22,7 @@ function AdminLogin() {
     e.preventDefault();
 
     if(!email || ! password) {
-        toast.error("Please fill the fields below")
+        toast.error(t('fieldRequired', language))
         return
     }
 
@@ -43,7 +46,7 @@ function AdminLogin() {
         }
       })
       .catch((err) => {
-        const errorMessage = err.response?.data?.message || err.message || "Login failed. Please try again.";
+        const errorMessage = err.response?.data?.message || t('loginFailed', language);
         toast.error(errorMessage);
       });
 
@@ -55,7 +58,7 @@ function AdminLogin() {
       {loading ? <Loader /> : null}
       <div className="right">
         <div className="right_content">
-          <h2 className="content_heading text-center mt-3">Log in </h2>
+          <h2 className="content_heading text-center mt-3">{t('login', language)}</h2>
           <form action="">
             <div className="input_section">
               <div className="input_icon">
@@ -72,7 +75,7 @@ function AdminLogin() {
                     setEmail(e.target.value);
                   }}
                 />
-                <label htmlFor="LoginPassword">Email</label>
+                <label htmlFor="LoginPassword">{t('email', language)}</label>
               </div>
             </div>
 
@@ -91,7 +94,7 @@ function AdminLogin() {
                     setPassword(e.target.value);
                   }}
                 />
-                <label htmlFor="LoginPassword">Password</label>
+                <label htmlFor="LoginPassword">{t('password', language)}</label>
               </div>
               <div
                 className="input_icon"
@@ -104,7 +107,7 @@ function AdminLogin() {
             <div className="row">
               <div className="col mb-4">
                 <button className="form_button" onClick={(e) => SignIn(e)}>
-                  Sign In
+                  {t('signIn', language)}
                 </button>
               </div>
             </div>

@@ -1,0 +1,68 @@
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .language-dropdown {
+    position: relative;
+
+    .language-select {
+      background: #fff;
+      border: 2px solid #e1e5e9;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: #374151;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      min-width: 120px;
+
+      &:hover {
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      }
+
+      option {
+        padding: 0.5rem;
+        font-size: 0.875rem;
+      }
+    }
+  }
+
+  // Dark theme support (optional)
+  @media (prefers-color-scheme: dark) {
+    .language-select {
+      background: #1f2937;
+      border-color: #374151;
+      color: #f9fafb;
+
+      &:hover {
+        border-color: #60a5fa;
+      }
+
+      &:focus {
+        border-color: #60a5fa;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .language-switcher {
+    .language-dropdown {
+      .language-select {
+        min-width: 100px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
