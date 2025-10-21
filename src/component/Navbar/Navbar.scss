@@ -5,10 +5,8 @@
     position: fixed;
     width: 100vw;
     padding: 8px 0;
-    background-color: #8B1538;
-    -webkit-box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
-    -moz-box-shadow:    0px 1px 5px rgba(0,0,0,0.1);
-    box-shadow:         0px 1px 5px rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
     z-index: 2000;
     min-height: 70px;
   }
@@ -40,6 +38,17 @@
     padding: 0 1rem;
   }
 
+  .navbar-brand-section {
+    flex: 1;
+  }
+
+  .navbar-title {
+    color: #000000;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0;
+  }
+
   .navbar-nav {
     display: flex;
     align-items: center;
@@ -69,24 +78,20 @@
   }
 
   .btn-register {
-    background-color: var(--red);
-    color: var(--white);
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
+    background-color: #f3f4f6;
+    color: #374151;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-weight: normal;
+    font-size: 0.875rem;
+    border: 1px solid #d1d5db;
     cursor: pointer;
-    transition: all 0.3s ease;
-    min-width: 120px;
+    transition: all 0.2s ease;
+    min-width: 80px;
 
     &:hover {
-      background-color: #cc1e47;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(220, 38, 127, 0.3);
+      background-color: #e5e7eb;
+      border-color: #9ca3af;
     }
   }
 

@@ -27,7 +27,7 @@ function Navbar(props) {
       <nav className="navbar navbar-expand-lg">
         <div className="container-fluid">
           <div className="navbar-brand-section">
-            <h1 className="navbar-title">HOPE RECOVERY CENTER</h1>
+            <h2 className="navbar-title">HOPE RECOVERY CENTER</h2>
           </div>
 
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
