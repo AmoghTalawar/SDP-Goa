@@ -214,81 +214,86 @@ function BasicInfo({ setData, setStep, data }) {
   const { id } = useParams();
 
   const nextStep = () => {
-    // First validate required fields
-    if (!name) {
-      toast.error(t('fieldRequired', language));
-      return;
+    try {
+      // First validate required fields
+      if (!name) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!age) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!sex) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!address) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!disctrict) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!aadhar) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      if (!phone) {
+        toast.error(t('fieldRequired', language));
+        return;
+      }
+
+      // Add complaints if drug fields are filled
+      if (drugType && drug && drugFrequency && drugQuantity) {
+        addComplaints();
+      }
+
+      const obj = {
+        patientId: 0,
+        aadharNumber: aadhar,
+        allocated: allocated,
+        name: name,
+        age: age,
+        sex: sex,
+        address: address,
+        disctrict: disctrict,
+        taluk: taluk,
+        phone: phone,
+        community: community,
+        education_in_year: educationYear,
+        occupation: occupation,
+        annual_income: annualIncome,
+        marital_status: maritalStatus,
+        living_arrangement: livingArrangement,
+        refferal: refferal,
+        complaints: complaints,
+        reason_start: reasonStart,
+        reason_continue: reasonContinue,
+        stressors: stressors,
+        last_use_date: dateLastUse,
+        last_use_quantity: qtyLastUse,
+        impression_of_camp_officer: impression,
+        denial_of_substance_use_related_problems: denialSubstance,
+        motivation_factor: motivationFactor,
+        willingness_for_treatment: willingness,
+        action_taken: actionTaken,
+      };
+      console.log("Next step data:", obj);
+
+      setData({ ...data, ...obj });
+      setStep(2);
+    } catch (error) {
+      console.error("Error in nextStep:", error);
+      toast.error("An error occurred. Please try again.");
     }
-
-    if (!age) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    if (!sex) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    if (!address) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    if (!disctrict) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    if (!aadhar) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    if (!phone) {
-      toast.error(t('fieldRequired', language));
-      return;
-    }
-
-    // Add complaints if drug fields are filled
-    if (drugType && drug && drugFrequency && drugQuantity) {
-      addComplaints();
-    }
-
-    const obj = {
-      patientId: 0,
-      aadharNumber: aadhar,
-      allocated: allocated,
-      name: name,
-      age: age,
-      sex: sex,
-      address: address,
-      disctrict: disctrict,
-      taluk: taluk,
-      phone: phone,
-      community: community,
-      education_in_year: educationYear,
-      occupation: occupation,
-      annual_income: annualIncome,
-      marital_status: maritalStatus,
-      living_arrangement: livingArrangement,
-      refferal: refferal,
-      complaints: complaints,
-      reason_start: reasonStart,
-      reason_continue: reasonContinue,
-      stressors: stressors,
-      last_use_date: dateLastUse,
-      last_use_quantity: qtyLastUse,
-      impression_of_camp_officer: impression,
-      denial_of_substance_use_related_problems: denialSubstance,
-      motivation_factor: motivationFactor,
-      willingness_for_treatment: willingness,
-      action_taken: actionTaken,
-    };
-    console.log(obj);
-
-    setData({ ...data, ...obj });
-    setStep(2);
   };
 
   const addComplaints = () => {
@@ -424,7 +429,7 @@ function BasicInfo({ setData, setStep, data }) {
             className="form-select form-select-lg"
             onChange={(e) => setDisctrict(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {disctrictOption
               ? disctrictOption.map((data, key) => {
                   return <option key={key} value={data}>{data}</option>;
