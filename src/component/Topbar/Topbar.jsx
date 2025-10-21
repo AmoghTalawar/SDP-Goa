@@ -9,14 +9,7 @@ const Topbar = () => {
     return (
         <div className='topbar'>
             <div className="topbar-content">
-                <div className="app-title">
-                    <h2 style={{
-                        color: language === 'kn' ? '#ff6b35' : '#333',
-                        fontFamily: language === 'kn' ? 'Noto Sans Kannada, sans-serif' : 'inherit'
-                    }}>
-                        {t('dashboard', language)} - SDP
-                    </h2>
-                </div>
+                {/* Dashboard - SDP title removed as requested */}
             </div>
         </div>
     );

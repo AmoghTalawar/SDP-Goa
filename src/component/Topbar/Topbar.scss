@@ -9,22 +9,10 @@
         display: flex;
         width: 100%;
         align-items: center;
+        justify-content: center;
 
-        .app-title {
-            h2 {
-                margin: 0;
-                font-size: 1.5rem;
-                font-weight: 600;
-                color: #ffffff;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-
-                // Kannada font support
-                &.kannada {
-                    font-family: 'Noto Sans Kannada', 'Kannada Sangam MN', sans-serif;
-                }
-            }
-        }
+        // App title removed as requested
+        // Keeping the container for potential future use
     }
 
     // Legacy dropdown styles (keeping for backward compatibility)
