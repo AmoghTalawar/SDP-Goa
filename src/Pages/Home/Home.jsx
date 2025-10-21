@@ -2,6 +2,8 @@ import React from "react";
 import "./Home.scss";
 import Navbar from "../../component/Navbar/Navbar"
 import cr1 from "../../assets/msg890718968-14704.jpg";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 import cr2 from "../../assets/msg890718968-14697.jpg";
 import cr3 from "../../assets/msg890718968-14686.jpg";
 import cr4 from "../../assets/msg890718968-14695.jpg";
@@ -13,6 +15,8 @@ import cr7 from "../../assets/msg890718968-14699.jpg";
 
 
 function Home() {
+  const { language } = useLanguage();
+
   return (
     <div className="home-page">
 
@@ -72,18 +76,18 @@ function Home() {
         <br></br>
         <hr></hr>
 
-        <h2>About Us</h2>
+        <h2>{t('aboutUs', language)}</h2>
 
         <p>Hope is non government, non-profit, non religious organization. It is an initiative of the Claretian Missionaries of the Bangalore Province which is committed to "the needs of the people especially the marginalized for the integral growth and development'. </p>
 
         <br></br>
 
-        <h2>Vision</h2>
+        <h2>{t('vision', language)}</h2>
 
         <p>Hope Recovery Centre visions addiction free society for a better humanity.</p>
         <br></br>
 
-        <h2>Mission</h2>
+        <h2>{t('mission', language)}</h2>
 
         <ul>
           <li>
@@ -131,17 +135,17 @@ function Home() {
             <img src={cr7} alt="" />
           </div>
           <div className="right">
-            <h4>CONTACT US</h4>
-            <p><strong>Address:</strong> Hope Recovery Center,
+            <h4>{t('contactUs', language)}</h4>
+            <p><strong>{t('address', language)}:</strong> Hope Recovery Center,
               Janatha Plot, Opp to KLS School,
               Piranwadi Village & Post, Belgaum 590014
               <br />
-              <strong>Phone:</strong> 0831- 2400150
+              <strong>{t('phone', language)}:</strong> 0831- 2400150
               <br></br>
-              <strong>Mobile:</strong> +91 6364812853
+              <strong>{t('mobile', language)}:</strong> +91 6364812853
               <br></br>
 
-              <strong>Email:</strong> hopepiranwadi@gmail.com
+              <strong>{t('email', language)}:</strong> hopepiranwadi@gmail.com
             </p>
           </div>
         </div>

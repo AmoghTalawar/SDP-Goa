@@ -3,8 +3,11 @@ import axios from "axios";
 import "./soberPeriodPrediction.scss";
 import { SOBER_PERIOD } from "./../../../utils/apiConstant.js";
 import { useNavigate } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 const SoberPeriodPrediction = () => {
+  const { language } = useLanguage();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     "Marital Status": -1,
@@ -68,7 +71,7 @@ const SoberPeriodPrediction = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div class="question">
-          <label>Are you married?</label>
+          <label>{t('areYouMarried', language)}</label>
           <div>
             <input
               type="radio"
@@ -93,7 +96,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Do you smoke?</label>
+          <label>{t('doYouSmoke', language)}</label>
           <div>
             <input
               type="radio"
@@ -118,7 +121,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>How motivated were you?</label>
+          <label>{t('motivationFactor', language)}</label>
           <div>
             <input
               type="radio"
@@ -153,7 +156,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>How Willing are you to take treatment?</label>
+          <label>{t('willingnessForTreatment', language)}</label>
           <div>
             <input
               type="radio"
@@ -189,7 +192,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>How much is your sugar level?</label>
+          <label>{t('sugar', language)}</label>
           <div>
             <input
               type="radio"
@@ -225,7 +228,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Please specify Risk level</label>
+          <label>{t('riskLevel', language)}</label>
           <div>
             <input
               type="radio"
@@ -272,7 +275,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Did you like the effect and wanted more ?</label>
+          <label>{t('reasonContinueOptions', language)}</label>
           <div>
             <input
               type="radio"
@@ -301,7 +304,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Are you currently facing any medical problems?</label>
+          <label>{t('presentMedicalProblem', language)}</label>
           <div>
             <input
               type="radio"
@@ -375,7 +378,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Number of days he was sober : </label>
+          <label>{t('periodOfSoberGroup', language)} :</label>
           <div>
             <input
               type="number"
@@ -386,11 +389,11 @@ const SoberPeriodPrediction = () => {
           </div>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">{t('submit', language)}</button>
       </form>
       {outputData && (
         <div className="output-box">
-          <h4>Period of sober group: {outputData}</h4>
+          <h4>{t('periodOfSoberGroup', language)}: {outputData}</h4>
         </div>
       )}
     </div>

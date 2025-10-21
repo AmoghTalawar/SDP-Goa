@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./ViewPatient.scss";
 import { useNavigate, useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 function ViewPatient() {
+  const { language } = useLanguage();
   const [patientData, setPatientData] = useState([]);
 
   const navigate = useNavigate();
@@ -34,7 +37,7 @@ function ViewPatient() {
       </div>
       {patientData.length != 0 ? (
         <div className="patient-list">
-          <h6>Patients List</h6>
+          <h6>{t('patientsList', language)}</h6>
           {patientData.map((data, key) => {
             return (
               <div className="patient">
@@ -54,7 +57,7 @@ function ViewPatient() {
           })}
         </div>
       ) : (
-        <p className="no-patient">No Patients Added Yet</p>
+        <p className="no-patient">{t('noPatientsAddedYet', language)}</p>
       )}
     </div>
   );

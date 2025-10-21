@@ -2,6 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate, useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 import { ADD_PATIENT } from "../../../utils/apiConstant";
 import "./AddPatient.scss";
 
@@ -92,7 +94,7 @@ const pastPsychatricComplicationOptions = [
 ];
 
 function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
-
+  const { language } = useLanguage();
   const navigate = useNavigate();
 
   const [weigthAdmission, setWeightAdmission] = useState(null);
@@ -232,27 +234,27 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
   return (
     <div className="basic-info">
       <div className="header">
-        <h2 className="w-100 text-center my-4">Medical History</h2>
+        <h2 className="w-100 text-center my-4">{t('medicalHistory', language)}</h2>
       </div>
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Weight while admission in (kg)</label>
+          <label className="input-lebel">{t('weightAdmission', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the weight"
+            placeholder={t('weight', language)}
             value={weigthAdmission}
             onChange={(e) => setWeightAdmission(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Weight while discharge in (kg)</label>
+          <label className="input-lebel">{t('weightDischarge', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the weight"
+            placeholder={t('weight', language)}
             value={weigthDischarge}
             onChange={(e) => setWeightDischarge(e.target.value)}
           />
@@ -261,22 +263,22 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Height in (ft)</label>
+          <label className="input-lebel">{t('height', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the height"
+            placeholder={t('height', language)}
             value={height}
             onChange={(e) => setHeight(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Sugar in (mg)</label>
+          <label className="input-lebel">{t('sugar', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter sugar"
+            placeholder={t('sugar', language)}
             value={sugar}
             onChange={(e) => setSugar(e.target.value)}
           />
@@ -285,24 +287,24 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Other Issues</label>
+          <label className="input-lebel">{t('otherIssues', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter other issues"
+            placeholder={t('otherIssues', language)}
             value={otherIssue}
             onChange={(e) => setOtherIssue(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Withdrawal symptoms</label>
+          <label className="input-lebel">{t('withdrawalSymptoms', language)}</label>
           <select
             class="form-select form-select-lg"
             onChange={(e) => setWithdrawl(e.target.value)}
             value={withdrawl}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {withdrawlOptions &&
               withdrawlOptions.map((data, key) => {
                 return (
@@ -317,13 +319,13 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Past medical problems</label>
+          <label className="input-lebel">{t('pastMedicalProblem', language)}</label>
           <select
             class="form-select form-select-lg"
             value={pastMedical}
             onChange={(e) => setPastMedical(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {pastMedicalProblemOptions &&
               pastMedicalProblemOptions.map((data, key) => {
                 return (
@@ -336,14 +338,14 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Present Medical Problems</label>
+          <label className="input-lebel">{t('presentMedicalProblem', language)}</label>
           <select
             class="form-select form-select-lg"
             id="year"
             value={presentMedical}
             onChange={(e) => setPresentMedical(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {presentMedicalProblemOptions &&
               presentMedicalProblemOptions.map((data, key) => {
                 return (
@@ -358,13 +360,13 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Chronic Health Problem</label>
+          <label className="input-lebel">{t('chronicHealthProblem', language)}</label>
           <select
             value={chronicHealth}
             class="form-select form-select-lg"
             onChange={(e) => setChronicHealth(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {chronicHealthProblemOptions &&
               chronicHealthProblemOptions.map((data, key) => {
                 return (
@@ -377,14 +379,14 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Past psychatric complication</label>
+          <label className="input-lebel">{t('pastPsychiatricComplication', language)}</label>
           <select
             class="form-select form-select-lg"
             id="year"
             value={pastPsychatricProblem}
             onChange={(e) => setPastPsychatricProblem(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {pastPsychatricComplicationOptions &&
               pastPsychatricComplicationOptions.map((data, key) => {
                 return (
@@ -399,13 +401,13 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Present Psychatric Complication</label>
+          <label className="input-lebel">{t('presentPsychiatricComplication', language)}</label>
           <select
             class="form-select form-select-lg"
             value={presentPsychatricProblem}
             onChange={(e) => setPresentPsychatricProblem(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {presentPsychatricComplicationOptions &&
               presentPsychatricComplicationOptions.map((data, key) => {
                 return (
@@ -418,13 +420,13 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">History of previous Head Injury</label>
+          <label className="input-lebel">{t('historyOfPreviousHeadInjuries', language)}</label>
           <select
             class="form-select form-select-lg"
             value={previousHeadInjury}
             onChange={(e) => setPreviousHeadInjury(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {Choice &&
               Choice.map((data, key) => {
                 return (
@@ -438,25 +440,25 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Knowledge of allergy to specific drugs, (if known)
+            {t('allergyKnowledge', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter specific drug details"
+            placeholder={t('specificDrug', language)}
             value={allergyKnowledge}
             onChange={(e) => setAllergyKnowledge(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Family history of</label>
+          <label className="input-lebel">{t('familyHistory', language)}</label>
           <select
             class="form-select form-select-lg"
             value={familyHistory}
             onChange={(e) => setFamilyHistory(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {FamilyHistoryOptions &&
               FamilyHistoryOptions.map((data, key) => {
                 return (
@@ -483,12 +485,12 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            If any psychiatric illness in family? (Who)
+            {t('psychiatricIllness', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter psychiatric illness details"
+            placeholder={t('psychiatricIllness', language)}
             value={psychiatricIllness}
             onChange={(e) => setPsychiatricIllness(e.target.value)}
           />
@@ -499,11 +501,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
         <div className="col-12">
           <div className="form_buttons">
             <button className="btn btn-primary" onClick={() => setStep(1)}>
-              Prev
+              {t('previous', language)}
             </button>
 
             <button className="btn btn-primary" onClick={() => nextStep()}>
-              Next
+              {t('next', language)}
             </button>
 
             {/* {prevData ? (

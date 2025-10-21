@@ -506,14 +506,14 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Annual Income</label>
+          <label className="input-lebel">{t('annualIncome', language)}</label>
           <select
             value={annualIncome}
             class="form-select form-select-lg"
             id="year"
             onChange={(e) => setAnnualIncome(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {annualInc &&
               annualInc.map((data, key) => {
                 return (
@@ -528,7 +528,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Marital Status</label>
+          <label className="input-lebel">{t('maritalStatus', language)}</label>
           <select
             class="form-select form-select-lg"
             value={maritalStatus}
@@ -547,7 +547,7 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Living Arrangement</label>
+          <label className="input-lebel">{t('livingArrangement', language)}</label>
           <select
             class="form-select form-select-lg"
             id="year"
@@ -569,7 +569,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row d-flex align-items-center">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Refferal</label>
+          <label className="input-lebel">{t('referral', language)}</label>
           <select
             class="form-select form-select-lg"
             value={refferal}
@@ -597,7 +597,7 @@ function BasicInfo({ setData, setStep, data }) {
             <div className="complaints-table mb-3">
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Drug Type</label>
+                  <label className="input-lebel">{t('drugType', language)}</label>
                   {console.log(complaints[key])}
                   <select
                     class="form-select form-select-lg"
@@ -617,7 +617,7 @@ function BasicInfo({ setData, setStep, data }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Drug</label>
+                  <label className="input-lebel">{t('drug', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
@@ -638,7 +638,7 @@ function BasicInfo({ setData, setStep, data }) {
 
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Age of First Use</label>
+                  <label className="input-lebel">{t('ageOfFirstUse', language)}</label>
                   <input
                     type="number"
                     className="form-control"
@@ -648,7 +648,7 @@ function BasicInfo({ setData, setStep, data }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Year of Use</label>
+                  <label className="input-lebel">{t('yearOfUse', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     value={data?.year_use}
@@ -663,7 +663,7 @@ function BasicInfo({ setData, setStep, data }) {
 
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Year of excessive use</label>
+                  <label className="input-lebel">{t('yearOfExcessiveUse', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
@@ -677,7 +677,7 @@ function BasicInfo({ setData, setStep, data }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Route of admin stration</label>
+                  <label className="input-lebel">{t('routeOfAdministration', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
@@ -693,7 +693,7 @@ function BasicInfo({ setData, setStep, data }) {
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
                   <label className="input-lebel">
-                    Frequency of use in the last 30 days
+                    {t('frequencyOfUseLast30Days', language)}
                   </label>
                   <select
                     class="form-select form-select-lg"
@@ -709,7 +709,7 @@ function BasicInfo({ setData, setStep, data }) {
 
                 <div className="col-sm-12 mb-3 col-lg-6">
                   <label className="input-lebel">
-                    Quantity used in the last 30 days (ml)
+                    {t('quantityUsedLast30Days', language)}
                   </label>
                   <input
                     type="number"
@@ -871,7 +871,7 @@ function BasicInfo({ setData, setStep, data }) {
         <div className="row">
           <div className="col-2 ">
             <button className="btn_form" onClick={() => addComplaints()}>
-              + Add Line
+              {t('addLine', language)}
             </button>
           </div>
         </div>
@@ -881,7 +881,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Reson for starting</label>
+          <label className="input-lebel">{t('reasonForStarting', language)}</label>
           <select
             class="form-select form-select-lg"
             value={reasonStart}
@@ -895,7 +895,7 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Reson for continuing</label>
+          <label className="input-lebel">{t('reasonForContinuing', language)}</label>
           <select
             value={reasonContinue}
             class="form-select form-select-lg"
@@ -911,7 +911,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Stressors</label>
+          <label className="input-lebel">{t('stressors', language)}</label>
           <select
             value={stressors}
             class="form-select form-select-lg"
@@ -925,7 +925,7 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Last Use date</label>
+          <label className="input-lebel">{t('lastUseDate', language)}</label>
           <input
             value={dateLastUse?.split("T")[0]}
             type="date"
@@ -937,7 +937,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row ">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Quantity of last use</label>
+          <label className="input-lebel">{t('quantityOfLastUse', language)}</label>
           <input
             type="text"
             value={qtyLastUse}
@@ -949,7 +949,7 @@ function BasicInfo({ setData, setStep, data }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Impression of camp officer about the Patient
+            {t('impressionOfCampOfficer', language)}
           </label>
           <input
             type="text"
@@ -964,7 +964,7 @@ function BasicInfo({ setData, setStep, data }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Denial of substance use related problems
+            {t('denialOfSubstanceUseProblems', language)}
           </label>
           <select
             value={denialSubstance}
@@ -980,7 +980,7 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Motivation Factor</label>
+          <label className="input-lebel">{t('motivationFactor', language)}</label>
           <select
             value={motivationFactor}
             class="form-select form-select-lg"
@@ -997,7 +997,7 @@ function BasicInfo({ setData, setStep, data }) {
 
       <div className="row ">
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Willingness for Treatment</label>
+          <label className="input-lebel">{t('willingnessForTreatment', language)}</label>
           <select
             value={willingness}
             class="form-select form-select-lg"
@@ -1012,7 +1012,7 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Action Taken</label>
+          <label className="input-lebel">{t('actionTaken', language)}</label>
           <select
             value={actionTaken}
             class="form-select form-select-lg"
