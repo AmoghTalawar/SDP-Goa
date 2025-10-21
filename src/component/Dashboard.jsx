@@ -11,6 +11,8 @@ import { useNavigate, Navigate, useLocation } from "react-router";
 import { useEffect } from "react";
 import Home from "./Home/Home";
 import Loader from "./Loader/Loader";
+import { useLanguage } from "../context/LanguageContext";
+import { t } from "../translations";
 import {
   ADD_PATIENT,
   GET_CAMP,
@@ -23,6 +25,7 @@ import axios from "axios";
 // import Orders from './Orders/Orders';
 
 function Dashboard() {
+  const { language } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(true);
   const [selected, setSelected] = useState("home");
   const [loading, setLoading] = useState(false);
@@ -167,12 +170,12 @@ function Dashboard() {
               }}
             >
               <i className="bx bx-grid-alt"></i>
-              <span className="link_name">Dashboard</span>
+              <span className="link_name">{t('dashboard', language)}</span>
             </a>
             <ul className="sub-menu blank">
               <li>
                 <a className="link_name" href="/admin/home">
-                  Dashboard
+                  {t('dashboard', language)}
                 </a>
               </li>
             </ul>
@@ -206,12 +209,12 @@ function Dashboard() {
               }}
             >
               <i className="bx bx-line-chart"></i>
-              <span className="link_name">Counseller</span>
+              <span className="link_name">{t('counsellor', language)}</span>
             </a>
             <ul className="sub-menu blank">
               <li>
                 <a className="link_name" href="#">
-                  Faculty
+                  {t('faculty', language)}
                 </a>
               </li>
             </ul>
@@ -226,12 +229,12 @@ function Dashboard() {
               }}
             >
               <i className="bx bx-compass"></i>
-              <span className="link_name">Allocate Patients</span>
+              <span className="link_name">{t('allocatePatients', language)}</span>
             </a>
             <ul className="sub-menu blank">
               <li>
                 <a className="link_name" href="#">
-                  Camps
+                  {t('camp', language)}
                 </a>
               </li>
             </ul>
@@ -245,12 +248,12 @@ function Dashboard() {
               }}
             >
               <i className="bx bx-history"></i>
-              <span className="link_name">Patients</span>
+              <span className="link_name">{t('patients', language)}</span>
             </a>
             <ul className="sub-menu blank">
               <li>
                 <a className="link_name" href="#">
-                  Patients History
+                  {t('patientsHistory', language)}
                 </a>
               </li>
             </ul>
@@ -262,8 +265,8 @@ function Dashboard() {
                 <i class="bi bi-person-fill"></i>
               </div>
               <div className="name-job">
-                <div className="profile_name">Admin</div>
-                <div className="job">Authorizer</div>
+                <div className="profile_name">{t('admin', language)}</div>
+                <div className="job">{t('authorizer', language)}</div>
               </div>
               <i
                 className="bx bx-log-out"
