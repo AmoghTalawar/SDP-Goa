@@ -7,22 +7,7 @@ import "./AddPatient.scss";
 
 const years = { upper: 2010, lower: 1990 };
 
-const annualInc = [
-  "10,000 - 100,000",
-  "100,000 - 500,000",
-  "500,000 - 1,000,000",
-  "more than 1,000,000",
-];
-
-const maritalStat = ["Single", "Married", "Divorsed"];
-
-const BooleanOptions = ["Yes", "No"];
-
-const alcoholUse = [1, 2, 3];
-
-const livingArrangementOptions = ["Family", "Friends", "Relatives", "Alone"];
-
-const disctrictOption = [
+const districtOption = [
   "Bagalkot",
   "Ballari (Bellary)",
   "Belagavi (Belgaum)",
@@ -55,69 +40,84 @@ const disctrictOption = [
   "Yadgir",
 ];
 
-const drugTypeOption = [
-  "Depressants",
-  "Narcotic Analgesic",
-  "Cannabis",
-  "Stimulants",
-  "Hallucinogens",
-  "Inhalants",
-  "Substance not Classified",
-];
-
-const drugFrequencyOptions = ["Morning", "Afternoon", "Evening"];
-
-const referralOptions = [
-  "Self",
-  "Friends",
-  "Family",
-  "Doctors",
-  "Media",
-  "Doctors",
-  "Employer",
-  "Nava JeevanSamithi Membedoctors",
-  "Through awareness programme",
-  "SKDRDP",
-];
-
 const yearOptions = [
   1990, 1991, 1992, 1993, 1994, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001,
   2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2012,
 ];
 
-const reasonStartOptions = [
-  "To try",
-  "someone in family or friends were using",
-  "to feel better and confident or happy",
-  "to avoid problems and sadness",
-  "other reasons",
-];
-
-const reasonContinueOptions = [
-  "Liked the effect and wanted more of it",
-  "Friends forced",
-  "Gave confidence",
-  "Craving",
-  "Felt relaxed and reduced physical exertion",
-];
-
-const stressorsOptions = [
-  "Family or relationship issues",
-  "Financial Stress",
-  "Work related stress",
-  "Reports Stressed but doesn’t know where or what",
-  "others",
-];
-
 function BasicInfo({ setData, setStep, data }) {
   const { language } = useLanguage();
+
+  const annualInc = [
+    t('annualIncomeOption1', language),
+    t('annualIncomeOption2', language),
+    t('annualIncomeOption3', language),
+    t('annualIncomeOption4', language),
+  ];
+
+  const maritalStat = [t('single', language), t('married', language), t('divorced', language)];
+
+  const BooleanOptions = [t('yes', language), t('no', language)];
+
+  const alcoholUse = [1, 2, 3];
+
+  const livingArrangementOptions = [t('family', language), t('friends', language), t('relatives', language), t('alone', language)];
+
+  const drugTypeOption = [
+    t('depressants', language),
+    t('narcoticAnalgesic', language),
+    t('cannabis', language),
+    t('stimulants', language),
+    t('hallucinogens', language),
+    t('inhalants', language),
+    t('substanceNotClassified', language),
+  ];
+
+  const drugFrequencyOptions = [t('morning', language), t('afternoon', language), t('evening', language)];
+
+  const referralOptions = [
+    t('self', language),
+    t('referralFriends', language),
+    t('referralFamily', language),
+    t('referralDoctors', language),
+    t('referralMedia', language),
+    t('referralDoctors', language),
+    t('referralEmployer', language),
+    t('referralNavaJeevanSamithi', language),
+    t('referralAwarenessProgramme', language),
+    t('referralSKDRDP', language),
+  ];
+
+  const reasonStartOptions = [
+    t('reasonStartTry', language),
+    t('reasonStartFamilyFriends', language),
+    t('reasonStartFeelBetter', language),
+    t('reasonStartAvoidProblems', language),
+    t('reasonStartOther', language),
+  ];
+
+  const reasonContinueOptions = [
+    t('reasonContinueLikedEffect', language),
+    t('reasonContinueFriendsForced', language),
+    t('reasonContinueConfidence', language),
+    t('reasonContinueCraving', language),
+    t('reasonContinueRelaxed', language),
+  ];
+
+  const stressorsOptions = [
+    t('stressorsFamilyIssues', language),
+    t('stressorsFinancial', language),
+    t('stressorsWork', language),
+    t('stressorsReportsStressed', language),
+    t('stressorsOther', language),
+  ];
 
   //formData
   const [name, setName] = useState(null);
   const [age, setAge] = useState(null);
   const [sex, setSex] = useState(null);
   const [address, setAddress] = useState(null);
-  const [disctrict, setDisctrict] = useState(null);
+  const [district, setDistrict] = useState(null);
   const [taluk, setTaluk] = useState(null);
   const [phone, setPhone] = useState(null);
   const [community, setCommunity] = useState(null);
@@ -126,7 +126,7 @@ function BasicInfo({ setData, setStep, data }) {
   const [annualIncome, setAnnualIncome] = useState(null);
   const [maritalStatus, setMaritalStatus] = useState(null);
   const [livingArrangement, setLivingArrangement] = useState(null);
-  const [refferal, setRefferal] = useState(null);
+  const [referral, setReferral] = useState(null);
 
   const [reasonStart, setReasonStart] = useState(null);
   const [reasonContinue, setReasonContinue] = useState(null);
@@ -161,11 +161,11 @@ function BasicInfo({ setData, setStep, data }) {
 
   useEffect(() => {
     switch (drugType) {
-      case "Depressants":
+      case t('depressants', language):
         setDrugOption(["Alcohol", "Tranquilizers", "Sedatives", "Hypnotics"]);
         break;
 
-      case "Narcotic Analgesic":
+      case t('narcoticAnalgesic', language):
         setDrugOption([
           "Opium",
           "Heroin",
@@ -176,17 +176,17 @@ function BasicInfo({ setData, setStep, data }) {
           "Buprenorphine",
         ]);
         break;
-      case "Cannabis":
+      case t('cannabis', language):
         setDrugOption(["Ganja", "Charas", "Hashish", "Bhang"]);
         break;
-      case "Stimulants":
+      case t('stimulants', language):
         setDrugOption(["Amphetamine", "Cocaine", "Ecstasy"]);
         break;
-      case "Hallucinogens":
+      case t('hallucinogens', language):
         setDrugOption(["LSD", "PCP"]);
         break;
 
-      case "Inhalants":
+      case t('inhalants', language):
         setDrugOption([
           "Petrol",
           "Glue",
@@ -197,7 +197,7 @@ function BasicInfo({ setData, setStep, data }) {
         ]);
         break;
 
-      case "Substance not Classified":
+      case t('substanceNotClassified', language):
         setDrugOption([
           "Cough Syrup",
           "Anti histamine",
@@ -209,7 +209,7 @@ function BasicInfo({ setData, setStep, data }) {
       default:
         setDrugOption([]);
     }
-  }, [drugType]);
+  }, [drugType, language]);
 
   const { id } = useParams();
 
@@ -236,7 +236,7 @@ function BasicInfo({ setData, setStep, data }) {
         return;
       }
 
-      if (!disctrict) {
+      if (!district) {
         toast.error(t('fieldRequired', language));
         return;
       }
@@ -264,7 +264,7 @@ function BasicInfo({ setData, setStep, data }) {
         age: age,
         sex: sex,
         address: address,
-        disctrict: disctrict,
+        district: district,
         taluk: taluk,
         phone: phone,
         community: community,
@@ -273,7 +273,7 @@ function BasicInfo({ setData, setStep, data }) {
         annual_income: annualIncome,
         marital_status: maritalStatus,
         living_arrangement: livingArrangement,
-        refferal: refferal,
+        referral: referral,
         complaints: complaints,
         reason_start: reasonStart,
         reason_continue: reasonContinue,
@@ -343,7 +343,7 @@ function BasicInfo({ setData, setStep, data }) {
       setAnnualIncome(data?.annual_income);
       setMaritalStatus(data?.marital_status);
       setLivingArrangement(data?.living_arrangement);
-      setRefferal(data?.refferal);
+      setReferral(data?.referral);
       setComplaints(data?.complaints);
       setReasonStart(data?.reason_start);
       setReasonContinue(data?.reason_continue);
@@ -421,17 +421,17 @@ function BasicInfo({ setData, setStep, data }) {
         </div>
 
         <div className="col-lg-6 col-sm-12 mb-3">
-          <label className="input-lebel" htmlFor="disctrict">
-            {t('disctrict', language)} <span className="imp-mark">*</span>
+          <label className="input-lebel" htmlFor="district">
+            {t('district', language)} <span className="imp-mark">*</span>
           </label>
           <select
-            value={disctrict}
+            value={district}
             className="form-select form-select-lg"
-            onChange={(e) => setDisctrict(e.target.value)}
+            onChange={(e) => setDistrict(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {disctrictOption
-              ? disctrictOption.map((data, key) => {
+            {districtOption
+              ? districtOption.map((data, key) => {
                   return <option key={key} value={data}>{data}</option>;
                 })
               : null}
@@ -512,7 +512,7 @@ function BasicInfo({ setData, setStep, data }) {
             className="form-select form-select-lg"
             onChange={(e) => setEducationYear(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {yearOptions.map((data, key) => {
               return <option key={`year-${key}`} value={data}>{data}</option>;
             })}
@@ -561,7 +561,7 @@ function BasicInfo({ setData, setStep, data }) {
             value={maritalStatus}
             onChange={(e) => setMaritalStatus(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {maritalStat &&
               maritalStat.map((data, key) => {
                 return (
@@ -581,7 +581,7 @@ function BasicInfo({ setData, setStep, data }) {
             value={livingArrangement}
             onChange={(e) => setLivingArrangement(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {livingArrangementOptions &&
               livingArrangementOptions.map((data, key) => {
                 return (
@@ -599,10 +599,10 @@ function BasicInfo({ setData, setStep, data }) {
           <label className="input-lebel">{t('referral', language)}</label>
           <select
             class="form-select form-select-lg"
-            value={refferal}
-            onChange={(e) => setRefferal(e.target.value)}
+            value={referral}
+            onChange={(e) => setReferral(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {referralOptions &&
               referralOptions.map((data, key) => {
                 return (
@@ -669,7 +669,7 @@ function BasicInfo({ setData, setStep, data }) {
                   <input
                     type="number"
                     className="form-control"
-                    placeholder="Enter the community"
+                    placeholder={t('enterCommunity', language)}
                     value={data.age_of_first_use}
                   />
                 </div>
@@ -680,7 +680,7 @@ function BasicInfo({ setData, setStep, data }) {
                     class="form-select form-select-lg"
                     value={data?.year_use}
                   >
-                    <option>Please select</option>
+                    <option>{t('selectOption', language)}</option>
                     {yearOptions.map((data, key) => {
                       return <option key={`year-use-${key}`} value={data}>{data}</option>;
                     })}
@@ -696,7 +696,7 @@ function BasicInfo({ setData, setStep, data }) {
                     id="year"
                     value={data?.year_excessive_use}
                   >
-                    <option>Please select</option>
+                    <option>{t('selectOption', language)}</option>
                     {yearOptions.map((data, key) => {
                       return <option key={`year-excessive-use-${key}`} value={data}>{data}</option>;
                     })}
@@ -710,9 +710,9 @@ function BasicInfo({ setData, setStep, data }) {
                     id="year"
                     value={data.route_stration}
                   >
-                    <option>Please select</option>
-                    <option value="orally">Orally</option>
-                    <option value="orally">injected</option>
+                    <option>{t('selectOption', language)}</option>
+                    <option value="orally">{t('orally', language)}</option>
+                    <option value="injected">{t('injected', language)}</option>
                   </select>
                 </div>
               </div>
@@ -727,7 +727,7 @@ function BasicInfo({ setData, setStep, data }) {
                     id="year"
                     value={data.frequency_last_30_days}
                   >
-                    <option>Please select</option>
+                    <option>{t('selectOption', language)}</option>
                     {drugFrequencyOptions?.map((dat, key) => {
                       return <option key={`frequency-${key}`} value={dat}>{dat}</option>;
                     })}
@@ -741,7 +741,7 @@ function BasicInfo({ setData, setStep, data }) {
                   <input
                     type="number"
                     className="form-control"
-                    placeholder="Enter the quantity"
+                    placeholder={t('enterQuantity', language)}
                     value={data.quantity_last_30_days}
                   />
                 </div>
@@ -755,13 +755,13 @@ function BasicInfo({ setData, setStep, data }) {
       <div className="complaints ">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Drug Type</label>
+            <label className="input-lebel">{t('drugTypeLabel', language)}</label>
             <select
               class="form-select form-select-lg"
               value={drugType}
               onChange={(e) => setDrugType(e.target.value)}
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {drugTypeOption &&
                 drugTypeOption.map((data, key) => {
                   return (
@@ -774,14 +774,14 @@ function BasicInfo({ setData, setStep, data }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Drug</label>
+            <label className="input-lebel">{t('drugLabel', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
               value={drug}
               onChange={(e) => setDrug(e.target.value)}
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {drugOption &&
                 drugOption.map((data, key) => {
                   return (
@@ -796,24 +796,24 @@ function BasicInfo({ setData, setStep, data }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Age of First Use</label>
+            <label className="input-lebel">{t('ageOfFirstUseLabel', language)}</label>
             <input
               type="number"
               className="form-control"
               value={drugAgeFirst}
-              placeholder="Enter Age of first use"
+              placeholder={t('enterAgeFirstUse', language)}
               onChange={(e) => setDrugAgeFirst(e.target.value)}
             />
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Year of Use</label>
+            <label className="input-lebel">{t('yearOfUseLabel', language)}</label>
             <select
               class="form-select form-select-lg"
               value={drugYearUse}
               onChange={(e) => setDrugYearUse(e.target.value)}
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {(() => {
                 const options = [];
 
@@ -829,13 +829,13 @@ function BasicInfo({ setData, setStep, data }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Year of excessive use</label>
+            <label className="input-lebel">{t('yearOfExcessiveUseLabel', language)}</label>
             <select
               class="form-select form-select-lg"
               value={drugYearExessive}
               onChange={(e) => setDrugYearExessive(e.target.value)}
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {(() => {
                 const options = [];
 
@@ -848,15 +848,15 @@ function BasicInfo({ setData, setStep, data }) {
             </select>
           </div>
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Route of admin stration</label>
+            <label className="input-lebel">{t('routeOfAdministrationLabel', language)}</label>
             <select
               class="form-select form-select-lg"
               value={routeStration}
               onChange={(e) => setRouteStration(e.target.value)}
             >
-              <option>Please select</option>
-              <option value="orally">Orally</option>
-              <option value="orally">injected</option>
+              <option>{t('selectOption', language)}</option>
+              <option value="orally">{t('orally', language)}</option>
+              <option value="injected">{t('injected', language)}</option>
             </select>
           </div>
         </div>
@@ -864,7 +864,7 @@ function BasicInfo({ setData, setStep, data }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Frequency of use in the last 30 days
+              {t('frequencyOfUseLast30DaysLabel', language)}
             </label>
             <select
               class="form-select form-select-lg"
@@ -874,7 +874,7 @@ function BasicInfo({ setData, setStep, data }) {
                 setDrugFrequency(e.target.value);
               }}
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {drugFrequencyOptions?.map((dat, key) => {
                 return <option key={`drug-freq-${key}`} value={dat}>{dat}</option>;
               })}
@@ -883,13 +883,13 @@ function BasicInfo({ setData, setStep, data }) {
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Quantity used in the last 30 days (ml)
+              {t('quantityUsedLast30DaysLabel', language)}
             </label>
             <input
               type="number"
               className="form-control"
               value={drugQuantity}
-              placeholder="Enter the quantity"
+              placeholder={t('enterQuantity', language)}
               onChange={(e) => setDrugQuantity(e.target.value)}
             />
           </div>
@@ -914,7 +914,7 @@ function BasicInfo({ setData, setStep, data }) {
             value={reasonStart}
             onChange={(e) => setReasonStart(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {reasonStartOptions.map((data, key) => {
               return <option key={`reason-start-${key}`} value={data}>{data}</option>;
             })}
@@ -928,7 +928,7 @@ function BasicInfo({ setData, setStep, data }) {
             class="form-select form-select-lg"
             onChange={(e) => setReasonContinue(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {reasonContinueOptions.map((data, key) => {
               return <option key={`reason-continue-${key}`} value={data}>{data}</option>;
             })}
@@ -944,7 +944,7 @@ function BasicInfo({ setData, setStep, data }) {
             class="form-select form-select-lg"
             onChange={(e) => setStressors(e.target.value)}
           >
-            <option>Please select</option>
+            <option>{t('selectOption', language)}</option>
             {stressorsOptions?.map((data, key) => {
               return <option key={`stressors-${key}`} value={data}>{data}</option>;
             })}
@@ -969,7 +969,7 @@ function BasicInfo({ setData, setStep, data }) {
             type="text"
             value={qtyLastUse}
             className="form-control"
-            placeholder="Quantity of last Use in ml"
+            placeholder={t('quantityLastUse', language)}
             onChange={(e) => setQtyLastUse(e.target.value)}
           />
         </div>
@@ -982,7 +982,7 @@ function BasicInfo({ setData, setStep, data }) {
             type="text"
             value={impression}
             className="form-control"
-            placeholder="Impression of camp officer"
+            placeholder={t('impressionCampOfficer', language)}
             onChange={(e) => setImpression(e.target.value)}
           />
         </div>
@@ -999,10 +999,10 @@ function BasicInfo({ setData, setStep, data }) {
             id="year"
             onChange={(e) => setDenialSubstance(e.target.value)}
           >
-            <option>Please select</option>
-            <option value={"Mild"}>Mild</option>
-            <option value={"Moderate"}>Moderate</option>
-            <option value={"Severe"}>Severe</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={"Mild"}>{t('mild', language)}</option>
+            <option value={"Moderate"}>{t('moderate', language)}</option>
+            <option value={"Severe"}>{t('severe', language)}</option>
           </select>
         </div>
 
@@ -1014,10 +1014,10 @@ function BasicInfo({ setData, setStep, data }) {
             id="year"
             onChange={(e) => setMotivationFactor(e.target.value)}
           >
-            <option>Please select</option>
-            <option value={"Mild"}>Mild</option>
-            <option value={"Moderate"}>Moderate</option>
-            <option value={"Severe"}>Severe</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={"Mild"}>{t('mild', language)}</option>
+            <option value={"Moderate"}>{t('moderate', language)}</option>
+            <option value={"Severe"}>{t('severe', language)}</option>
           </select>
         </div>
       </div>
@@ -1031,10 +1031,10 @@ function BasicInfo({ setData, setStep, data }) {
             id="year"
             onChange={(e) => setWillingness(e.target.value)}
           >
-            <option>Please select</option>
-            <option value={"Unwilling"}>Unwilling</option>
-            <option value={"Ambivalent"}>Ambivalent</option>
-            <option value={"Willing"}>Willing</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={"Unwilling"}>{t('unwilling', language)}</option>
+            <option value={"Ambivalent"}>{t('ambivalent', language)}</option>
+            <option value={"Willing"}>{t('willing', language)}</option>
           </select>
         </div>
 
@@ -1046,9 +1046,9 @@ function BasicInfo({ setData, setStep, data }) {
             id="year"
             onChange={(e) => setActionTaken(e.target.value)}
           >
-            <option>Please select</option>
-            <option value={"Admitted"}>Admitted</option>
-            <option value={"Reffered"}>Reffered</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={"Admitted"}>{t('admitted', language)}</option>
+            <option value={"Referred"}>{t('referred', language)}</option>
             {/* <option value={"Severe"}>Severe</option> */}
           </select>
         </div>
