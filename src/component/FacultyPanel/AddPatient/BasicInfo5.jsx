@@ -2,6 +2,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate, useParams } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 import { ADD_PATIENT } from "../../../utils/apiConstant";
 import "./AddPatient.scss";
 
@@ -10,6 +12,7 @@ const choice = ["yes", "no"];
 function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
    const navigate = useNavigate();
+   const { language } = useLanguage();
 
   // Medical state variables
   const [weigthAdmission, setWeightAdmission] = useState(null);
@@ -89,7 +92,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
     const auth = localStorage.getItem("auth");
 
     if (!auth) {
-      toast.error("Authentication token not found. Please login again.");
+      toast.error(t('authenticationTokenNotFound', language));
       setLoading(false);
       navigate("/login");
       return;
@@ -119,7 +122,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
        );
 
        if (datum) {
-         toast.success("Patient Added successfully");
+         toast.success(t('patientAddedSuccessfully', language));
          navigate("/admin/patient");
        }
      } catch (err) {
@@ -129,12 +132,12 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
        console.error("Error data:", err.response?.data);
 
        if (err.response?.status === 401) {
-         toast.error("Authentication failed. Please login again.");
+         toast.error(t('authenticationFailed', language));
          navigate("/login");
        } else if (err.response?.status === 400) {
-         toast.error(`Bad request: ${err.response?.data?.message || 'Invalid data'}`);
+         toast.error(`${t('badRequest', language)}: ${err.response?.data?.message || t('invalidData', language)}`);
        } else {
-         toast.error("Some error occurred. Please try again.");
+         toast.error(t('someErrorOccurred', language));
        }
      }
 
@@ -189,7 +192,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
     const auth = localStorage.getItem("auth");
 
     if (!auth) {
-      toast.error("Authentication token not found. Please login again.");
+      toast.error(t('authenticationTokenNotFound', language));
       navigate("/login");
       return;
     }
@@ -210,13 +213,13 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
       if (datum) {
         // setLoading(false)
-        toast.success("Patient Updated successfully");
+        toast.success(t('patientUpdatedSuccessfully', language));
         navigate("/faculty");
       }
     } catch (err) {
       // setLoading(false)
 
-      toast.error("some error occured please try again");
+      toast.error(t('errorOccurred', language));
       console.log(err);
     }
   };
@@ -259,7 +262,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
   return (
     <div className="basic-info">
       <div className="header">
-        <h2 className="w-100 text-center my-4">COUNSELLOR SECTION</h2>
+        <h2 className="w-100 text-center my-4">{t('counsellorSection', language)}</h2>
       </div>
 
       <br />
@@ -267,12 +270,11 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-12">
           <h5>
-            Take a detailed Pedigree for three generation and relevant positive
-            family history
+            {t('takeDetailedPedigree', language)}
           </h5>
           <textarea
             className="form-control"
-            placeholder="Enter the details"
+            placeholder={t('enterDetailsPlaceholder', language)}
             value={doctorNotes}
             onChange={(e) => setDoctorNotes(e.target.value)}
           ></textarea>
@@ -281,19 +283,19 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
       <hr />
 
-      <h3>CHILDHOOD AND ADOLESCENT HISTORY</h3>
+      <h3>{t('childhoodAndAdolescentHistory', language)}</h3>
 
       <br />
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Describe your childhood / teenage years?
+            {t('describeChildhoodTeenageYears', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the years"
+            placeholder={t('enterYearsPlaceholder', language)}
             value={childhoodDescription}
             onChange={(e) => setChildhoodDescription(e.target.value)}
           />
@@ -301,21 +303,21 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Did you experience the following before 15 years?
+            {t('didYouExperienceBefore15Years', language)}
           </label>
           <select
             class="form-select form-select-lg"
             onChange={(e) => setChildhoodExperience(e.target.value)}
             value={childhoodExperience}
           >
-            <option>Please select</option>
-            <option>Poverty or severe debts</option>
-            <option>Early parental loss</option>
-            <option>Extra marital affairs of parents</option>
-            <option>Broken home or single parenting</option>
-            <option>violence</option>
-            <option>Sexually issue</option>
-            <option>none</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={t('povertyOrSevereDebts', language)}>{t('povertyOrSevereDebts', language)}</option>
+            <option value={t('earlyParentalLoss', language)}>{t('earlyParentalLoss', language)}</option>
+            <option value={t('extraMaritalAffairsOfParents', language)}>{t('extraMaritalAffairsOfParents', language)}</option>
+            <option value={t('brokenHomeOrSingleParenting', language)}>{t('brokenHomeOrSingleParenting', language)}</option>
+            <option value={t('violence', language)}>{t('violence', language)}</option>
+            <option value={t('sexuallyIssue', language)}>{t('sexuallyIssue', language)}</option>
+            <option value={t('none', language)}>{t('none', language)}</option>
           </select>
         </div>
       </div>
@@ -323,75 +325,74 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Behavior problem identified in Childhood / Adolenscence (before 15
-            Years)?
+            {t('behaviorProblemIdentifiedChildhoodAdolescence', language)}
           </label>
           <select
             class="form-select form-select-lg"
             onChange={(e) => setBehaviorProblems(e.target.value)}
             value={behaviorProblems}
           >
-            <option>Please select</option>
-            <option>Running away from home</option>
-            <option> Frequent physical fights and violence</option>
-            <option>Destruction of others property</option>
-            <option>Stealing</option>
-            <option>Scholastic backwardness</option>
-            <option>Experimenting with drugs</option>
-            <option>alcohol</option>
-            <option>Gambling</option>
-            <option>Sexual issues</option>
-            <option>Any Other</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={t('runningAwayFromHome', language)}>{t('runningAwayFromHome', language)}</option>
+            <option value={t('frequentPhysicalFights', language)}>{t('frequentPhysicalFights', language)}</option>
+            <option value={t('destructionOfProperty', language)}>{t('destructionOfProperty', language)}</option>
+            <option value={t('stealing', language)}>{t('stealing', language)}</option>
+            <option value={t('scholasticBackwardness', language)}>{t('scholasticBackwardness', language)}</option>
+            <option value={t('experimentingWithDrugs', language)}>{t('experimentingWithDrugs', language)}</option>
+            <option value={t('alcohol', language)}>{t('alcohol', language)}</option>
+            <option value={t('gambling', language)}>{t('gambling', language)}</option>
+            <option value={t('sexualIssues', language)}>{t('sexualIssues', language)}</option>
+            <option value={t('anyOther', language)}>{t('anyOther', language)}</option>
           </select>
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Did you experience the following before 15 years?
+            {t('didYouExperienceBefore15Years', language)}
           </label>
           <select
             class="form-select form-select-lg"
             onChange={(e) => setChildhoodExperience2(e.target.value)}
             value={childhoodExperience2}
           >
-            <option>Please select</option>
-            <option>Poverty or severe debts</option>
-            <option>Early parental loss</option>
-            <option>Extra marital affairs of parents</option>
-            <option>Broken home or single parenting</option>
-            <option>violence</option>
-            <option>Sexually issue</option>
-            <option>none</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={t('povertyOrSevereDebts', language)}>{t('povertyOrSevereDebts', language)}</option>
+            <option value={t('earlyParentalLoss', language)}>{t('earlyParentalLoss', language)}</option>
+            <option value={t('extraMaritalAffairsOfParents', language)}>{t('extraMaritalAffairsOfParents', language)}</option>
+            <option value={t('brokenHomeOrSingleParenting', language)}>{t('brokenHomeOrSingleParenting', language)}</option>
+            <option value={t('violence', language)}>{t('violence', language)}</option>
+            <option value={t('sexuallyIssue', language)}>{t('sexuallyIssue', language)}</option>
+            <option value={t('none', language)}>{t('none', language)}</option>
           </select>
         </div>
       </div>
 
       <hr />
 
-      <h3>EDUCATIONAL HISTORY</h3>
+      <h3>{t('educationalHistory', language)}</h3>
 
       <br />
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Achievements in education (mention if any)?
+            {t('achievementsInEducation', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the achievements"
+            placeholder={t('enterAchievementsPlaceholder', language)}
             value={educationAchievements}
             onChange={(e) => setEducationAchievements(e.target.value)}
           />
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-6">
-          <label className="input-lebel">Years of education</label>
+          <label className="input-lebel">{t('yearsOfEducation', language)}</label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the years"
+            placeholder={t('enterYearsPlaceholder', language)}
             value={educationYears}
             onChange={(e) => setEducationYears(e.target.value)}
           />
@@ -401,12 +402,12 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            High achiever in extracurricular activities (Mention if any)
+            {t('highAchieverExtracurricular', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the achievements"
+            placeholder={t('enterAchievementsPlaceholder', language)}
             value={extracurricularAchievements}
             onChange={(e) => setExtracurricularAchievements(e.target.value)}
           />
@@ -415,34 +416,33 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
       <hr />
 
-      <h3>RELIGIOUS BELIEFS AND BEHAVIOUR</h3>
+      <h3>{t('religiousBeliefsAndBehaviour', language)}</h3>
 
       <br />
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-12">
-          <label className="input-lebel">Are you a?</label>
+          <label className="input-lebel">{t('areYouA', language)}</label>
           <select
             class="form-select form-select-lg"
             onChange={(e) => setReligiousBelief(e.target.value)}
             value={religiousBelief}
           >
-            <option>Please select</option>
-            <option>beliver</option>
-            <option>non believer</option>
-            <option>indifferent</option>
+            <option>{t('selectOption', language)}</option>
+            <option value={t('beliver', language)}>{t('beliver', language)}</option>
+            <option value={t('nonBeliever', language)}>{t('nonBeliever', language)}</option>
+            <option value={t('indifferent', language)}>{t('indifferent', language)}</option>
           </select>
         </div>
 
         <div className="col-sm-12 mb-3 col-lg-12">
           <label className="input-lebel">
-            Explore psychological factors of substance use continuation and
-            relapse?
+            {t('explorePsychologicalFactors', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the psychological factor"
+            placeholder={t('enterPsychologicalFactorPlaceholder', language)}
             value={psychologicalFactors}
             onChange={(e) => setPsychologicalFactors(e.target.value)}
           />
@@ -452,12 +452,12 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            Maximum period of abstinence and possible factors for abstinence?
+            {t('maximumPeriodAbstinence', language)}
           </label>
           <input
             type="text"
             className="form-control"
-            placeholder="Enter the maximum period of abstinence"
+            placeholder={t('enterMaxPeriodAbstinencePlaceholder', language)}
             value={abstinencePeriod}
             onChange={(e) => setAbstinencePeriod(e.target.value)}
           />
@@ -466,39 +466,39 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
       <hr />
 
-      <h4>Key Points for the doctors to note</h4>
+      <h4>{t('keyPointsForDoctors', language)}</h4>
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-12">
           <textarea
             className="form-control"
-            placeholder="Enter the details"
+            placeholder={t('enterDetailsPlaceholder', language)}
             value={doctorClarification}
             onChange={(e) => setDoctorClarification(e.target.value)}
           ></textarea>
         </div>
       </div>
 
-      <h4>Key Points to clarify with Doctors</h4>
+      <h4>{t('keyPointsClarifyDoctors', language)}</h4>
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-12">
           <textarea
             className="form-control"
-            placeholder="Enter the details"
+            placeholder={t('enterDetailsPlaceholder', language)}
             value={followUpNotes}
             onChange={(e) => setFollowUpNotes(e.target.value)}
           ></textarea>
         </div>
       </div>
       <br />
-      <h4>FOLLOW UP NOTES OF COUNSELORS</h4>
+      <h4>{t('followUpNotesCounselors', language)}</h4>
 
       <div className="row">
         <div className="col-sm-12 mb-3 col-lg-12">
           <textarea
             className="form-control"
-            placeholder="Enter the details"
+            placeholder={t('enterDetailsPlaceholder', language)}
           ></textarea>
         </div>
       </div>
@@ -507,16 +507,16 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
         <div className="col-12">
           <div className="form_buttons">
             <button className="btn btn-primary" onClick={() => setStep(4)}>
-              Prev
+              {t('prevButton', language)}
             </button>
 
             {prevData ? (
               <button className="btn btn-primary" onClick={() => update()}>
-                Update
+                {t('updateButton', language)}
               </button>
             ) : (
               <button className="btn btn-primary" onClick={() => submit()}>
-                Submit
+                {t('submitButton', language)}
               </button>
             )}
           </div>
