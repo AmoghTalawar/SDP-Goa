@@ -7,6 +7,7 @@ import { useNavigate } from "react-router";
 import { GET_PATIENT_USER, GET_USER_CAMP } from "../../../utils/apiConstant";
 import Loader from "../../Loader/Loader";
 import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 // import SoberPeriodPrediction from "../../../Pages/Faculty/PredictPatient/SoberPeriodPrediction";
 
@@ -220,10 +221,10 @@ function Dashboard() {
       </div>
       <div className="patient-list">
         <div className="header">
-          <h6>Patients List</h6>
+          <h6>{t('patientsList', language)}</h6>
           <div className="buttons1">
             <button onClick={() => navigate(`/patientAdd/${locationId}`)}>
-              Add Patient
+              {t('addPatient', language)}
             </button>
 
             <div className="input-wrap1">
@@ -235,7 +236,7 @@ function Dashboard() {
                 type="text"
                 name="product-search"
                 id="product-search"
-                placeholder="Search Patients"
+                placeholder={t('searchPatients', language)}
               />
               <i onClick={handleClearBtn} className="fas fa-times"></i>
             </div>
