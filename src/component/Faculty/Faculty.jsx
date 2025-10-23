@@ -3,13 +3,30 @@ import React, { useState, useEffect } from "react";
 import { DotLoader } from "react-spinners";
 import { GET_FACULTY, HEADERS } from "../../utils/apiConstant";
 import FacultyModal from "../Modal/FacultyModal";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 function Category({ setLoading, faculty, setTrigger }) {
   const [category, setCategory] = useState();
   // const [trigger, setTrigger] = useState()
   const [data, setData] = useState();
+  const [translatedFaculty, setTranslatedFaculty] = useState(null);
 
   const auth = localStorage.getItem("auth");
+  const { language } = useLanguage();
+
+  // Function to translate text using Google Translate API
+  const translateText = async (text, targetLang) => {
+    if (!text) return text;
+    try {
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await response.json();
+      return data[0][0][0];
+    } catch (error) {
+      console.error('Translation error:', error);
+      return text;
+    }
+  };
 
   const headers = {
     Authorization: `Bearer ${auth}`,
@@ -41,6 +58,31 @@ function Category({ setLoading, faculty, setTrigger }) {
     setShowModal((prev) => !prev);
   };
 
+  // Translate faculty data when language is Kannada
+  useEffect(() => {
+    if (language === 'kn' && faculty && faculty.length > 0) {
+      const translateData = async () => {
+        const translated = await Promise.all(
+          faculty.map(async (f) => {
+            const translatedName = await translateText(f.name, 'kn');
+            const translatedRole = await translateText(f.role, 'kn');
+            const translatedEmail = await translateText(f.email, 'kn');
+            return {
+              ...f,
+              translatedName,
+              translatedRole,
+              translatedEmail
+            };
+          })
+        );
+        setTranslatedFaculty(translated);
+      };
+      translateData();
+    } else {
+      setTranslatedFaculty(null);
+    }
+  }, [language, faculty]);
+
   return (
     <div className="content">
       <FacultyModal
@@ -51,9 +93,9 @@ function Category({ setLoading, faculty, setTrigger }) {
         setTrigger={setTrigger}
       />
       <div className="header">
-        <h4>Available Counsellers</h4>
+        <h4>{t('availableCounsellors', language)}</h4>
         <button className="add-btn" onClick={openModal}>
-          Add Counseller
+          {t('addCounsellor', language)}
         </button>
       </div>
 
@@ -61,29 +103,30 @@ function Category({ setLoading, faculty, setTrigger }) {
         <table class="table">
           <thead className="table-header">
             <tr>
-              <th scope="col">SNO.</th>
-              <th scope="col">Name</th>
-              <th scope="col">Role</th>
-              <th scope="col">Email</th>
-              <th scope="col">Password</th>
+              <th scope="col">{t('sno', language)}</th>
+              <th scope="col">{t('name', language)}</th>
+              <th scope="col">{t('role', language)}</th>
+              <th scope="col">{t('email', language)}</th>
+              <th scope="col">{t('password', language)}</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody className="table-body">
             {faculty
               ? faculty.map((data, key) => {
+                  const translatedData = translatedFaculty?.find(tf => tf._id === data._id) || data;
                   if (data.role !== "admin")
                     return (
-                      <tr>
-                        <th scope="row">{key}</th>
+                      <tr key={key}>
+                        <th scope="row">{key + 1}</th>
                         <td>
-                          <p>{data.name}</p>
+                          <p>{translatedData.translatedName || data.name}</p>
                         </td>
                         <td>
-                          <p>{data.role}</p>
+                          <p>{translatedData.translatedRole || data.role}</p>
                         </td>
                         <td>
-                          <p>{data.email}</p>
+                          <p>{translatedData.translatedEmail || data.email}</p>
                         </td>
                         <td>
                           <p>***********</p>

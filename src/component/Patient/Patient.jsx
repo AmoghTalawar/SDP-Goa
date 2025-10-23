@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import "./Patient.scss";
 
 import axios from "axios";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 import * as XLSX from "xlsx/xlsx.mjs";
 
@@ -16,8 +18,23 @@ set_cptable(cptable);
 
 function Patient({ setLoading, camp, patient, faculty }) {
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const [truck, setTruck] = useState();
   const [searchQuery, setSearchQuery] = useState("");
+  const [translatedPatients, setTranslatedPatients] = useState(null);
+
+  // Function to translate text using Google Translate API
+  const translateText = async (text, targetLang) => {
+    if (!text) return text;
+    try {
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await response.json();
+      return data[0][0][0];
+    } catch (error) {
+      console.error('Translation error:', error);
+      return text;
+    }
+  };
 
   // Store patient data in localStorage when it changes
   useEffect(() => {
@@ -25,6 +42,32 @@ function Patient({ setLoading, camp, patient, faculty }) {
       localStorage.setItem("patients", JSON.stringify(patient));
     }
   }, [patient]);
+
+  // Translate patient data when language is Kannada
+  useEffect(() => {
+    if (language === 'kn' && patient && patient.length > 0) {
+      const translateData = async () => {
+        const translated = await Promise.all(
+          patient.map(async (p) => {
+            const translatedName = await translateText(p.name, 'kn');
+            const translatedPhone = await translateText(p.phone, 'kn');
+            const facultyName = faculty?.find(f => f._id === p.faculty)?.name || '';
+            const translatedFaculty = await translateText(facultyName, 'kn');
+            return {
+              ...p,
+              translatedName,
+              translatedPhone,
+              translatedFaculty
+            };
+          })
+        );
+        setTranslatedPatients(translated);
+      };
+      translateData();
+    } else {
+      setTranslatedPatients(null);
+    }
+  }, [language, patient, faculty]);
 
   const getData = async () => {
     setLoading(true);
@@ -104,35 +147,29 @@ function Patient({ setLoading, camp, patient, faculty }) {
   };
 
   const filteredPatients = patient ? patient.filter((data) => {
-    // Check if data.name exists before calling toLowerCase()
-    if (!data.name) return false;
+    const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
+    const nameToSearch = translatedData.translatedName || data.name;
+    // Check if nameToSearch exists before calling toLowerCase()
+    if (!nameToSearch) return false;
 
-    console.log(
-      "data : ",
-      data.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    return data.name.toLowerCase().includes(searchQuery.toLowerCase());
-    // data.phone.includes(searchQuery) ||
-    // data.patientId.includes(searchQuery)
-    // Add more fields here as needed
+    return nameToSearch.toLowerCase().includes(searchQuery.toLowerCase());
   }) : [];
 
   return (
     <div className="content">
       <div className="header">
-        <h4>Patient Data</h4>
+        <h4>{t('patientData', language)}</h4>
       </div>
       <div className="buttons">
         <button
           className="add-btn"
           onClick={(e) => downloadData(e.target.value)}
         >
-          Download CSV
+          {t('downloadCsv', language)}
         </button>
 
         <button className="add-btn" onClick={handleAddPatient}>
-          Add Patient
+          {t('addPatient', language)}
         </button>
 
         {/* <input
@@ -164,7 +201,7 @@ function Patient({ setLoading, camp, patient, faculty }) {
             type="text"
             name="product-search"
             id="product-search"
-            placeholder="Search Patients"
+            placeholder={t('searchPatients', language)}
           />
           <i onClick={handleClearBtn} className="fas fa-times"></i>
         </div>
@@ -223,43 +260,48 @@ function Patient({ setLoading, camp, patient, faculty }) {
         <table className="table">
           <thead className="table-header">
             <tr>
-              <th scope="col">Patient ID</th>
-              <th scope="col">Counseller</th>
-              <th scope="col">Name</th>
-              <th scope="col">Phone</th>
+              <th scope="col">{t('patientId', language)}</th>
+              <th scope="col">{t('counsellor', language)}</th>
+              <th scope="col">{t('name', language)}</th>
+              <th scope="col">{t('phone', language)}</th>
               <th scope="col"></th>
             </tr>
           </thead>
           <tbody className="table-body">
             {filteredPatients && filteredPatients.length > 0 ? (
-              filteredPatients.map((data, key) => (
-                <tr key={key}>
-                  <th scope="row">{data.patientId}</th>
-                  <td>
-                    {faculty && faculty.length > 0 ? (
-                      faculty.map((d, k) => {
-                        if (d._id === data.faculty) return d.name;
-                      })
-                    ) : (
-                      "N/A"
-                    )}
-                  </td>
-                  <td>{data.name}</td>
-                  <td>{data.phone}</td>
-                  <td>
-                    <button
-                      className="edit-btn"
-                      onClick={() => navigate(`/patient/${data._id}`)}
-                    >
-                      <i className="bi bi-eye"></i>
-                    </button>
-                  </td>
-                </tr>
-              ))
+              filteredPatients.map((data, key) => {
+                const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
+                return (
+                  <tr key={key}>
+                    <th scope="row">{data.patientId}</th>
+                    <td>
+                      {faculty && faculty.length > 0 ? (
+                        faculty.map((d, k) => {
+                          if (d._id === data.faculty) {
+                            return translatedData.translatedFaculty || d.name;
+                          }
+                        })
+                      ) : (
+                        "N/A"
+                      )}
+                    </td>
+                    <td>{translatedData.translatedName || data.name}</td>
+                    <td>{translatedData.translatedPhone || data.phone}</td>
+                    <td>
+                      <button
+                        className="edit-btn"
+                        onClick={() => navigate(`/patient/${data._id}`)}
+                      >
+                        <i className="bi bi-eye"></i>
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
             ) : (
               <tr>
                 <td colSpan="5" className="text-center">
-                  No patients found
+                  {t('noPatientsFound', language)}
                 </td>
               </tr>
             )}

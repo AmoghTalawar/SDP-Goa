@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import PatientModal from "../Modal/PatientModal";
 import axios from "axios";
 import { GET_CAMP, GET_FACULTY, GET_LOCATIONS } from "../../utils/apiConstant";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 function Camp({
   setLoading,
@@ -16,6 +18,22 @@ function Camp({
   const [data, setData] = useState();
 
   const [unallocatedPatients, setUnallocatedPatients] = useState([]);
+  const [translatedPatients, setTranslatedPatients] = useState(null);
+
+  const { language } = useLanguage();
+
+  // Function to translate text using Google Translate API
+  const translateText = async (text, targetLang) => {
+    if (!text) return text;
+    try {
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await response.json();
+      return data[0][0][0];
+    } catch (error) {
+      console.error('Translation error:', error);
+      return text;
+    }
+  };
 
   useEffect(() => {
     if (unallocatedPatientsList) {
@@ -35,6 +53,27 @@ function Camp({
     }
   }, [unallocatedPatientsList]);
 
+  // Translate patient data when language is Kannada
+  useEffect(() => {
+    if (language === 'kn' && unallocatedPatientsList && unallocatedPatientsList.length > 0) {
+      const translateData = async () => {
+        const translated = await Promise.all(
+          unallocatedPatientsList.map(async (p) => {
+            const translatedName = await translateText(p.name, 'kn');
+            return {
+              ...p,
+              translatedName
+            };
+          })
+        );
+        setTranslatedPatients(translated);
+      };
+      translateData();
+    } else {
+      setTranslatedPatients(null);
+    }
+  }, [language, unallocatedPatientsList]);
+
   const openModal = () => {
     setShowModal((prev) => !prev);
   };
@@ -52,9 +91,9 @@ function Camp({
         faculties={faculty}
       />
       <div className="header">
-        <h4>Non-allocated Patients</h4>
+        <h4>{t('nonAllocatedPatients', language)}</h4>
         <button className="add-btn" onClick={openModal}>
-          Allocate Patient
+          {t('allocatePatient', language)}
         </button>
       </div>
 
@@ -62,10 +101,10 @@ function Camp({
         <table class="table">
           <thead className="table-header">
             <tr>
-              <th scope="col">Patient ID</th>
+              <th scope="col">{t('patientId', language)}</th>
               {/* <th scope="col">Name</th> */}
               {/* <th scope="col">Location</th> */}
-              <th scope="col">Patient</th>
+              <th scope="col">{t('patient', language)}</th>
               {/* <th scope="col">Start Date</th>
               <th scope="col">End Date</th> */}
               <th scope="col"></th>
@@ -74,11 +113,12 @@ function Camp({
           <tbody className="table-body">
             {unallocatedPatientsList &&
               unallocatedPatientsList.map((data, key) => {
+                const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
                 return (
-                  <tr>
+                  <tr key={key}>
                     <th scope="row">{data.patientId}</th>
                     <td>
-                      <p>{data.name}</p>
+                      <p>{translatedData.translatedName || data.name}</p>
                     </td>
 
                     {

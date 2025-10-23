@@ -717,6 +717,29 @@ export const translations = {
     ageGroup: "Age Group",
     patientCount: "Patient Count",
     noDataToDisplay: "No data to display",
+
+    // Patient Page
+    patientData: "Patient Data",
+    downloadCsv: "Download CSV",
+    addPatient: "Add Patient",
+    searchPatients: "Search Patients",
+    patientId: "Patient ID",
+    counsellor: "Counseller",
+    name: "Name",
+    phone: "Phone",
+    noPatientsFound: "No patients found",
+
+    // Faculty Page
+    availableCounsellors: "Available Counsellors",
+    addCounsellor: "Add Counsellor",
+    sno: "SNO.",
+    role: "Role",
+    password: "Password",
+
+    // Camp Page
+    nonAllocatedPatients: "Non-allocated Patients",
+    allocatePatient: "Allocate Patient",
+    patient: "Patient",
   },
 
   kn: {
@@ -1711,6 +1734,29 @@ export const translations = {
     ageGroup: "ವಯಸ್ಸಿನ ಗುಂಪು",
     patientCount: "ರೋಗಿಗಳ ಸಂಖ್ಯೆ",
     noDataToDisplay: "ಪ್ರದರ್ಶಿಸಲು ಯಾವುದೇ ಡೇಟಾ ಇಲ್ಲ",
+
+    // Patient Page
+    patientData: "ರೋಗಿ ಡೇಟಾ",
+    downloadCsv: "CSV ಡೌನ್‌ಲೋಡ್ ಮಾಡಿ",
+    addPatient: "ರೋಗಿಯನ್ನು ಸೇರಿಸಿ",
+    searchPatients: "ರೋಗಿಗಳನ್ನು ಹುಡುಕಿ",
+    patientId: "ರೋಗಿ ID",
+    counsellor: "ಕೌನ್ಸೆಲರ್",
+    name: "ಹೆಸರು",
+    phone: "ದೂರವಾಣಿ",
+    noPatientsFound: "ಯಾವುದೇ ರೋಗಿಗಳು ಕಂಡುಬಂದಿಲ್ಲ",
+
+    // Faculty Page
+    availableCounsellors: "ಲಭ್ಯವಿರುವ ಕೌನ್ಸೆಲರ್‌ಗಳು",
+    addCounsellor: "ಕೌನ್ಸೆಲರ್ ಸೇರಿಸಿ",
+    sno: "ಕ್ರ.ಸಂ.",
+    role: "ಪಾತ್ರ",
+    password: "ಪಾಸ್‌ವರ್ಡ್",
+
+    // Camp Page
+    nonAllocatedPatients: "ನಿಯೋಜಿಸದ ರೋಗಿಗಳು",
+    allocatePatient: "ರೋಗಿಯನ್ನು ನಿಯೋಜಿಸಿ",
+    patient: "ರೋಗಿ",
   }
 };
 

@@ -123,7 +123,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
 
       <div className="data-box">
         <div className="chart-container">
-          <h3>Patient Age Distribution</h3>
+          <h3>{t('patientAgeDistribution', language)}</h3>
           {patientList.length != 0 ? (
             <BarChart
               xAxis={[
@@ -139,14 +139,14 @@ function Home({ locCount, facCount, campCount, patientCount }) {
                     ">60",
                   ],
                   id: "ageGroup",
-                  label: "Age Group",
+                  label: t('ageGroup', language),
                 },
               ]}
               yAxis={[
                 {
                   scaleType: "linear",
                   id: "patientCount",
-                  label: "Patient Count",
+                  label: t('patientCount', language),
                 },
               ]}
               series={[{ data: patientList }]}
@@ -154,7 +154,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
               height={300}
             />
           ) : (
-            <p>No data to display</p>
+            <p>{t('noDataToDisplay', language)}</p>
           )}
         </div>
       </div>
