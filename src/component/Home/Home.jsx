@@ -4,8 +4,11 @@ import { BarChart } from "@mui/x-charts";
 
 import { ADD_PATIENT } from "../../utils/apiConstant";
 import axios from "axios";
+import { useLanguage } from "../../context/LanguageContext";
+import { t } from "../../translations";
 
 function Home({ locCount, facCount, campCount, patientCount }) {
+  const { language } = useLanguage();
   const ageBinList = [
     "18-25",
     "26-32",
@@ -86,7 +89,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
     <div className="admin-home">
       <div className="header">
         <h6 className="text-center w-100">
-          Hello, Welcome to the Admin Dashboard!
+          {t('adminWelcome', language)}
         </h6>
       </div>
 

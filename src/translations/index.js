@@ -476,19 +476,27 @@ export const translations = {
     doYouIntakeNicotine: "Do you intake Nicotine?",
     areYouMarried: "Are you married?",
     sexualProblem: "At present do you have any sexual problem?",
+    atPresentSexualProblem: "At present do you have any sexual problem?",
     legalComplications: "Legal complications?",
     multipleMarriages: "Multiple marriages?",
     periodOfUnemployment: "Did you have any period of unemployment?",
+    didYouHavePeriodOfUnemployment: "Did you have any period of unemployment?",
     familyViolence: "Any instance of family violence?",
+    anyInstanceOfFamilyViolence: "Any instance of family violence?",
     extraMaritalExperiences: "Record extra marital experiences?",
+    recordExtraMaritalExperiences: "Record extra marital experiences?",
     familyHistoryOfAlcoholism: "Family history of alcoholism / drug abuse?",
+    familyHistoryOfAlcoholismDrugAbuse: "Family history of alcoholism / drug abuse?",
     doYouLiveWithFamily: "Do you live with your family?",
     doYouHaveDiabetes: "Do you have Diabetes?",
     alcoholWithdrawalSymptomStage: "Alcohol Withdrawal Symptom Stage",
     psychiatricComplication: "Psychiatric complication (if applicable)",
     confusion: "Confusion",
     hallucinations: "Hallucinations",
+    presentHallucinations: "Hallucinations",
     aggressiveOutbursts: "Aggressive Outbursts",
+    presentAggressiveOutbursts: "Aggressive Outbursts",
+    presentDepression: "Depression",
     runningAwayFromHome: "Running away from home",
     brokenHomeOrSingleParenting: "Broken home or single parenting",
     earlyParentalLoss: "Early parental loss",
@@ -700,6 +708,15 @@ export const translations = {
     frPradeepDescription: "Fr Pradeep Correa, the determined director of Hope Recovery Centre at Peerandwadi, Belagavi, who has cured large number of liquor and other addicts, especially the youngsters, is celebrating his golden birthday today. Selfless, modest, devoted and prayerful priest Fr Correa is admired and sought after by scores of families across Belagavi, Southern Maharashtra and Goa region. He has brought hopes in lives of several families who had otherwise lost hope. A teetotaller and blessed with jovial nature Fr Pradeep has been serving Hope Recovery Centre since 2010 and has brought in transformation of liquor addicts. People of every religion, caste and creed visit Hope Centre that has treated thousands of addicted people from the region with a very higher success rate.",
     hopeRecoveryCenter: "Hope Recovery Center",
     janathaPlot: "Janatha Plot, Opp to KLS School, Piranwadi Village & Post, Belgaum 590014",
+
+    // Admin Dashboard
+    adminWelcome: "Hello, Welcome to the Admin Dashboard!",
+    totalCounsellors: "TOTAL COUNSELLORS",
+    totalPatients: "TOTAL PATIENTS",
+    patientAgeDistribution: "Patient Age Distribution",
+    ageGroup: "Age Group",
+    patientCount: "Patient Count",
+    noDataToDisplay: "No data to display",
   },
 
   kn: {
@@ -1685,6 +1702,15 @@ export const translations = {
     frPradeepDescription: "ಪೀರನವಾಡಿ, ಬೆಳಗಾವಿಯಲ್ಲಿರುವ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನ ನಿರ್ಧಾರವಾದ ನಿರ್ದೇಶಕ ಫಾ. ಪ್ರದೀಪ್ ಕೊರೆಯಾ, ವಿಶೇಷವಾಗಿ ಯುವಕರನ್ನು ಸೇರಿದಂತೆ ಅಪಾರ ಸಂಖ್ಯೆಯ ಮದ್ಯ ಮತ್ತು ಇತರ ವ್ಯಸನಿಗಳನ್ನು ಗುಣಪಡಿಸಿದ್ದಾರೆ, ಇಂದು ತಮ್ಮ ಗೋಲ್ಡನ್ ಜನ್ಮದಿನವನ್ನು ಆಚರಿಸುತ್ತಿದ್ದಾರೆ. ನಿಸ್ವಾರ್ಥ, ವಿನಯಶೀಲ, ಸಮರ್ಪಿತ ಮತ್ತು ಪ್ರಾರ್ಥನಾಪರ ಫಾ. ಕೊರೆಯಾ ಅವರನ್ನು ಬೆಳಗಾವಿ, ದಕ್ಷಿಣ ಮಹಾರಾಷ್ಟ್ರ ಮತ್ತು ಗೋವಾ ಪ್ರದೇಶದ ಅನೇಕ ಕುಟುಂಬಗಳು ಗೌರವಿಸುತ್ತಾರೆ ಮತ್ತು ಅವರನ್ನು ಹುಡುಕುತ್ತಾರೆ. ಇತರವಾಗಿ ನಿರಾಶೆಗೊಂಡ ಹಲವಾರು ಕುಟುಂಬಗಳ ಜೀವನದಲ್ಲಿ ಅವರು ನಿರೀಕ್ಷೆಯನ್ನು ತಂದಿದ್ದಾರೆ. ಮದ್ಯವಿಲ್ಲದವರು ಮತ್ತು ಸಂತೋಷದ ಸ್ವಭಾವದವರಾದ ಫಾ. ಪ್ರದೀಪ್ ಅವರು 2010 ರಿಂದ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನಲ್ಲಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ ಮತ್ತು ಮದ್ಯ ವ್ಯಸನಿಗಳ ರೂಪಾಂತರವನ್ನು ತಂದಿದ್ದಾರೆ. ಪ್ರತಿಯೊಂದು ಧರ್ಮ, ಜಾತಿ ಮತ್ತು ಪಂಥದ ಜನರು ಭೇಟಿ ನೀಡುವ ಹೋಪ್ ಸೆಂಟರ್ ಪ್ರದೇಶದ ಸಾವಿರಾರು ವ್ಯಸನಿಗಳನ್ನು ಅತ್ಯಧಿಕ ಯಶಸ್ಸಿನ ಪ್ರಮಾಣದೊಂದಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಿದೆ.",
     hopeRecoveryCenter: "ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್",
     janathaPlot: "ಜನತಾ ಪ್ಲಾಟ್, ಕೆಎಲ್‌ಎಸ್ ಶಾಲೆಯ ಎದುರು, ಪೀರನವಾಡಿ ಗ್ರಾಮ ಮತ್ತು ಪೋಸ್ಟ್, ಬೆಳಗಾವಿ 590014",
+
+    // Admin Dashboard
+    adminWelcome: "ನಮಸ್ಕಾರ, ಆಡಳಿತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಸ್ವಾಗತ!",
+    totalCounsellors: "ಒಟ್ಟು ಕೌನ್ಸೆಲರ್‌ಗಳು",
+    totalPatients: "ಒಟ್ಟು ರೋಗಿಗಳು",
+    patientAgeDistribution: "ರೋಗಿಗಳ ವಯಸ್ಸಿನ ವಿತರಣೆ",
+    ageGroup: "ವಯಸ್ಸಿನ ಗುಂಪು",
+    patientCount: "ರೋಗಿಗಳ ಸಂಖ್ಯೆ",
+    noDataToDisplay: "ಪ್ರದರ್ಶಿಸಲು ಯಾವುದೇ ಡೇಟಾ ಇಲ್ಲ",
   }
 };
 
