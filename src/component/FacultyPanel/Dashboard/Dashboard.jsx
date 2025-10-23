@@ -96,9 +96,13 @@ function Dashboard() {
         const translated = await Promise.all(
           patientData.map(async (p) => {
             const translatedName = await translateText(p.name, 'kn');
+            const translatedAddress = await translateText(p.address, 'kn');
+            const translatedDate = await translateText(p.createdAt.split("T")[0], 'kn');
             return {
               ...p,
-              translatedName
+              translatedName,
+              translatedAddress,
+              translatedDate
             };
           })
         );
@@ -251,7 +255,7 @@ function Dashboard() {
             return (
               <div className="patient">
                 <p>
-                  {translatedData.translatedName || data.name} - ({data.address}), {data.createdAt.split("T")[0]}{" "}
+                  {translatedData.translatedName || data.name} - ({translatedData.translatedAddress || data.address}), {translatedData.translatedDate || data.createdAt.split("T")[0]}{" "}
                 </p>
                 <div className="controls">
                   <button onClick={() => navigate(`/patient/${data._id}`)}>
