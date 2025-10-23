@@ -9,22 +9,22 @@ import "./AddPatient.scss";
 
 const choiceOptions = ["yes", "no"];
 
-const familyMember = [
-  "Father",
-  "Mother",
-  "Brother",
-  "Sister",
-  "Wife",
-  "Children",
+const familyMemberKeys = [
+  "father",
+  "mother",
+  "brother",
+  "sister",
+  "wife",
+  "children",
 ];
 
-const healthStatus = [
-  "Major Depression",
-  "Sucide Attempted",
-  "Psychatric Illnesses",
-  "Alcohol Dependence",
-  "drug Dependence",
-  "Any Other",
+const healthStatusKeys = [
+  "majorDepression",
+  "suicideAttempted",
+  "psychiatricIllnesses",
+  "alcoholDependence",
+  "drugDependence",
+  "anyOtherHealth",
 ];
 
 const yearOptions = [
@@ -32,45 +32,44 @@ const yearOptions = [
   2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2012,
 ];
 
-const sexualProblemOptions = [
-  "None",
-  "Difficulty in orgasms",
-  "Reduced libido",
-  "Premature ejaculation",
-  "Impotency",
-  "Excessive sexual urge",
-  "Complete abstinence",
-  "Any other",
+const sexualProblemKeys = [
+  "none",
+  "difficultyInOrgasms",
+  "reducedLibido",
+  "prematureEjaculation",
+  "impotency",
+  "excessiveSexualUrge",
+  "completeAbstinence",
+  "anyOtherSexual",
 ];
 
-const familyViolenceOptions = [
-  "None",
-  "Physical violence directed towards family members verbally abusive",
-  "Violent incidents with neighbors and outsiders",
-  "Breaking articles at home",
+const familyViolenceKeys = [
+  "noneFamilyViolence",
+  "physicalViolence",
+  "violentIncidents",
+  "breakingArticles",
 ];
 
-const occupationalDamageOptions = [
-  "Absenteeism",
-  "Warning or memos",
-  "Suspension order",
-  "Dismissal order",
-  "Transfer order",
-  "Accidents on job",
-  "Attend work under the influence of alcohol",
+const occupationalDamageKeys = [
+  "absenteeism",
+  "warningOrMemos",
+  "suspensionOrder",
+  "dismissalOrder",
+  "transferOrder",
+  "accidentsOnJob",
+  "attendWorkUnderInfluence",
 ];
 
-const financialDebtOption = [
-  "Money borrowed from family and friends",
-  "Banks",
-  "place of work",
-  "money lenders",
-  "SHG",
-  "pawn",
-  "shops",
-  "Liquor shop",
-  "Hand loan",
-  "None",
+const financialDebtKeys = [
+  "moneyBorrowedFromFamily",
+  "banks",
+  "placeOfWork",
+  "moneyLenders",
+  "shg",
+  "pawnShops",
+  "liquorShop",
+  "handLoan",
+  "noneDebt",
 ];
 
 function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
@@ -425,7 +424,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">State of Health</label>
+            <label className="input-lebel">{t('stateOfHealth', language)}</label>
             <input
               type="text"
               className="form-control"
@@ -575,11 +574,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {familyMember &&
-                familyMember.map((data, key) => {
+              {familyMemberKeys &&
+                familyMemberKeys.map((key, index) => {
                   return (
-                    <option key={key} value={data}>
-                      {data}
+                    <option key={index} value={t(key, language)}>
+                      {t(key, language)}
                     </option>
                   );
                 })}
@@ -600,11 +599,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {healthStatus &&
-                healthStatus.map((data, key) => {
+              {healthStatusKeys &&
+                healthStatusKeys.map((key, index) => {
                   return (
-                    <option key={key} value={data}>
-                      {data}
+                    <option key={index} value={t(key, language)}>
+                      {t(key, language)}
                     </option>
                   );
                 })}
@@ -627,9 +626,9 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
-              <option value="dont know">Don't know</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
+              <option value={t('dontKnow', language)}>{t('dontKnow', language)}</option>
             </select>
           </div>
         </div>
@@ -663,9 +662,9 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value="present">Present</option>
-              <option value="absent">Absent</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('present', language)}>{t('present', language)}</option>
+              <option value={t('absent', language)}>{t('absent', language)}</option>
             </select>
           </div>
 
@@ -707,7 +706,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -726,10 +725,10 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {sexualProblemOptions?.map((data) => {
+              {sexualProblemKeys?.map((key, index) => {
                 return (
-                  <option key={data} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -763,7 +762,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Age</label>
+            <label className="input-lebel">{t('age', language)}</label>
             <input
               type="text"
               className="form-control"
@@ -977,10 +976,10 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {familyViolenceOptions?.map((data) => {
+              {familyViolenceKeys?.map((key, index) => {
                 return (
-                  <option key={data} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -1131,8 +1130,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {occupationalDamageOptions?.map((data) => {
-                return <option value={data}>{data}</option>;
+              {occupationalDamageKeys?.map((key, index) => {
+                return <option key={index} value={t(key, language)}>{t(key, language)}</option>;
               })}
             </select>
           </div>
@@ -1161,8 +1160,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>Please select</option>
-              {financialDebtOption?.map((data) => {
-                return <option value={data}>{data}</option>;
+              {financialDebtKeys?.map((key, index) => {
+                return <option key={index} value={t(key, language)}>{t(key, language)}</option>;
               })}
             </select>
           </div>
