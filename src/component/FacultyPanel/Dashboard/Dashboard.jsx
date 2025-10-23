@@ -6,11 +6,13 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { GET_PATIENT_USER, GET_USER_CAMP } from "../../../utils/apiConstant";
 import Loader from "../../Loader/Loader";
+import { useLanguage } from "../../../context/LanguageContext";
 
 // import SoberPeriodPrediction from "../../../Pages/Faculty/PredictPatient/SoberPeriodPrediction";
 
 function Dashboard() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
 
   const auth = localStorage.getItem("facultyAuth");
   const [activeCamps, setActiveCamps] = useState([]);
@@ -19,12 +21,26 @@ function Dashboard() {
   // const [patients, setPatients] = useState();
   const [locationId, setLocationId] = useState();
   const [patientData, setPatients] = useState([]);
+  const [translatedPatients, setTranslatedPatients] = useState(null);
 
   const currentDate = new Date().toISOString();
 
   const [loading, setLoading] = useState(false);
 
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Function to translate text using Google Translate API
+  const translateText = async (text, targetLang) => {
+    if (!text) return text;
+    try {
+      const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`);
+      const data = await response.json();
+      return data[0][0][0];
+    } catch (error) {
+      console.error('Translation error:', error);
+      return text;
+    }
+  };
 
   const headers = {
     Authorization: `Bearer ${auth}`,
@@ -72,6 +88,27 @@ function Dashboard() {
 
     setLoading(false);
   }, []);
+
+  // Translate patient data when language is Kannada
+  useEffect(() => {
+    if (language === 'kn' && patientData && patientData.length > 0) {
+      const translateData = async () => {
+        const translated = await Promise.all(
+          patientData.map(async (p) => {
+            const translatedName = await translateText(p.name, 'kn');
+            return {
+              ...p,
+              translatedName
+            };
+          })
+        );
+        setTranslatedPatients(translated);
+      };
+      translateData();
+    } else {
+      setTranslatedPatients(null);
+    }
+  }, [language, patientData]);
 
   const handleSearchChange = (e) => {
     setSearchQuery(e.target.value); // Update search query on input change
@@ -210,10 +247,11 @@ function Dashboard() {
             </button>
           </div> */}
           {filteredPatients.map((data, key) => {
+            const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
             return (
               <div className="patient">
                 <p>
-                  {data.name} - ({data.address}), {data.createdAt.split("T")[0]}{" "}
+                  {translatedData.translatedName || data.name} - ({data.address}), {data.createdAt.split("T")[0]}{" "}
                 </p>
                 <div className="controls">
                   <button onClick={() => navigate(`/patient/${data._id}`)}>
