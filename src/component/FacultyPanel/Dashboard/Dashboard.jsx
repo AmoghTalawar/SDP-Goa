@@ -34,8 +34,13 @@ function Dashboard() {
     await axios
       .get(GET_USER_CAMP, { headers: headers })
       .then((res) => {
-        setLocationId(res.data.data[0].locationId);
-        console.log("CAMP : ", res.data.data[0].locationId);
+        if (res.data && res.data.data && res.data.data.length > 0) {
+          setLocationId(res.data.data[0].locationId);
+          console.log("CAMP : ", res.data.data[0].locationId);
+        } else {
+          console.error("No camp data available");
+          setLocationId(null);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -77,12 +82,11 @@ function Dashboard() {
   };
 
   const filteredPatients = patientData.filter((data) => {
-    console.log(
-      "data : ",
-      data.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    return data.name.toLowerCase().includes(searchQuery.toLowerCase());
+    if (!data || !data.name) return false;
+    const name = data.name.toLowerCase();
+    const query = searchQuery.toLowerCase();
+    console.log("data : ", name.includes(query));
+    return name.includes(query);
     // data.phone.includes(searchQuery) ||
     // data.patientId.includes(searchQuery)
     // Add more fields here as needed
