@@ -112,7 +112,7 @@ function Camp({
           </thead>
           <tbody className="table-body">
             {unallocatedPatientsList &&
-              unallocatedPatientsList.map((data, key) => {
+              unallocatedPatientsList.filter(data => data).map((data, key) => {
                 const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
                 return (
                   <tr key={key}>
@@ -126,7 +126,7 @@ function Camp({
                       <p>
                         {location &&
                           location?.map((d, k) => {
-                            if (d._id == data.locationId) return <>{d.name}</>;
+                            if (d._id == (data.locationId || '')) return <>{d.name}</>;
                           })}
                       </p>
                     </td>*/

@@ -149,7 +149,7 @@ function Patient({ setLoading, camp, patient, faculty }) {
   const filteredPatients = patient ? patient.filter((data) => {
     if (!data || !data.name) return false;
     const translatedData = translatedPatients?.find(tp => tp._id === data._id) || data;
-    const nameToSearch = translatedData.translatedName || data.name || '';
+    const nameToSearch = (translatedData.translatedName || data.name || '');
     // Check if nameToSearch exists before calling toLowerCase()
     if (!nameToSearch || !searchQuery) return false;
 
