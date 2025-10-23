@@ -7,37 +7,37 @@ import "./AddPatient.scss";
 
 const years = { upper: 2010, lower: 1990 };
 
-const districtOption = [
-  "Bagalkot",
-  "Ballari (Bellary)",
-  "Belagavi (Belgaum)",
-  "Bengaluru (Bangalore) Rural",
-  "Bengaluru (Bangalore) Urban",
-  "Bidar",
-  "Chamarajanagar",
-  "Chikballapur",
-  "Chikkamagaluru (Chikmagalur)",
-  "Chitradurga",
-  "Dakshina Kannada",
-  "Davangere",
-  "Dharwad",
-  "Gadag",
-  "Hassan",
-  "Haveri",
-  "Kalaburagi (Gulbarga)",
-  "Kodagu",
-  "Kolar",
-  "Koppal",
-  "Mandya",
-  "Mysuru (Mysore)",
-  "Raichur",
-  "Ramanagara",
-  "Shivamogga (Shimoga)",
-  "Tumakuru (Tumkur)",
-  "Udupi",
-  "Uttara Kannada (Karwar)",
-  "Vijayapura (Bijapur)",
-  "Yadgir",
+const districtKeys = [
+  "districtBagalkot",
+  "districtBallari",
+  "districtBelagavi",
+  "districtBengaluruRural",
+  "districtBengaluruUrban",
+  "districtBidar",
+  "districtChamarajanagar",
+  "districtChikballapur",
+  "districtChikkamagaluru",
+  "districtChitradurga",
+  "districtDakshinaKannada",
+  "districtDavangere",
+  "districtDharwad",
+  "districtGadag",
+  "districtHassan",
+  "districtHaveri",
+  "districtKalaburagi",
+  "districtKodagu",
+  "districtKolar",
+  "districtKoppal",
+  "districtMandya",
+  "districtMysuru",
+  "districtRaichur",
+  "districtRamanagara",
+  "districtShivamogga",
+  "districtTumakuru",
+  "districtUdupi",
+  "districtUttaraKannada",
+  "districtVijayapura",
+  "districtYadgir",
 ];
 
 const yearOptions = [
@@ -85,7 +85,6 @@ function BasicInfo({ setData, setStep, data }) {
     t('referralEmployer', language),
     t('referralNavaJeevanSamithi', language),
     t('referralAwarenessProgramme', language),
-    t('referralSKDRDP', language),
   ];
 
   const reasonStartOptions = [
@@ -430,9 +429,9 @@ function BasicInfo({ setData, setStep, data }) {
             onChange={(e) => setDistrict(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {districtOption
-              ? districtOption.map((data, key) => {
-                  return <option key={key} value={data}>{data}</option>;
+            {districtKeys
+              ? districtKeys.map((key, index) => {
+                  return <option key={index} value={t(key, language)}>{t(key, language)}</option>;
                 })
               : null}
           </select>
