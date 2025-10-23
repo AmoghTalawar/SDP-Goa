@@ -89,7 +89,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
     //////////////////////Authentication Check//////////////////////
 
-    const auth = localStorage.getItem("auth");
+    const auth = localStorage.getItem("auth") || localStorage.getItem("facultyAuth");
 
     if (!auth) {
       toast.error(t('authenticationTokenNotFound', language));
@@ -189,7 +189,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
     console.log("DATA1 : ", data);
 
-    const auth = localStorage.getItem("auth");
+    const auth = localStorage.getItem("auth") || localStorage.getItem("facultyAuth");
 
     if (!auth) {
       toast.error(t('authenticationTokenNotFound', language));
