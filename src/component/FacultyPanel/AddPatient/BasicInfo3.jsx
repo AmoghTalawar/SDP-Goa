@@ -310,12 +310,12 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                     id="year"
                     value={data.member}
                   >
-                    <option>Please select</option>
-                    {familyMember &&
-                      familyMember.map((data, key) => {
+                    <option>{t('selectOption', language)}</option>
+                    {familyMemberKeys &&
+                      familyMemberKeys.map((key, index) => {
                         return (
-                          <option key={key} value={data}>
-                            {data}
+                          <option key={index} value={t(key, language)}>
+                            {t(key, language)}
                           </option>
                         );
                       })}
@@ -323,11 +323,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Age</label>
+                  <label className="input-lebel">{t('age', language)}</label>
                   <input
                     type="number"
                     className="form-control"
-                    placeholder="Enter the age"
+                    placeholder={t('enterAgePlaceholder', language)}
                     value={data.age}
                   />
                 </div>
@@ -335,22 +335,22 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">State of Health</label>
+                  <label className="input-lebel">{t('stateOfHealth', language)}</label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter the State of Health"
+                    placeholder={t('enterStateOfHealthPlaceholder', language)}
                     value={data.state_of_health}
                   />
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Year of death</label>
+                  <label className="input-lebel">{t('yearOfDeath', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     value={data?.year_of_death}
                   >
-                    <option>Please select</option>
+                    <option>{t('selectOption', language)}</option>
                     {yearOptions.map((data, key) => {
                       return <option value={data}>{data}</option>;
                     })}
@@ -360,21 +360,21 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Cause of Death</label>
+                  <label className="input-lebel">{t('causeOfDeath', language)}</label>
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Enter the cause death"
+                    placeholder={t('enterCauseOfDeathPlaceholder', language)}
                     value={data.cause_of_death}
                   />
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Age at Death</label>
+                  <label className="input-lebel">{t('ageAtDeath', language)}</label>
                   <input
                     type="number"
                     className="form-control"
-                    placeholder="Enter the age at death"
+                    placeholder={t('enterAgeAtDeathPlaceholder', language)}
                     value={data.age_at_death}
                   />
                 </div>
@@ -387,7 +387,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
       <div className="complaints mt-3">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Family Member</label>
+            <label className="input-lebel">{t('familyMember', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -396,12 +396,12 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setFamilyObj({ ...familyObj, member: e.target.value })
               }
             >
-              <option>Please select</option>
-              {familyMember &&
-                familyMember.map((data, key) => {
+              <option>{t('selectOption', language)}</option>
+              {familyMemberKeys &&
+                familyMemberKeys.map((key, index) => {
                   return (
-                    <option key={key} value={data}>
-                      {data}
+                    <option key={index} value={t(key, language)}>
+                      {t(key, language)}
                     </option>
                   );
                 })}
@@ -409,11 +409,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Age</label>
+            <label className="input-lebel">{t('age', language)}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter the age"
+              placeholder={t('enterAgePlaceholder', language)}
               value={familyObj.age}
               onChange={(e) =>
                 setFamilyObj({ ...familyObj, age: e.target.value })
@@ -428,7 +428,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the State of Health"
+              placeholder={t('enterStateOfHealthPlaceholder', language)}
               value={familyObj.state_of_health}
               onChange={(e) =>
                 setFamilyObj({ ...familyObj, state_of_health: e.target.value })
@@ -437,7 +437,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Year of death</label>
+            <label className="input-lebel">{t('yearOfDeath', language)}</label>
             <select
               class="form-select form-select-lg"
               value={familyObj?.year_of_death}
@@ -445,7 +445,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setFamilyObj({ ...familyObj, year_of_death: e.target.value })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {yearOptions.map((data, key) => {
                 return <option value={data}>{data}</option>;
               })}
@@ -455,11 +455,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Cause of Death</label>
+            <label className="input-lebel">{t('causeOfDeath', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Cause of Death"
+              placeholder={t('enterCauseOfDeathPlaceholder', language)}
               value={familyObj?.cause_of_death}
               onChange={(e) =>
                 setFamilyObj({ ...familyObj, cause_of_death: e.target.value })
@@ -468,11 +468,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Age at Death</label>
+            <label className="input-lebel">{t('ageAtDeath', language)}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter the Age at Death"
+              placeholder={t('enterAgeAtDeathPlaceholder', language)}
               value={familyObj?.age_at_death}
               onChange={(e) =>
                 setFamilyObj({ ...familyObj, age_at_death: e.target.value })
@@ -492,7 +492,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
       <hr className="my-3" />
 
-      <h4>Health Status of Family</h4>
+      <h4>{t('healthStatusOfFamily', language)}</h4>
 
       {familyHealth &&
         familyHealth.map((data, key) => {
@@ -500,18 +500,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
             <div className="complaints-table">
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Relation</label>
+                  <label className="input-lebel">{t('relation', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
                     value={data.member}
                   >
-                    <option>Please select</option>
-                    {familyMember &&
-                      familyMember.map((data, key) => {
+                    <option>{t('selectOption', language)}</option>
+                    {familyMemberKeys &&
+                      familyMemberKeys.map((key, index) => {
                         return (
-                          <option key={key} value={data}>
-                            {data}
+                          <option key={index} value={t(key, language)}>
+                            {t(key, language)}
                           </option>
                         );
                       })}
@@ -519,18 +519,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Health Problem</label>
+                  <label className="input-lebel">{t('healthProblem', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
                     value={data.problem}
                   >
-                    <option>Please select</option>
-                    {healthStatus &&
-                      healthStatus.map((data, key) => {
+                    <option>{t('selectOption', language)}</option>
+                    {healthStatusKeys &&
+                      healthStatusKeys.map((key, index) => {
                         return (
-                          <option key={key} value={data}>
-                            {data}
+                          <option key={index} value={t(key, language)}>
+                            {t(key, language)}
                           </option>
                         );
                       })}
@@ -540,16 +540,16 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
               <div className="row">
                 <div className="col-sm-12 mb-3 col-lg-6">
-                  <label className="input-lebel">Status</label>
+                  <label className="input-lebel">{t('status', language)}</label>
                   <select
                     class="form-select form-select-lg"
                     id="year"
                     value={data.status}
                   >
-                    <option>Please select</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                    <option value="dont know">Don't know</option>
+                    <option>{t('selectOption', language)}</option>
+                    <option value={t('yes', language)}>{t('yes', language)}</option>
+                    <option value={t('no', language)}>{t('no', language)}</option>
+                    <option value={t('dontKnow', language)}>{t('dontKnow', language)}</option>
                   </select>
                 </div>
               </div>
@@ -561,7 +561,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
       <div className="complaints mt-3">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Relation</label>
+            <label className="input-lebel">{t('relation', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -573,7 +573,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {familyMemberKeys &&
                 familyMemberKeys.map((key, index) => {
                   return (
@@ -586,7 +586,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Health Problem</label>
+            <label className="input-lebel">{t('healthProblem', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -598,7 +598,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {healthStatusKeys &&
                 healthStatusKeys.map((key, index) => {
                   return (
@@ -613,7 +613,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Status</label>
+            <label className="input-lebel">{t('status', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -625,7 +625,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               <option value={t('yes', language)}>{t('yes', language)}</option>
               <option value={t('no', language)}>{t('no', language)}</option>
               <option value={t('dontKnow', language)}>{t('dontKnow', language)}</option>
@@ -643,14 +643,14 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
       <hr className="my-3" />
 
-      <h2>Sexual History</h2>
+      <h2>{t('sexualHistory', language)}</h2>
 
       <div className="sexual_history">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Record extra marital experiences/
-            </label>
+                          {t('recordExtraMaritalExperiences', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -670,8 +670,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              If unmarried, premarital sexual encounters
-            </label>
+                          {t('ifUnmarriedPremaritalSexualEncounters', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -683,9 +683,9 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
         </div>
@@ -693,8 +693,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Have you involved in any high risk sexual activities?/
-            </label>
+                          {t('involvedHighRiskSexualActivity', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -707,15 +707,15 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
               }
             >
               <option>{t('selectOption', language)}</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              At present do you have any sexual problems?/
-            </label>
+                          {t('atPresentSexualProblems', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -724,7 +724,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, sexual_problems: e.target.value })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {sexualProblemKeys?.map((key, index) => {
                 return (
                   <option key={index} value={t(key, language)}>
@@ -739,18 +739,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
       <hr className="my-3" />
 
-      <h2>MARITAL HISTORY</h2>
+      <h2>{t('maritalHistory', language)}</h2>
 
       <div className="marital_history">
-        <h4>Details Regarding Spouse</h4>
+        <h4>{t('detailsRegardingSpouse', language)}</h4>
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Name</label>
+            <label className="input-lebel">{t('name', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Spouse Name"
+              placeholder={t('enterSpouseNamePlaceholder', language)}
               value={infoData.spouse_name}
               onChange={(e) =>
                 setInfoData({
@@ -766,7 +766,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Spouse Age"
+              placeholder={t('enterSpouseAgePlaceholder', language)}
               value={infoData.spouse_age}
               onChange={(e) =>
                 setInfoData({
@@ -780,11 +780,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Religion/Community</label>
+            <label className="input-lebel">{t('religionCommunity', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Religion/Community"
+              placeholder={t('enterReligionCommunityPlaceholder', language)}
               value={infoData.spouse_religion}
               onChange={(e) =>
                 setInfoData({
@@ -796,7 +796,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Education</label>
+            <label className="input-lebel">{t('education', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -805,21 +805,21 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, spouse_education: e.target.value })
               }
             >
-              <option>Please select</option>
-              <option value="graduate">Graduate</option>
-              <option value="Intermediate">Intermediate</option>
-              <option value="matric">Matric</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('graduate', language)}>{t('graduate', language)}</option>
+              <option value={t('intermediate', language)}>{t('intermediate', language)}</option>
+              <option value={t('matric', language)}>{t('matric', language)}</option>
             </select>
           </div>
         </div>
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Occupation</label>
+            <label className="input-lebel">{t('occupation', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Spouse Occupation"
+              placeholder={t('enterSpouseOccupationPlaceholder', language)}
               value={infoData.spouse_occupation}
               onChange={(e) =>
                 setInfoData({
@@ -831,7 +831,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Monthly Income</label>
+            <label className="input-lebel">{t('monthlyIncome', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -843,8 +843,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value="10000 - 50000">₹10,000 - ₹50,000</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('monthlyIncomeOption1', language)}>{t('monthlyIncomeOption1', language)}</option>
               <option value="50000 - 100000">₹50,000 - ₹100,000</option>
               <option value="more than 100000">more than ₹100,000</option>
             </select>
@@ -855,11 +855,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Number of Years of Marriage</label>
+            <label className="input-lebel">{t('numberOfYearsOfMarriage', language)}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter the Number of Years of Marriage"
+              placeholder={t('enterNumberOfYearsOfMarriagePlaceholder', language)}
               value={infoData.marriage_years}
               onChange={(e) =>
                 setInfoData({
@@ -871,7 +871,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Marriage Type</label>
+            <label className="input-lebel">{t('marriageType', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -880,9 +880,9 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, marriage_type: e.target.value })
               }
             >
-              <option>Please select</option>
-              <option value="love">love</option>
-              <option value="arrange">arrange</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('love', language)}>{t('love', language)}</option>
+              <option value={t('arrange', language)}>{t('arrange', language)}</option>
             </select>
           </div>
         </div>
@@ -890,8 +890,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Previous or subsequent marriages
-            </label>
+                          {t('previousOrSubsequentMarriages', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -900,16 +900,16 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, other_marriage: e.target.value })
               }
             >
-              <option>Please select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Have you been separated from your spouse due to your addiction
-            </label>
+                          {t('separatedFromSpouseDueToAddiction', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -921,20 +921,20 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
         </div>
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Period of longest Seperation</label>
+            <label className="input-lebel">{t('periodOfLongestSeparation', language)}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter the Period of Longest Seperation"
+              placeholder={t('enterPeriodOfLongestSeparationPlaceholder', language)}
               value={infoData.longest_marriage_seperation}
               onChange={(e) =>
                 setInfoData({
@@ -946,7 +946,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">suspicious of your wife?</label>
+            <label className="input-lebel">{t('suspiciousOfWife', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -955,8 +955,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, suspicious_of_wife: e.target.value })
               }
             >
-              <option>Please select</option>
-              <option value="yes">Yes</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
               <option value="no">No</option>
             </select>
           </div>
@@ -965,8 +965,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Any Instance of Family violence
-            </label>
+                          {t('anyInstanceOfFamilyViolence', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -975,7 +975,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 setInfoData({ ...infoData, family_violence: e.target.value })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {familyViolenceKeys?.map((key, index) => {
                 return (
                   <option key={index} value={t(key, language)}>
@@ -990,18 +990,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
       <hr className="my-3" />
 
-      <h2>OCCUPATIONAL HISTORY</h2>
+      <h2>{t('occupationalHistory', language)}</h2>
 
       <div className="occupational_history">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              What age did you start working?
-            </label>
+                          {t('whatAgeDidYouStartWorking', language)}
+                        </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Age"
+              placeholder={t('enterAgePlaceholder', language)}
               value={infoData.occupation_age}
               onChange={(e) =>
                 setInfoData({
@@ -1014,12 +1014,12 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              How long have you been working?
-            </label>
+                          {t('howLongHaveYouBeenWorking', language)}
+                        </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Number of Year"
+              placeholder={t('enterNumberOfYearsPlaceholder', language)}
               value={infoData.occupation_duration}
               onChange={(e) =>
                 setInfoData({
@@ -1034,13 +1034,12 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Have you received any special award, recognition, merit
-              certificates or promotions in the past?
-            </label>
+                          {t('receivedSpecialAward', language)}
+                        </label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter number of times"
+              placeholder={t('enterNumberOfTimesPlaceholder', language)}
               value={legalHistory.arrested_times}
               onChange={(e) =>
                 setLegalHistory({
@@ -1053,8 +1052,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Did you change your job frequently due to addiction?
-            </label>
+                          {t('didYouChangeJobFrequently', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1066,7 +1065,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
@@ -1076,8 +1075,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Did you have any period of unemployment?
-            </label>
+                          {t('didYouHavePeriodOfUnemployment', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1089,14 +1088,14 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               <option value="yes">Yes</option>
               <option value="no">No</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Reason for Unemployment?</label>
+            <label className="input-lebel">{t('reasonForUnemployment', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1108,16 +1107,16 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value="yes">Yes</option>
-              <option value="no">No</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
         </div>
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Occupational Damage?</label>
+            <label className="input-lebel">{t('occupationalDamage', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1129,7 +1128,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {occupationalDamageKeys?.map((key, index) => {
                 return <option key={index} value={t(key, language)}>{t(key, language)}</option>;
               })}
@@ -1140,14 +1139,14 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <hr />
       </div>
 
-      <h2>FINANCIAL HISTORY</h2>
+      <h2>{t('financialHistory', language)}</h2>
 
       <div className="financial_history">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Details of debts to be cleared:
-            </label>
+                          {t('detailsOfDebts', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1159,7 +1158,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
+              <option>{t('selectOption', language)}</option>
               {financialDebtKeys?.map((key, index) => {
                 return <option key={index} value={t(key, language)}>{t(key, language)}</option>;
               })}
@@ -1167,11 +1166,11 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Debt Amount</label>
+            <label className="input-lebel">{t('debtAmount', language)}</label>
             <input
               type="number"
               className="form-control"
-              placeholder="Enter the Debt Amount"
+              placeholder={t('enterDebtAmountPlaceholder', language)}
               value={infoData.financial_debt_amount}
               onChange={(e) =>
                 setInfoData({
@@ -1185,14 +1184,14 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <hr />
       </div>
 
-      <h2>LEGAL HISTORY</h2>
+      <h2>{t('legalHistory', language)}</h2>
 
-      <h4>Have you got into trouble with law for the following:</h4>
+      <h4>{t('haveYouGotIntoTroubleWithLaw', language)}</h4>
 
       <div className="legal_history">
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Arrested for</label>
+            <label className="input-lebel">{t('arrestedFor', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1204,20 +1203,20 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value={"drunken"}>drunken</option>
-              <option value={"drug influenced behavior"}>
-                drug influenced behavior
+              <option>{t('selectOption', language)}</option>
+              <option value={t('drunken', language)}>{t('drunken', language)}</option>
+              <option value={t('drugInfluencedBehavior', language)}>
+                {t('drugInfluencedBehavior', language)}
               </option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">No of Times</label>
+            <label className="input-lebel">{t('noOfTimes', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter number of times"
+              placeholder={t('enterNumberOfTimesPlaceholder', language)}
               value={legalHistory.fined_drunken_drive_times}
               onChange={(e) =>
                 setLegalHistory({
@@ -1231,7 +1230,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Fined for drunken drive</label>
+            <label className="input-lebel">{t('finedForDrunkenDrive', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1243,18 +1242,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value={"yes"}>yes</option>
-              <option value={"no"}>no</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">No of Times</label>
+            <label className="input-lebel">{t('noOfTimes', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter number of times"
+              placeholder={t('enterNumberOfTimesPlaceholder', language)}
               value={legalHistory.accident_under_influence_times}
               onChange={(e) =>
                 setLegalHistory({
@@ -1269,8 +1268,8 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
             <label className="input-lebel">
-              Had an accident while driving under the influence of
-            </label>
+                          {t('hadAccidentUnderInfluence', language)}
+                        </label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1282,18 +1281,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value={"alcohol"}>alcohol</option>
-              <option value={"drug"}>drug</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('alcohol', language)}>{t('alcohol', language)}</option>
+              <option value={t('drug', language)}>{t('drug', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">No of Times</label>
+            <label className="input-lebel">{t('noOfTimes', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter number of times"
+              placeholder={t('enterNumberOfTimesPlaceholder', language)}
               value={legalHistory.assault_times}
               onChange={(e) =>
                 setLegalHistory({
@@ -1307,7 +1306,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Assault</label>
+            <label className="input-lebel">{t('assault', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1319,18 +1318,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value={"yes"}>yes</option>
-              <option value={"no"}>no</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">No of Times</label>
+            <label className="input-lebel">{t('noOfTimes', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter number of times"
+              placeholder={t('enterNumberOfTimesPlaceholder', language)}
               value={legalHistory.any_other_times}
               onChange={(e) =>
                 setLegalHistory({
@@ -1344,7 +1343,7 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="row">
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">Any other</label>
+            <label className="input-lebel">{t('anyOther', language)}</label>
             <select
               class="form-select form-select-lg"
               id="year"
@@ -1356,18 +1355,18 @@ function BasicInfo3({ prevData, data, setData, setStep, setLoading }) {
                 })
               }
             >
-              <option>Please select</option>
-              <option value={"yes"}>yes</option>
-              <option value={"no"}>no</option>
+              <option>{t('selectOption', language)}</option>
+              <option value={t('yes', language)}>{t('yes', language)}</option>
+              <option value={t('no', language)}>{t('no', language)}</option>
             </select>
           </div>
 
           <div className="col-sm-12 mb-3 col-lg-6">
-            <label className="input-lebel">No of Times</label>
+            <label className="input-lebel">{t('noOfTimes', language)}</label>
             <input
               type="text"
               className="form-control"
-              placeholder="Enter the Special Award"
+              placeholder={t('enterSpecialAwardPlaceholder', language)}
               value={infoData.occupation_award}
               onChange={(e) =>
                 setInfoData({

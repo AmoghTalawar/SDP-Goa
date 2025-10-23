@@ -249,7 +249,26 @@ export const translations = {
     hadAccidentUnderInfluence: "Had an accident while driving under the influence of",
     assault: "Assault",
     anyOther: "Any other",
-
+    
+    // Additional BasicInfo3 labels
+    healthStatusOfFamily: "Health Status of Family",
+    sexualHistory: "Sexual History",
+    recordExtraMaritalExperiences: "Record extra marital experiences/",
+    ifUnmarriedPremaritalSexualEncounters: "If unmarried, premarital sexual encounters",
+    involvedHighRiskSexualActivity: "Have you involved in any high risk sexual activities?/",
+    atPresentSexualProblems: "At present do you have any sexual problems?/",
+    maritalHistory: "MARITAL HISTORY",
+    detailsRegardingSpouse: "Details Regarding Spouse",
+    religionCommunity: "Religion/Community",
+    occupationalHistory: "OCCUPATIONAL HISTORY",
+    financialHistory: "FINANCIAL HISTORY",
+    legalHistory: "LEGAL HISTORY",
+    
+    // Monthly income options
+    monthlyIncomeOption1: "₹10,000 - ₹50,000",
+    monthlyIncomeOption2: "₹50,000 - ₹100,000",
+    monthlyIncomeOption3: "more than ₹100,000",
+    
     // Family member options
     father: "Father",
     mother: "Mother",
@@ -317,6 +336,31 @@ export const translations = {
     matric: "Matric",
     love: "love",
     arrange: "arrange",
+
+    // Placeholders
+    enterAgePlaceholder: "Enter the age",
+    enterStateOfHealthPlaceholder: "Enter the State of Health",
+    enterCauseOfDeathPlaceholder: "Enter the cause death",
+    enterAgeAtDeathPlaceholder: "Enter the age at death",
+    enterSpouseNamePlaceholder: "Enter the Spouse Name",
+    enterSpouseAgePlaceholder: "Enter the Spouse Age",
+    enterReligionCommunityPlaceholder: "Enter the Religion/Community",
+    enterSpouseOccupationPlaceholder: "Enter the Spouse Occupation",
+    enterNumberOfYearsOfMarriagePlaceholder: "Enter the Number of Years of Marriage",
+    enterPeriodOfLongestSeparationPlaceholder: "Enter the Period of Longest Seperation",
+    enterAgePlaceholder: "Enter the Age",
+    enterNumberOfYearsPlaceholder: "Enter the Number of Year",
+    enterNumberOfTimesPlaceholder: "Enter number of times",
+    enterDebtAmountPlaceholder: "Enter the Debt Amount",
+    enterSpecialAwardPlaceholder: "Enter the Special Award",
+
+    // Toast messages
+    patientAddedSuccessfully: "Patient Added successfully",
+    patientUpdatedSuccessfully: "Patient Updated successfully",
+    errorOccurred: "some error occured please try again",
+
+    // Buttons
+    addButton: "+ Add",
     drugType: "Drug Type",
     drug: "Drug",
     ageOfFirstUse: "Age of First Use",
@@ -384,7 +428,12 @@ export const translations = {
     annualIncomeOption2: "100,000 - 500,000",
     annualIncomeOption3: "500,000 - 1,000,000",
     annualIncomeOption4: "more than 1,000,000",
-
+    
+    // Monthly income options
+    monthlyIncomeOption1: "₹10,000 - ₹50,000",
+    monthlyIncomeOption2: "₹50,000 - ₹100,000",
+    monthlyIncomeOption3: "more than ₹100,000",
+    
     // Withdrawal symptoms options
     sweating: "Sweating",
     palpitation: "palpitation or feeling of one’s own heart beat with HR more than 100bpm",
@@ -815,7 +864,26 @@ export const translations = {
     hadAccidentUnderInfluence: "ಮದ್ಯ ಅಥವಾ ಮಾದಕವಸ್ತು ಪ್ರಭಾವದಲ್ಲಿ ಅಪಘಾತ ಸಂಭವಿಸಿದೆಯೇ",
     assault: "ಆಕ್ರಮಣ",
     anyOther: "ಇತರ ಯಾವುದೇ",
-
+    
+    // Additional BasicInfo3 labels (Kannada)
+    healthStatusOfFamily: "ಕುಟುಂಬದ ಆರೋಗ್ಯ ಸ್ಥಿತಿ",
+    sexualHistory: "ಲೈಂಗಿಕ ಇತಿಹಾಸ",
+    recordExtraMaritalExperiences: "ವೈವಾಹಿಕೇತರ ಅನುಭವಗಳ ದಾಖಲೆ/",
+    ifUnmarriedPremaritalSexualEncounters: "ಅವಿವಾಹಿತರಾಗಿದ್ದರೆ, ವಿವಾಹಪೂರ್ವ ಲೈಂಗಿಕ ಸಂಪರ್ಕಗಳು",
+    involvedHighRiskSexualActivity: "ನೀವು ಯಾವುದೇ ಹೆಚ್ಚಿನ ಅಪಾಯದ ಲೈಂಗಿಕ ಚಟುವಟಿಕೆಗಳಲ್ಲಿ ತೊಡಗಿಸಿಕೊಂಡಿದ್ದೀರಾ?/",
+    atPresentSexualProblems: "ಪ್ರಸ್ತುತ ನಿಮಗೆ ಯಾವುದೇ ಲೈಂಗಿಕ ಸಮಸ್ಯೆಗಳಿವೆಯೇ?/",
+    maritalHistory: "ವೈವಾಹಿಕ ಇತಿಹಾಸ",
+    detailsRegardingSpouse: "ಪತಿ/ಪತ್ನಿಯ ಬಗ್ಗೆ ವಿವರಗಳು",
+    religionCommunity: "ಧರ್ಮ/ಸಮುದಾಯ",
+    occupationalHistory: "ವೃತ್ತಿಪರ ಇತಿಹಾಸ",
+    financialHistory: "ಆರ್ಥಿಕ ಇತಿಹಾಸ",
+    legalHistory: "ಕಾನೂನು ಇತಿಹಾಸ",
+    
+    // Monthly income options (Kannada)
+    monthlyIncomeOption1: "₹10,000 - ₹50,000",
+    monthlyIncomeOption2: "₹50,000 - ₹100,000",
+    monthlyIncomeOption3: "₹100,000 ಕ್ಕಿಂತ ಹೆಚ್ಚು",
+    
     // Family member options (Kannada)
     father: "ತಂದೆ",
     mother: "ತಾಯಿ",
@@ -883,6 +951,31 @@ export const translations = {
     matric: "ಮ್ಯಾಟ್ರಿಕ್",
     love: "ಪ್ರೇಮ",
     arrange: "ಅರೇಂಜ್",
+
+    // Placeholders (Kannada)
+    enterAgePlaceholder: "ವಯಸ್ಸನ್ನು ನಮೂದಿಸಿ",
+    enterStateOfHealthPlaceholder: "ಆರೋಗ್ಯ ಸ್ಥಿತಿಯನ್ನು ನಮೂದಿಸಿ",
+    enterCauseOfDeathPlaceholder: "ಮರಣದ ಕಾರಣವನ್ನು ನಮೂದಿಸಿ",
+    enterAgeAtDeathPlaceholder: "ಮರಣದ ಸಮಯದ ವಯಸ್ಸನ್ನು ನಮೂದಿಸಿ",
+    enterSpouseNamePlaceholder: "ಪತಿ/ಪತ್ನಿಯ ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+    enterSpouseAgePlaceholder: "ಪತಿ/ಪತ್ನಿಯ ವಯಸ್ಸನ್ನು ನಮೂದಿಸಿ",
+    enterReligionCommunityPlaceholder: "ಧರ್ಮ/ಸಮುದಾಯವನ್ನು ನಮೂದಿಸಿ",
+    enterSpouseOccupationPlaceholder: "ಪತಿ/ಪತ್ನಿಯ ಉದ್ಯೋಗವನ್ನು ನಮೂದಿಸಿ",
+    enterNumberOfYearsOfMarriagePlaceholder: "ವಿವಾಹದ ವರ್ಷಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+    enterPeriodOfLongestSeparationPlaceholder: "ಅತ್ಯಧಿಕ ಬೇರ್ಪಡಿಕೆಯ ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ",
+    enterAgePlaceholder: "ವಯಸ್ಸನ್ನು ನಮೂದಿಸಿ",
+    enterNumberOfYearsPlaceholder: "ವರ್ಷಗಳ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+    enterNumberOfTimesPlaceholder: "ಬಾರಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ",
+    enterDebtAmountPlaceholder: "ಸಾಲದ ಮೊತ್ತವನ್ನು ನಮೂದಿಸಿ",
+    enterSpecialAwardPlaceholder: "ವಿಶೇಷ ಪ್ರಶಸ್ತಿಯನ್ನು ನಮೂದಿಸಿ",
+
+    // Toast messages (Kannada)
+    patientAddedSuccessfully: "ರೋಗಿ ಯಶಸ್ವಿಯಾಗಿ ಸೇರಿಸಲಾಗಿದೆ",
+    patientUpdatedSuccessfully: "ರೋಗಿ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ",
+    errorOccurred: "ಕೆಲವು ದೋಷ ಸಂಭವಿಸಿದೆ ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
+
+    // Buttons (Kannada)
+    addButton: "+ ಸೇರಿಸಿ",
     reasonContinueOptions: "ಮುಂದುವರಿಸಲು ಕಾರಣಗಳು",
     anyUntowardIncident: "ಯಾವುದೇ ಅನಪೇಕ್ಷಿತ ಘಟನೆ",
     drugType: "ಮಾದಕವಸ್ತು ಪ್ರಕಾರ",
@@ -1095,7 +1188,12 @@ export const translations = {
     annualIncomeOption2: "100,000 - 500,000",
     annualIncomeOption3: "500,000 - 1,000,000",
     annualIncomeOption4: "1,000,000 ಕ್ಕಿಂತ ಹೆಚ್ಚು",
-
+    
+    // Monthly income options (Kannada)
+    monthlyIncomeOption1: "₹10,000 - ₹50,000",
+    monthlyIncomeOption2: "₹50,000 - ₹100,000",
+    monthlyIncomeOption3: "₹100,000 ಕ್ಕಿಂತ ಹೆಚ್ಚು",
+    
     // Withdrawal symptoms options (Kannada)
     sweating: "ಬೆವರುವುದು",
     palpitation: "ಹೃದಯ ಬಡಿತ ಅಥವಾ ಒಂದರ ಹೃದಯ ಬಡಿತದ ಅನುಭವ HR 100bpm ಗಿಂತ ಹೆಚ್ಚು",
