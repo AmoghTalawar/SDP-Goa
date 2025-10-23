@@ -179,7 +179,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Do you intake Nicotine?</label>
+          <label>{t('doYouIntakeNicotine', language)}</label>
           <div>
             <input
               type="radio"
@@ -188,7 +188,7 @@ const AAOPrediction = () => {
               checked={formData["Nicotine (yes/NO)"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -199,12 +199,12 @@ const AAOPrediction = () => {
               checked={formData["Nicotine (yes/NO)"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Are you married?</label>
+          <label>{t('areYouMarried', language)}</label>
           <div>
             <input
               type="radio"
@@ -213,7 +213,7 @@ const AAOPrediction = () => {
               checked={formData["Marital Status"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -224,12 +224,12 @@ const AAOPrediction = () => {
               checked={formData["Marital Status"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>At present do you have any sexual problem?</label>
+          <label>{t('atPresentSexualProblem', language)}</label>
           <div>
             <input
               type="radio"
@@ -242,7 +242,7 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -257,12 +257,12 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Legal complications?</label>
+          <label>{t('legalComplications', language)}</label>
           <div>
             <input
               type="radio"
@@ -271,7 +271,7 @@ const AAOPrediction = () => {
               checked={formData["Legal complications yes/no"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -282,12 +282,12 @@ const AAOPrediction = () => {
               checked={formData["Legal complications yes/no"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Multiple marriages?</label>
+          <label>{t('multipleMarriages', language)}</label>
           <div>
             <input
               type="radio"
@@ -296,7 +296,7 @@ const AAOPrediction = () => {
               checked={formData["multiple marriages"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -307,12 +307,12 @@ const AAOPrediction = () => {
               checked={formData["multiple marriages"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Did you have any period of unemployment?</label>
+          <label>{t('didYouHavePeriodOfUnemployment', language)}</label>
           <div>
             <input
               type="radio"
@@ -323,7 +323,7 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -336,12 +336,12 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>any instance of family violence?</label>
+          <label>{t('anyInstanceOfFamilyViolence', language)}</label>
           <div>
             <input
               type="radio"
@@ -350,7 +350,7 @@ const AAOPrediction = () => {
               checked={formData["any instance of family violence"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -361,12 +361,12 @@ const AAOPrediction = () => {
               checked={formData["any instance of family violence"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Record extra marital experiences?</label>
+          <label>{t('recordExtraMaritalExperiences', language)}</label>
           <div>
             <input
               type="radio"
@@ -375,7 +375,7 @@ const AAOPrediction = () => {
               checked={formData["Record extra marital experiences"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -386,12 +386,12 @@ const AAOPrediction = () => {
               checked={formData["Record extra marital experiences"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Family history of alcoholism / drug abuse?</label>
+          <label>{t('familyHistoryOfAlcoholismDrugAbuse', language)}</label>
           <div>
             <input
               type="radio"
@@ -404,7 +404,7 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -419,12 +419,12 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you have Diabetes?</label>
+          <label>{t('doYouHaveDiabetes', language)}</label>
           <div>
             <input
               type="radio"
@@ -433,7 +433,7 @@ const AAOPrediction = () => {
               checked={formData["C_Diabetes"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -444,12 +444,12 @@ const AAOPrediction = () => {
               checked={formData["C_Diabetes"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Alcohol Withdrawal Symptom Stage : </label>
+          <label>{t('alcoholWithdrawalSymptomStage', language)}</label>
           <div>
             <input
               type="radio"
@@ -458,7 +458,7 @@ const AAOPrediction = () => {
               checked={formData["AWS_Stages"] === 0}
               onChange={handleInputChange}
             />{" "}
-            0
+            {t('stage0', language)}
           </div>
 
           <div>
@@ -469,7 +469,7 @@ const AAOPrediction = () => {
               checked={formData["AWS_Stages"] === 1}
               onChange={handleInputChange}
             />{" "}
-            1
+            {t('stage1', language)}
           </div>
 
           <div>
@@ -480,7 +480,7 @@ const AAOPrediction = () => {
               checked={formData["AWS_Stages"] === 2}
               onChange={handleInputChange}
             />{" "}
-            2
+            {t('stage2', language)}
           </div>
 
           <div>
@@ -491,7 +491,7 @@ const AAOPrediction = () => {
               checked={formData["AWS_Stages"] === 3}
               onChange={handleInputChange}
             />{" "}
-            3
+            {t('stage3', language)}
           </div>
 
           <div>
@@ -502,12 +502,12 @@ const AAOPrediction = () => {
               checked={formData["AWS_Stages"] === 4}
               onChange={handleInputChange}
             />{" "}
-            4
+            {t('stage4', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Psychiatric complication(if applicable)</label>
+          <label>{t('psychiatricComplication', language)}</label>
           <div>
             <input
               type="checkbox"
@@ -516,7 +516,7 @@ const AAOPrediction = () => {
               checked={formData["Psy_Confusion"]}
               onChange={handleInputChange}
             />{" "}
-            Confusion
+            {t('confusion', language)}
           </div>
 
           <div>
@@ -527,7 +527,7 @@ const AAOPrediction = () => {
               checked={formData["Psy_Hallucinations"]}
               onChange={handleInputChange}
             />{" "}
-            Hallucinations
+            {t('presentHallucinations', language)}
           </div>
 
           <div>
@@ -538,7 +538,7 @@ const AAOPrediction = () => {
               checked={formData["Psy_Aggressive Outbursts"]}
               onChange={handleInputChange}
             />{" "}
-            Aggressive Outbursts
+            {t('presentAggressiveOutbursts', language)}
           </div>
 
           <div>
@@ -549,13 +549,13 @@ const AAOPrediction = () => {
               checked={formData["Psy_Depression"]}
               onChange={handleInputChange}
             />{" "}
-            Depression
+            {t('presentDepression', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>ACE (if applicable)</label>
-
+          <label>{t('ace', language)}</label>
+        
           <div>
             <input
               type="checkbox"
@@ -564,9 +564,9 @@ const AAOPrediction = () => {
               checked={formData["ACE_Running away from home"]}
               onChange={handleInputChange}
             />{" "}
-            Running away from home
+            {t('runningAwayFromHome', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -575,9 +575,9 @@ const AAOPrediction = () => {
               checked={formData["ACE_Broken home or single parenting"]}
               onChange={handleInputChange}
             />{" "}
-            Broken home or single parenting
+            {t('brokenHomeOrSingleParenting', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -586,9 +586,9 @@ const AAOPrediction = () => {
               checked={formData["ACE_Early parental loss"]}
               onChange={handleInputChange}
             />{" "}
-            Early parental loss
+            {t('earlyParentalLoss', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -597,9 +597,9 @@ const AAOPrediction = () => {
               checked={formData["ACE_Scholastic backwardness"]}
               onChange={handleInputChange}
             />{" "}
-            Scholastic backwardness
+            {t('scholasticBackwardness', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -608,13 +608,13 @@ const AAOPrediction = () => {
               checked={formData["ACE_Poverty or severe debts"]}
               onChange={handleInputChange}
             />{" "}
-            Poverty or severe debts
+            {t('povertyOrSevereDebts', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Stressors</label>
-
+          <label>{t('stressors', language)}</label>
+        
           <div>
             <input
               type="checkbox"
@@ -623,9 +623,9 @@ const AAOPrediction = () => {
               checked={formData["S_Family or relationship issues"]}
               onChange={handleInputChange}
             />{" "}
-            Family or relationship issues
+            {t('familyOrRelationshipIssues', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -634,9 +634,9 @@ const AAOPrediction = () => {
               checked={formData["S_Financial Stress"]}
               onChange={handleInputChange}
             />{" "}
-            Financial Stress
+            {t('financialStress', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -645,9 +645,9 @@ const AAOPrediction = () => {
               checked={formData["S_Work related stress"]}
               onChange={handleInputChange}
             />{" "}
-            Work related stress
+            {t('workRelatedStress', language)}
           </div>
-
+        
           <div>
             <input
               type="checkbox"
@@ -658,12 +658,12 @@ const AAOPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Reports Stressed but doesn’t know where or what
+            {t('reportsStressedButDoesNotKnow', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Risk level : </label>
+          <label>{t('riskLevel', language)} :</label>
           <div>
             <input
               type="number"
@@ -675,7 +675,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Age : </label>
+          <label>{t('age', language)} :</label>
           <div>
             <input
               type="number"
@@ -687,7 +687,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Weight while admission (In Kg) : </label>
+          <label>{t('weightWhileAdmission', language)} :</label>
           <div>
             <input
               type="number"
@@ -699,7 +699,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>duration of use of alcohol : </label>
+          <label>{t('durationOfUseOfAlcohol', language)} :</label>
           <div>
             <input
               type="number"
@@ -711,7 +711,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>duration of excessive use of alcohol : </label>
+          <label>{t('durationOfExcessiveUseOfAlcohol', language)} :</label>
           <div>
             <input
               type="number"
@@ -723,7 +723,7 @@ const AAOPrediction = () => {
         </div>
 
         <div class="question">
-          <label>At what age did you start working? : </label>
+          <label>{t('atWhatAgeDidYouStartWorking', language)} :</label>
           <div>
             <input
               type="number"
@@ -736,7 +736,7 @@ const AAOPrediction = () => {
 
         <div class="question">
           <label>
-            How many first degree relatives had Substance addiction :{" "}
+            {t('howManyFirstDegreeRelativesHadSubstanceAddiction', language)} :{" "}
           </label>
           <div>
             <input

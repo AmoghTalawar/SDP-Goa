@@ -366,7 +366,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Record extra marital experiences?</label>
+          <label>{t('recordExtraMaritalExperiences', language)}</label>
           <div>
             <input
               type="radio"
