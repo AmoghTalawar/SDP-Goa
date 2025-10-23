@@ -329,7 +329,7 @@ const SoberPeriodPrediction = () => {
         </div>
 
         {/* <div class="question">
-          <label>Number of relapses (based on period of treatment):</label>
+          <label>{t('totalNumberOfRelapses', language)}</label>
           <div>
             <input
               type="radio"
@@ -342,7 +342,7 @@ const SoberPeriodPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            0
+            {t('stage0', language)}
           </div>
 
           <div>
@@ -357,7 +357,7 @@ const SoberPeriodPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            1
+            {t('stage1', language)}
           </div>
         </div> */}
 
