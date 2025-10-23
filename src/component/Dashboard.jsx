@@ -54,7 +54,7 @@ function Dashboard() {
   const [patient, setPatient] = useState([]);
   const [unallocatedPatients, setUnallocatedPatients] = useState([]);
 
-  const auth = localStorage.getItem("auth");
+  const auth = localStorage.getItem("auth") || localStorage.getItem("facultyAuth");
   const headers = {
     Authorization: `Bearer ${auth}`,
   };
