@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import "./AddPatient.scss";
 import { useNavigate } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 function PredictionModels() {
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const onCLickHandle = () => {
     navigate(`/predictSoberPeriod`);
   };
@@ -20,9 +23,9 @@ function PredictionModels() {
   return (
     <div className="prediction-buttons">
       <div class="controls">
-        <button onClick={onCLickHandle}>Sober Period Prediction</button>
-        <button onClick={aaoHandle}>AAI Prediction</button>
-        <button onClick={riskLevelHandle}>Risk Level Prediction</button>
+        <button onClick={onCLickHandle}>{t('soberPeriodPrediction', language)}</button>
+        <button onClick={aaoHandle}>{t('aaiPrediction', language)}</button>
+        <button onClick={riskLevelHandle}>{t('riskLevelPrediction', language)}</button>
       </div>
     </div>
   );

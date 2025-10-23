@@ -366,6 +366,11 @@ export const translations = {
     updateButton: "Update",
     submitButton: "Submit",
 
+    // Prediction Model Buttons
+    soberPeriodPrediction: "Sober Period Prediction",
+    aaiPrediction: "AAI Prediction",
+    riskLevelPrediction: "Risk Level Prediction",
+
     // Placeholders
     enterIncidentPlaceholder: "Enter the incident",
     enterActionPlaceholder: "Enter the action",
@@ -1062,6 +1067,11 @@ export const translations = {
     nextButton: "ಮುಂದೆ",
     updateButton: "ನವೀಕರಿಸಿ",
     submitButton: "ಸಲ್ಲಿಸಿ",
+
+    // Prediction Model Buttons (Kannada)
+    soberPeriodPrediction: "ನಿವಾರಣೆಯ ಅವಧಿ ಮುನ್ಸೂಚನೆ",
+    aaiPrediction: "AAI ಮುನ್ಸೂಚನೆ",
+    riskLevelPrediction: "ಅಪಾಯದ ಹಂತ ಮುನ್ಸೂಚನೆ",
 
     // Placeholders (Kannada)
     enterIncidentPlaceholder: "ಘಟನೆಯನ್ನು ನಮೂದಿಸಿ",
