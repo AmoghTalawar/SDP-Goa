@@ -123,7 +123,7 @@ function BasicInfo5({ prevData, data, setData, setStep, setLoading }) {
 
        if (datum) {
          toast.success(t('patientAddedSuccessfully', language));
-         navigate("/admin/patient");
+         navigate("/faculty");
        }
      } catch (err) {
        console.error("Submit error:", err);

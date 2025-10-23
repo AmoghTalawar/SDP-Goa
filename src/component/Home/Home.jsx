@@ -31,7 +31,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
   const [patientList, setPatientList] = useState([]);
   const [patients, setPatient] = useState([]);
 
-  const auth = localStorage.getItem("auth");
+  const auth = localStorage.getItem("auth") || localStorage.getItem("facultyAuth");
   const headers = {
     Authorization: `Bearer ${auth}`,
   };
