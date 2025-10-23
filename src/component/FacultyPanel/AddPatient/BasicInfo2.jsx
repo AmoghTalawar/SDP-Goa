@@ -7,90 +7,90 @@ import { t } from "../../../translations";
 import { ADD_PATIENT } from "../../../utils/apiConstant";
 import "./AddPatient.scss";
 
-const Choice = ["Yes", "No"];
+const ChoiceKeys = ["yes", "no"];
 
-const FamilyHistoryOptions = [
+const FamilyHistoryKeys = [
   "alcoholism",
-  "drug abuse",
-  "psychiatric illness",
+  "drugAbuse",
+  "psychiatricIllness",
 ];
 
-const withdrawlOptions = [
-  "Sweating",
-  "palpitation or feeling of one’s own heart beat with HR more than 100bpm",
-  "Tremors",
-  "Insomnia",
-  "Fits",
-  "Nausea",
-  "Aches and Pains",
-  "Anxiety",
-  "Restlessness",
-  "Transient visual or tactile",
-  "auditoryhallucinations or illusions",
+const withdrawlKeys = [
+  "sweating",
+  "palpitation",
+  "tremors",
+  "insomnia",
+  "fits",
+  "nausea",
+  "achesAndPains",
+  "anxiety",
+  "restlessness",
+  "transientVisual",
+  "auditoryHallucinations",
 ];
 
-const pastMedicalProblemOptions = [
-  "Haematemesis",
-  " Jaundice",
-  "Head Injury",
-  " Seizure",
-  "Accidents",
-  " Abscesses",
-  " Bleeding piles",
-  "Skin problems",
-  " Nerve related pains in extremities",
+const pastMedicalProblemKeys = [
+  "haematemesis",
+  "jaundice",
+  "headInjury",
+  "seizure",
+  "accidents",
+  "abscesses",
+  "bleedingPiles",
+  "skinProblems",
+  "nerveRelatedPains",
 ];
 
-const presentMedicalProblemOptions = [
-  "Haematemesis",
-  " Jaundice",
-  "Head Injury",
-  " Seizure",
-  "Accidents",
-  " Abscesses",
-  " Bleeding piles",
-  "Skin problems",
-  " Nerve related pains in extremities",
+const presentMedicalProblemKeys = [
+  "presentHaematemesis",
+  "presentJaundice",
+  "presentHeadInjury",
+  "presentSeizure",
+  "presentAccidents",
+  "presentAbscesses",
+  "presentBleedingPiles",
+  "presentSkinProblems",
+  "presentNerveRelatedPains",
 ];
 
-const chronicHealthProblemOptions = [
-  "Diabetes",
-  "Liver disorders",
-  "Epilepsy",
-  " Respiratory problem",
-  "pulmonary TB",
-  "Chronic bronchitis",
-  "Bronchial Asthma",
-  "Cardiac problems",
-  "Infections",
+const chronicHealthProblemKeys = [
+  "diabetes",
+  "liverDisorders",
+  "epilepsy",
+  "respiratoryProblem",
+  "pulmonaryTB",
+  "chronicBronchitis",
+  "bronchialAsthma",
+  "cardiacProblems",
+  "infections",
 ];
 
-const presentPsychatricComplicationOptions = [
-  "Confusion",
-  "Seizure during withdrawal",
-  "Depression",
-  "Suicidal ideation or attempts",
-  "Aggressive outbursts",
-  "Hallucinations",
-  "Confusion",
-  "Seizure during withdrawal",
-  "Depression",
-  "Suicidal ideation ",
-  "Paranoid Ideas",
+const presentPsychatricComplicationKeys = [
+  "presentConfusion",
+  "presentSeizure",
+  "presentDepression",
+  "presentSuicidalIdeation",
+  "presentAggressiveOutbursts",
+  "presentHallucinations",
+  "presentConfusion",
+  "presentSeizure",
+  "presentDepression",
+  "presentSuicidalIdeation",
+  "presentParanoidIdeas",
 ];
 
-const pastPsychatricComplicationOptions = [
-  "Confusion",
-  "Seizure during withdrawal",
-  "Depression",
-  "Suicidal ideation or attempts",
-  "Aggressive outbursts",
-  "Hallucinations",
-  "Confusion",
-  "Seizure during withdrawal",
-  "Depression",
-  "Suicidal ideation",
-  "Paranoid Ideas",
+const pastPsychatricComplicationKeys = [
+  "pastConfusion",
+  "pastSeizure",
+  "pastDepression",
+  "pastSuicidalIdeation",
+  "pastAggressiveOutbursts",
+  "pastHallucinations",
+  "pastConfusion",
+  "pastSeizure",
+  "pastDepression",
+  "pastSuicidalIdeation",
+  "pastParanoidIdeas",
 ];
 
 function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
@@ -305,11 +305,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             value={withdrawl}
           >
             <option>{t('selectOption', language)}</option>
-            {withdrawlOptions &&
-              withdrawlOptions.map((data, key) => {
+            {withdrawlKeys &&
+              withdrawlKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -326,11 +326,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setPastMedical(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {pastMedicalProblemOptions &&
-              pastMedicalProblemOptions.map((data, key) => {
+            {pastMedicalProblemKeys &&
+              pastMedicalProblemKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -346,11 +346,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setPresentMedical(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {presentMedicalProblemOptions &&
-              presentMedicalProblemOptions.map((data, key) => {
+            {presentMedicalProblemKeys &&
+              presentMedicalProblemKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -367,11 +367,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setChronicHealth(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {chronicHealthProblemOptions &&
-              chronicHealthProblemOptions.map((data, key) => {
+            {chronicHealthProblemKeys &&
+              chronicHealthProblemKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -387,11 +387,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setPastPsychatricProblem(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {pastPsychatricComplicationOptions &&
-              pastPsychatricComplicationOptions.map((data, key) => {
+            {pastPsychatricComplicationKeys &&
+              pastPsychatricComplicationKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -408,11 +408,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setPresentPsychatricProblem(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {presentPsychatricComplicationOptions &&
-              presentPsychatricComplicationOptions.map((data, key) => {
+            {presentPsychatricComplicationKeys &&
+              presentPsychatricComplicationKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -427,11 +427,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setPreviousHeadInjury(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {Choice &&
-              Choice.map((data, key) => {
+            {ChoiceKeys &&
+              ChoiceKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -459,11 +459,11 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
             onChange={(e) => setFamilyHistory(e.target.value)}
           >
             <option>{t('selectOption', language)}</option>
-            {FamilyHistoryOptions &&
-              FamilyHistoryOptions.map((data, key) => {
+            {FamilyHistoryKeys &&
+              FamilyHistoryKeys.map((key, index) => {
                 return (
-                  <option key={key} value={data}>
-                    {data}
+                  <option key={index} value={t(key, language)}>
+                    {t(key, language)}
                   </option>
                 );
               })}
@@ -472,7 +472,7 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
 
         <div className="col-sm-12 mb-3 col-lg-6">
           <label className="input-lebel">
-            If any specV? (Who and Which type of drug)
+            {t('specificDrugDetails', language)}
           </label>
           <input
             type="text"

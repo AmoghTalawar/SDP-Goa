@@ -99,6 +99,8 @@ export const translations = {
     selectOption: "Please select",
     yes: "Yes",
     no: "No",
+    yes: "Yes",
+    no: "No",
     male: "Male",
     female: "Female",
     other: "Other",
@@ -205,6 +207,9 @@ export const translations = {
     taluk: "Taluk",
     community: "Community",
     presentingComplaints: "Presenting Complaints",
+    allergyKnowledge: "Allergy Knowledge",
+    psychiatricIllness: "Psychiatric Illness",
+    specificDrugDetails: "If any specV? (Who and Which type of drug)",
     drugType: "Drug Type",
     drug: "Drug",
     ageOfFirstUse: "Age of First Use",
@@ -272,6 +277,75 @@ export const translations = {
     annualIncomeOption2: "100,000 - 500,000",
     annualIncomeOption3: "500,000 - 1,000,000",
     annualIncomeOption4: "more than 1,000,000",
+
+    // Withdrawal symptoms options
+    sweating: "Sweating",
+    palpitation: "palpitation or feeling of one’s own heart beat with HR more than 100bpm",
+    tremors: "Tremors",
+    insomnia: "Insomnia",
+    fits: "Fits",
+    nausea: "Nausea",
+    achesAndPains: "Aches and Pains",
+    anxiety: "Anxiety",
+    restlessness: "Restlessness",
+    transientVisual: "Transient visual or tactile",
+    auditoryHallucinations: "auditory hallucinations or illusions",
+
+    // Past medical problem options
+    haematemesis: "Haematemesis",
+    jaundice: "Jaundice",
+    headInjury: "Head Injury",
+    seizure: "Seizure",
+    accidents: "Accidents",
+    abscesses: "Abscesses",
+    bleedingPiles: "Bleeding piles",
+    skinProblems: "Skin problems",
+    nerveRelatedPains: "Nerve related pains in extremities",
+
+    // Present medical problem options
+    presentHaematemesis: "Haematemesis",
+    presentJaundice: "Jaundice",
+    presentHeadInjury: "Head Injury",
+    presentSeizure: "Seizure",
+    presentAccidents: "Accidents",
+    presentAbscesses: "Abscesses",
+    presentBleedingPiles: "Bleeding piles",
+    presentSkinProblems: "Skin problems",
+    presentNerveRelatedPains: "Nerve related pains in extremities",
+
+    // Chronic health problem options
+    diabetes: "Diabetes",
+    liverDisorders: "Liver disorders",
+    epilepsy: "Epilepsy",
+    respiratoryProblem: "Respiratory problem",
+    pulmonaryTB: "pulmonary TB",
+    chronicBronchitis: "Chronic bronchitis",
+    bronchialAsthma: "Bronchial Asthma",
+    cardiacProblems: "Cardiac problems",
+    infections: "Infections",
+
+    // Past psychiatric complication options
+    pastConfusion: "Confusion",
+    pastSeizure: "Seizure during withdrawal",
+    pastDepression: "Depression",
+    pastSuicidalIdeation: "Suicidal ideation or attempts",
+    pastAggressiveOutbursts: "Aggressive outbursts",
+    pastHallucinations: "Hallucinations",
+    pastParanoidIdeas: "Paranoid Ideas",
+
+    // Present psychiatric complication options
+    presentConfusion: "Confusion",
+    presentSeizure: "Seizure during withdrawal",
+    presentDepression: "Depression",
+    presentSuicidalIdeation: "Suicidal ideation or attempts",
+    presentAggressiveOutbursts: "Aggressive outbursts",
+    presentHallucinations: "Hallucinations",
+    presentParanoidIdeas: "Paranoid Ideas",
+
+    // Family history options
+    alcoholism: "alcoholism",
+    drugAbuse: "drug abuse",
+    psychiatricIllness: "psychiatric illness",
 
     // District options (English)
     districtBagalkot: "Bagalkot",
@@ -592,6 +666,9 @@ export const translations = {
     taluk: "ತಾಲ್ಲೂಕು",
     community: "ಸಮುದಾಯ",
     presentingComplaints: "ಪ್ರಸ್ತುತ ದೂರುಗಳು",
+    allergyKnowledge: "ಅಲರ್ಜಿ ಜ್ಞಾನ",
+    psychiatricIllness: "ಮನೋವೈದ್ಯಕೀಯ ಅನಾರೋಗ್ಯ",
+    specificDrugDetails: "ಯಾವುದೇ ವಿಶೇಷ V? (ಯಾರು ಮತ್ತು ಯಾವ ಪ್ರಕಾರದ ಮಾದಕವಸ್ತು)",
     reasonContinueOptions: "ಮುಂದುವರಿಸಲು ಕಾರಣಗಳು",
     anyUntowardIncident: "ಯಾವುದೇ ಅನಪೇಕ್ಷಿತ ಘಟನೆ",
     drugType: "ಮಾದಕವಸ್ತು ಪ್ರಕಾರ",
@@ -804,6 +881,75 @@ export const translations = {
     annualIncomeOption2: "100,000 - 500,000",
     annualIncomeOption3: "500,000 - 1,000,000",
     annualIncomeOption4: "1,000,000 ಕ್ಕಿಂತ ಹೆಚ್ಚು",
+
+    // Withdrawal symptoms options (Kannada)
+    sweating: "ಬೆವರುವುದು",
+    palpitation: "ಹೃದಯ ಬಡಿತ ಅಥವಾ ಒಂದರ ಹೃದಯ ಬಡಿತದ ಅನುಭವ HR 100bpm ಗಿಂತ ಹೆಚ್ಚು",
+    tremors: "ನಡುಕ",
+    insomnia: "ನಿದ್ರಾಹೀನತೆ",
+    fits: "ಫಿಟ್ಸ್",
+    nausea: "ವಾಂತಿ",
+    achesAndPains: "ನೋವು ಮತ್ತು ನೋವುಗಳು",
+    anxiety: "ಆತಂಕ",
+    restlessness: "ಅಸ್ಥಿರತೆ",
+    transientVisual: "ತಾತ್ಕಾಲಿಕ ದೃಶ್ಯ ಅಥವಾ ಸ್ಪರ್ಶ",
+    auditoryHallucinations: "ಶ್ರವಣ ಭ್ರಮೆಗಳು ಅಥವಾ ಭ್ರಮೆಗಳು",
+
+    // Past medical problem options (Kannada)
+    haematemesis: "ಹೆಮಟೆಮೆಸಿಸ್",
+    jaundice: "ಜಾಂಡಿಸ್",
+    headInjury: "ತಲೆ ಗಾಯ",
+    seizure: "ಆಕ್ರಮಣ",
+    accidents: "ಅಪಘಾತಗಳು",
+    abscesses: "ಅಬ್ಸೆಸ್‌ಗಳು",
+    bleedingPiles: "ರಕ್ತಸ್ರಾವದ ರಾಶಿಗಳು",
+    skinProblems: "ಚರ್ಮದ ಸಮಸ್ಯೆಗಳು",
+    nerveRelatedPains: "ನರಗಳ ಸಂಬಂಧಿತ ನೋವುಗಳು ಅಂಗಗಳಲ್ಲಿ",
+
+    // Present medical problem options (Kannada)
+    presentHaematemesis: "ಹೆಮಟೆಮೆಸಿಸ್",
+    presentJaundice: "ಜಾಂಡಿಸ್",
+    presentHeadInjury: "ತಲೆ ಗಾಯ",
+    presentSeizure: "ಆಕ್ರಮಣ",
+    presentAccidents: "ಅಪಘಾತಗಳು",
+    presentAbscesses: "ಅಬ್ಸೆಸ್‌ಗಳು",
+    presentBleedingPiles: "ರಕ್ತಸ್ರಾವದ ರಾಶಿಗಳು",
+    presentSkinProblems: "ಚರ್ಮದ ಸಮಸ್ಯೆಗಳು",
+    presentNerveRelatedPains: "ನರಗಳ ಸಂಬಂಧಿತ ನೋವುಗಳು ಅಂಗಗಳಲ್ಲಿ",
+
+    // Chronic health problem options (Kannada)
+    diabetes: "ಮಧುಮೇಹ",
+    liverDisorders: "ಯಕೃತ್ತಿನ ಅಸ್ವಸ್ಥತೆಗಳು",
+    epilepsy: "ಎಪಿಲೆಪ್ಸಿ",
+    respiratoryProblem: "ಶ್ವಾಸಕೋಶದ ಸಮಸ್ಯೆ",
+    pulmonaryTB: "ಫುಪ್ಫುಸದ TB",
+    chronicBronchitis: "ದೀರ್ಘಕಾಲಿಕ ಬ್ರಾಂಕೈಟಿಸ್",
+    bronchialAsthma: "ಬ್ರಾಂಕಿಯಲ್ ಅಸ್ಥಮಾ",
+    cardiacProblems: "ಹೃದಯ ಸಮಸ್ಯೆಗಳು",
+    infections: "ಸೋಂಕುಗಳು",
+
+    // Past psychiatric complication options (Kannada)
+    pastConfusion: "ಗೊಂದಲ",
+    pastSeizure: "ಹಿಂತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯದಲ್ಲಿ ಆಕ್ರಮಣ",
+    pastDepression: "ನಿರಾಶೆ",
+    pastSuicidalIdeation: "ಆತ್ಮಹತ್ಯೆಯ ಯೋಚನೆ ಅಥವಾ ಪ್ರಯತ್ನಗಳು",
+    pastAggressiveOutbursts: "ಕ್ರೋಧದ ಉಕ್ಕಿ ಹೋಗುವಿಕೆಗಳು",
+    pastHallucinations: "ಭ್ರಮೆಗಳು",
+    pastParanoidIdeas: "ಪ್ಯಾರನಾಯ್ಡ್ ಯೋಚನೆಗಳು",
+
+    // Present psychiatric complication options (Kannada)
+    presentConfusion: "ಗೊಂದಲ",
+    presentSeizure: "ಹಿಂತೆಗೆದುಕೊಳ್ಳುವ ಸಮಯದಲ್ಲಿ ಆಕ್ರಮಣ",
+    presentDepression: "ನಿರಾಶೆ",
+    presentSuicidalIdeation: "ಆತ್ಮಹತ್ಯೆಯ ಯೋಚನೆ ಅಥವಾ ಪ್ರಯತ್ನಗಳು",
+    presentAggressiveOutbursts: "ಕ್ರೋಧದ ಉಕ್ಕಿ ಹೋಗುವಿಕೆಗಳು",
+    presentHallucinations: "ಭ್ರಮೆಗಳು",
+    presentParanoidIdeas: "ಪ್ಯಾರನಾಯ್ಡ್ ಯೋಚನೆಗಳು",
+
+    // Family history options (Kannada)
+    alcoholism: "ಮದ್ಯವ್ಯಸನ",
+    drugAbuse: "ಮಾದಕವಸ್ತು ದುರ್ಬಳಕೆ",
+    psychiatricIllness: "ಮನೋವೈದ್ಯಕೀಯ ಅನಾರೋಗ್ಯ",
 
     // District options (Kannada)
     districtBagalkot: "ಬಾಗಲಕೋಟೆ",
