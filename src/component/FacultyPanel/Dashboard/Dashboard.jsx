@@ -181,10 +181,7 @@ function Dashboard() {
         <div className="header">
           <h6>Patients List</h6>
           <div className="buttons1">
-            <button
-              onClick={() => navigate(`/patientAdd/${locationId}`)}
-              disabled={!locationId}
-            >
+            <button onClick={() => navigate(`/patientAdd/${locationId}`)}>
               Add Patient
             </button>
 
@@ -208,10 +205,7 @@ function Dashboard() {
         <div className="patient-list">
           {/* <div className="header">
             <h6>Patients List</h6>
-            <button
-              onClick={() => navigate(`/patientAdd/${locationId}`)}
-              disabled={!locationId}
-            >
+            <button onClick={() => navigate(`/patientAdd/${locationId}`)}>
               Add Patient
             </button>
           </div> */}
