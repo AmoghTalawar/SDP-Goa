@@ -709,6 +709,15 @@ export const translations = {
     hopeRecoveryCenter: "Hope Recovery Center",
     janathaPlot: "Janatha Plot, Opp to KLS School, Piranwadi Village & Post, Belgaum 590014",
 
+    // Home Dashboard Sections
+    recentActivities: "Recent Activities",
+    newPatientAdded: "New patient added",
+    patientRecordUpdated: "Patient record updated",
+    facultyAllocated: "Faculty allocated",
+    quickLinks: "Quick Links",
+    manageFaculty: "Manage Faculty",
+    viewCamps: "View Camps",
+
     // Admin Dashboard
     adminWelcome: "Hello, Welcome to the Admin Dashboard!",
     totalCounsellors: "TOTAL COUNSELLORS",
@@ -1725,6 +1734,15 @@ export const translations = {
     frPradeepDescription: "ಪೀರನವಾಡಿ, ಬೆಳಗಾವಿಯಲ್ಲಿರುವ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನ ನಿರ್ಧಾರವಾದ ನಿರ್ದೇಶಕ ಫಾ. ಪ್ರದೀಪ್ ಕೊರೆಯಾ, ವಿಶೇಷವಾಗಿ ಯುವಕರನ್ನು ಸೇರಿದಂತೆ ಅಪಾರ ಸಂಖ್ಯೆಯ ಮದ್ಯ ಮತ್ತು ಇತರ ವ್ಯಸನಿಗಳನ್ನು ಗುಣಪಡಿಸಿದ್ದಾರೆ, ಇಂದು ತಮ್ಮ ಗೋಲ್ಡನ್ ಜನ್ಮದಿನವನ್ನು ಆಚರಿಸುತ್ತಿದ್ದಾರೆ. ನಿಸ್ವಾರ್ಥ, ವಿನಯಶೀಲ, ಸಮರ್ಪಿತ ಮತ್ತು ಪ್ರಾರ್ಥನಾಪರ ಫಾ. ಕೊರೆಯಾ ಅವರನ್ನು ಬೆಳಗಾವಿ, ದಕ್ಷಿಣ ಮಹಾರಾಷ್ಟ್ರ ಮತ್ತು ಗೋವಾ ಪ್ರದೇಶದ ಅನೇಕ ಕುಟುಂಬಗಳು ಗೌರವಿಸುತ್ತಾರೆ ಮತ್ತು ಅವರನ್ನು ಹುಡುಕುತ್ತಾರೆ. ಇತರವಾಗಿ ನಿರಾಶೆಗೊಂಡ ಹಲವಾರು ಕುಟುಂಬಗಳ ಜೀವನದಲ್ಲಿ ಅವರು ನಿರೀಕ್ಷೆಯನ್ನು ತಂದಿದ್ದಾರೆ. ಮದ್ಯವಿಲ್ಲದವರು ಮತ್ತು ಸಂತೋಷದ ಸ್ವಭಾವದವರಾದ ಫಾ. ಪ್ರದೀಪ್ ಅವರು 2010 ರಿಂದ ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್‌ನಲ್ಲಿ ಸೇವೆ ಸಲ್ಲಿಸುತ್ತಿದ್ದಾರೆ ಮತ್ತು ಮದ್ಯ ವ್ಯಸನಿಗಳ ರೂಪಾಂತರವನ್ನು ತಂದಿದ್ದಾರೆ. ಪ್ರತಿಯೊಂದು ಧರ್ಮ, ಜಾತಿ ಮತ್ತು ಪಂಥದ ಜನರು ಭೇಟಿ ನೀಡುವ ಹೋಪ್ ಸೆಂಟರ್ ಪ್ರದೇಶದ ಸಾವಿರಾರು ವ್ಯಸನಿಗಳನ್ನು ಅತ್ಯಧಿಕ ಯಶಸ್ಸಿನ ಪ್ರಮಾಣದೊಂದಿಗೆ ಚಿಕಿತ್ಸೆ ನೀಡಿದೆ.",
     hopeRecoveryCenter: "ಹೋಪ್ ರಿಕವರಿ ಸೆಂಟರ್",
     janathaPlot: "ಜನತಾ ಪ್ಲಾಟ್, ಕೆಎಲ್‌ಎಸ್ ಶಾಲೆಯ ಎದುರು, ಪೀರನವಾಡಿ ಗ್ರಾಮ ಮತ್ತು ಪೋಸ್ಟ್, ಬೆಳಗಾವಿ 590014",
+
+    // Home Dashboard Sections (Kannada)
+    recentActivities: "ಇತ್ತೀಚಿನ ಚಟುವಟಿಕೆಗಳು",
+    newPatientAdded: "ಹೊಸ ರೋಗಿ ಸೇರಿಸಲಾಗಿದೆ",
+    patientRecordUpdated: "ರೋಗಿ ದಾಖಲೆ ನವೀಕರಿಸಲಾಗಿದೆ",
+    facultyAllocated: "ಬೋಧಕ ನಿಯೋಜಿಸಲಾಗಿದೆ",
+    quickLinks: "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
+    manageFaculty: "ಬೋಧಕರನ್ನು ನಿರ್ವಹಿಸಿ",
+    viewCamps: "ಶಿಬಿರಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
 
     // Admin Dashboard
     adminWelcome: "ನಮಸ್ಕಾರ, ಆಡಳಿತ ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ಗೆ ಸ್ವಾಗತ!",

@@ -94,34 +94,27 @@ function Home({ locCount, facCount, campCount, patientCount }) {
       </div>
 
       <div className="data-box">
-        {/* <div class="container">
-        <div class="inner-circle">
-
-            <h6>{locCount}</h6>
-          <p>TOTAL LOCATIONS</p>
-        </div>
-      </div> */}
-        <div className="container">
-          <div className="inner-circle">
+        <div className="stat-card">
+          <div className="stat-icon">
+            <i className="fas fa-users"></i>
+          </div>
+          <div className="stat-content">
             <h6>{facCount - 1}</h6>
-            <p>TOTAL COUNSELLERS</p>
+            <p>{t('totalCounsellors', language)}</p>
           </div>
         </div>
-        {/* <div class="container">
-          <div class="inner-circle">
-            <h6>{campCount}</h6>
-            <p>TOTAL CAMPS</p>
+        <div className="stat-card">
+          <div className="stat-icon">
+            <i className="fas fa-user-injured"></i>
           </div>
-        </div> */}
-        <div className="container">
-          <div className="inner-circle">
+          <div className="stat-content">
             <h6>{patientCount}</h6>
-            <p>TOTAL PATIENTS</p>
+            <p>{t('totalPatients', language)}</p>
           </div>
         </div>
       </div>
 
-      <div className="data-box">
+      <div className="data-box chart-section">
         <div className="chart-container">
           <h3>{t('patientAgeDistribution', language)}</h3>
           {patientList.length != 0 ? (
@@ -129,15 +122,7 @@ function Home({ locCount, facCount, campCount, patientCount }) {
               xAxis={[
                 {
                   scaleType: "band",
-                  data: [
-                    "18-25",
-                    "26-32",
-                    "33-39",
-                    "40-46",
-                    "47-53",
-                    "54-60",
-                    ">60",
-                  ],
+                  data: ageBinList,
                   id: "ageGroup",
                   label: t('ageGroup', language),
                 },
@@ -149,9 +134,18 @@ function Home({ locCount, facCount, campCount, patientCount }) {
                   label: t('patientCount', language),
                 },
               ]}
-              series={[{ data: patientList }]}
+              series={[
+                {
+                  data: patientList,
+                  color: '#667eea',
+                  highlightScope: { faded: 'global', highlighted: 'item' },
+                  faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                },
+              ]}
               width={500}
-              height={300}
+              height={350}
+              tooltip={{ trigger: 'item' }}
+              animation={{ duration: 1000 }}
             />
           ) : (
             <p>{t('noDataToDisplay', language)}</p>
