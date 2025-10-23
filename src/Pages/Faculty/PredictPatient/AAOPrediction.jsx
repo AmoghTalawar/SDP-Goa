@@ -3,9 +3,12 @@ import axios from "axios";
 import "./soberPeriodPrediction.scss";
 import { AAI_PREDICTION } from "./../../../utils/apiConstant.js";
 import { useNavigate } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 const AAOPrediction = () => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     Age: 0,
     "Weight while admission (In Kg)": 0,
@@ -115,7 +118,7 @@ const AAOPrediction = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div class="question">
-          <label>Reason to start alcohol?</label>
+          <label>{t('reasonToStartAlcohol', language)}</label>
           <div>
             <input
               type="checkbox"
@@ -124,7 +127,7 @@ const AAOPrediction = () => {
               checked={formData["R_to avoid problems and sadness"]}
               onChange={handleInputChange}
             />{" "}
-            To avoid problems and sadness
+            {t('toAvoidProblemsAndSadness', language)}
           </div>
 
           <div>
@@ -135,7 +138,7 @@ const AAOPrediction = () => {
               checked={formData["R_to feel better/confident/happy"]}
               onChange={handleInputChange}
             />{" "}
-            To feel better and confident or happy
+            {t('toFeelBetterConfidentHappy', language)}
           </div>
 
           <div>
@@ -146,12 +149,12 @@ const AAOPrediction = () => {
               checked={formData["R_to try"]}
               onChange={handleInputChange}
             />{" "}
-            To try
+            {t('toTry', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you smoke?</label>
+          <label>{t('doYouSmoke', language)}</label>
           <div>
             <input
               type="radio"
@@ -160,7 +163,7 @@ const AAOPrediction = () => {
               checked={formData["smoking/smokeless"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -171,7 +174,7 @@ const AAOPrediction = () => {
               checked={formData["smoking/smokeless"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
@@ -749,11 +752,11 @@ const AAOPrediction = () => {
           </div>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">{t('submit', language)}</button>
       </form>
       {outputData && (
         <div className="output-box">
-          <h4>Age of Alcohol Initiation: {outputData}</h4>
+          <h4>{t('ageOfAlcoholInitiation', language)}: {outputData}</h4>
         </div>
       )}
     </div>

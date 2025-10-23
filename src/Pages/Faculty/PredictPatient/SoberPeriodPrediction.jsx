@@ -80,7 +80,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Marital Status"] === 0}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
 
           <div>
@@ -91,7 +91,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Marital Status"] === 1}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
         </div>
 
@@ -105,7 +105,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["smoking/smokeless"] === 0}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
 
           <div>
@@ -116,7 +116,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["smoking/smokeless"] === 1}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
         </div>
 
@@ -130,7 +130,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Motivation factor"] === 0}
               onChange={handleInputChange}
             />{" "}
-            Moderate
+            {t('moderate', language)}
           </div>
 
           <div>
@@ -141,7 +141,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Motivation factor"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Severe
+            {t('severe', language)}
           </div>
           <div>
             <input
@@ -151,7 +151,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Motivation factor"] === 2}
               onChange={handleInputChange}
             />{" "}
-            Willing
+            {t('willing', language)}
           </div>
         </div>
 
@@ -165,7 +165,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Willingness for treatment"] === 0}
               onChange={handleInputChange}
             />{" "}
-            Willing
+            {t('willing', language)}
           </div>
 
           <div>
@@ -176,7 +176,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Willingness for treatment"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Ambivalent
+            {t('ambivalent', language)}
           </div>
 
           <div>
@@ -187,7 +187,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Willingness for treatment"] === 2}
               onChange={handleInputChange}
             />{" "}
-            UnWilling
+            {t('unwilling', language)}
           </div>
         </div>
 
@@ -201,7 +201,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Sugar(mg)"] === 0}
               onChange={handleInputChange}
             />{" "}
-            Normal
+            {t('normal', language)}
           </div>
 
           <div>
@@ -212,7 +212,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Sugar(mg)"] === 1}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -223,7 +223,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Sugar(mg)"] === 2}
               onChange={handleInputChange}
             />{" "}
-            Diabetic
+            {t('diabetic', language)}
           </div>
         </div>
 
@@ -237,7 +237,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Risk Level"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Low Risk
+            {t('lowRisk', language)}
           </div>
 
           <div>
@@ -248,7 +248,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Risk Level"] === 2}
               onChange={handleInputChange}
             />{" "}
-            Medium Risk
+            {t('mediumRisk', language)}
           </div>
 
           <div>
@@ -259,7 +259,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Risk Level"] === 3}
               onChange={handleInputChange}
             />{" "}
-            High Risk
+            {t('highRisk', language)}
           </div>
 
           <div>
@@ -270,7 +270,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["Risk Level"] === 4}
               onChange={handleInputChange}
             />{" "}
-            Very High Risk
+            {t('veryHighRisk', language)}
           </div>
         </div>
 
@@ -286,7 +286,7 @@ const SoberPeriodPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -299,7 +299,7 @@ const SoberPeriodPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
@@ -313,7 +313,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["MPPR_no"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -324,7 +324,7 @@ const SoberPeriodPrediction = () => {
               checked={formData["MPPR_no"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
@@ -363,7 +363,7 @@ const SoberPeriodPrediction = () => {
 
         <div class="question">
           <label>
-            Total Number of relapses (based on period of treatment) :{" "}
+            {t('totalNumberOfRelapses', language)}
           </label>
           <div>
             <input

@@ -3,9 +3,12 @@ import axios from "axios";
 import "./soberPeriodPrediction.scss";
 import { RISK_PREDICTION } from "./../../../utils/apiConstant.js";
 import { useNavigate } from "react-router";
+import { useLanguage } from "../../../context/LanguageContext";
+import { t } from "../../../translations";
 
 const RiskLevelPrediction = () => {
   const navigate = useNavigate();
+  const { language } = useLanguage();
   const [formData, setFormData] = useState({
     "R_to feel better/confident/happy": 0,
     "R_to avoid problems and sadness": 0,
@@ -115,7 +118,7 @@ const RiskLevelPrediction = () => {
       </div>
       <form onSubmit={handleSubmit}>
         <div class="question">
-          <label>Reason to start alcohol?</label>
+          <label>{t('reasonToStartAlcohol', language)}</label>
           <div>
             <input
               type="checkbox"
@@ -124,7 +127,7 @@ const RiskLevelPrediction = () => {
               checked={formData["R_to avoid problems and sadness"]}
               onChange={handleInputChange}
             />{" "}
-            To avoid problems and sadness
+            {t('toAvoidProblemsAndSadness', language)}
           </div>
 
           <div>
@@ -135,7 +138,7 @@ const RiskLevelPrediction = () => {
               checked={formData["R_to feel better/confident/happy"]}
               onChange={handleInputChange}
             />{" "}
-            To feel better and confident or happy
+            {t('toFeelBetterConfidentHappy', language)}
           </div>
 
           <div>
@@ -146,12 +149,12 @@ const RiskLevelPrediction = () => {
               checked={formData["R_to try"]}
               onChange={handleInputChange}
             />{" "}
-            To try
+            {t('toTry', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you smoke?</label>
+          <label>{t('doYouSmoke', language)}</label>
           <div>
             <input
               type="radio"
@@ -160,7 +163,7 @@ const RiskLevelPrediction = () => {
               checked={formData["smoking/smokeless"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -171,12 +174,12 @@ const RiskLevelPrediction = () => {
               checked={formData["smoking/smokeless"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you intake Nicotine?</label>
+          <label>{t('doYouIntakeNicotine', language)}</label>
           <div>
             <input
               type="radio"
@@ -185,7 +188,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Nicotine (yes/NO)"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -196,12 +199,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Nicotine (yes/NO)"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Are you married?</label>
+          <label>{t('areYouMarried', language)}</label>
           <div>
             <input
               type="radio"
@@ -210,7 +213,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Marital Status"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -221,12 +224,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Marital Status"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>At present do you have any sexual problem?</label>
+          <label>{t('sexualProblem', language)}</label>
           <div>
             <input
               type="radio"
@@ -239,7 +242,7 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -254,12 +257,12 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Legal complications?</label>
+          <label>{t('legalComplications', language)}</label>
           <div>
             <input
               type="radio"
@@ -268,7 +271,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Legal complications yes/no"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -279,12 +282,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Legal complications yes/no"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Multiple marriages?</label>
+          <label>{t('multipleMarriages', language)}</label>
           <div>
             <input
               type="radio"
@@ -293,7 +296,7 @@ const RiskLevelPrediction = () => {
               checked={formData["multiple marriages"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -304,12 +307,12 @@ const RiskLevelPrediction = () => {
               checked={formData["multiple marriages"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Did you have any period of unemployment?</label>
+          <label>{t('periodOfUnemployment', language)}</label>
           <div>
             <input
               type="radio"
@@ -320,7 +323,7 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -333,12 +336,12 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>any instance of family violence?</label>
+          <label>{t('familyViolence', language)}</label>
           <div>
             <input
               type="radio"
@@ -347,7 +350,7 @@ const RiskLevelPrediction = () => {
               checked={formData["any instance of family violence"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -358,7 +361,7 @@ const RiskLevelPrediction = () => {
               checked={formData["any instance of family violence"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
@@ -372,7 +375,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Record extra marital experiences"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -383,12 +386,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Record extra marital experiences"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Family history of alcoholism / drug abuse?</label>
+          <label>{t('familyHistoryOfAlcoholism', language)}</label>
           <div>
             <input
               type="radio"
@@ -401,7 +404,7 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -416,12 +419,12 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you live with your family?</label>
+          <label>{t('doYouLiveWithFamily', language)}</label>
           <div>
             <input
               type="radio"
@@ -430,7 +433,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Living arrangement_Family"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -441,12 +444,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Living arrangement_Family"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Do you have Diabetes?</label>
+          <label>{t('doYouHaveDiabetes', language)}</label>
           <div>
             <input
               type="radio"
@@ -455,7 +458,7 @@ const RiskLevelPrediction = () => {
               checked={formData["C_Diabetes"] === 0}
               onChange={handleInputChange}
             />{" "}
-            No
+            {t('no', language)}
           </div>
 
           <div>
@@ -466,12 +469,12 @@ const RiskLevelPrediction = () => {
               checked={formData["C_Diabetes"] === 1}
               onChange={handleInputChange}
             />{" "}
-            Yes
+            {t('yes', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Alcohol Withdrawal Symptom Stage : </label>
+          <label>{t('alcoholWithdrawalSymptomStage', language)}</label>
           <div>
             <input
               type="radio"
@@ -480,7 +483,7 @@ const RiskLevelPrediction = () => {
               checked={formData["AWS_Stages"] === 0}
               onChange={handleInputChange}
             />{" "}
-            0
+            {t('stage0', language)}
           </div>
 
           <div>
@@ -491,7 +494,7 @@ const RiskLevelPrediction = () => {
               checked={formData["AWS_Stages"] === 1}
               onChange={handleInputChange}
             />{" "}
-            1
+            {t('stage1', language)}
           </div>
 
           <div>
@@ -502,7 +505,7 @@ const RiskLevelPrediction = () => {
               checked={formData["AWS_Stages"] === 2}
               onChange={handleInputChange}
             />{" "}
-            2
+            {t('stage2', language)}
           </div>
 
           <div>
@@ -513,7 +516,7 @@ const RiskLevelPrediction = () => {
               checked={formData["AWS_Stages"] === 3}
               onChange={handleInputChange}
             />{" "}
-            3
+            {t('stage3', language)}
           </div>
 
           <div>
@@ -524,12 +527,12 @@ const RiskLevelPrediction = () => {
               checked={formData["AWS_Stages"] === 4}
               onChange={handleInputChange}
             />{" "}
-            4
+            {t('stage4', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Psychiatric complication(if applicable)</label>
+          <label>{t('psychiatricComplication', language)}</label>
           <div>
             <input
               type="checkbox"
@@ -538,7 +541,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Psy_Confusion"]}
               onChange={handleInputChange}
             />{" "}
-            Confusion
+            {t('confusion', language)}
           </div>
 
           <div>
@@ -549,7 +552,7 @@ const RiskLevelPrediction = () => {
               checked={formData["Psy_Hallucinations"]}
               onChange={handleInputChange}
             />{" "}
-            Hallucinations
+            {t('hallucinations', language)}
           </div>
 
           <div>
@@ -560,12 +563,12 @@ const RiskLevelPrediction = () => {
               checked={formData["Psy_Aggressive Outbursts"]}
               onChange={handleInputChange}
             />{" "}
-            Aggressive Outbursts
+            {t('aggressiveOutbursts', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>ACE (if applicable)</label>
+          <label>{t('ace', language)}</label>
 
           <div>
             <input
@@ -575,7 +578,7 @@ const RiskLevelPrediction = () => {
               checked={formData["ACE_Running away from home"]}
               onChange={handleInputChange}
             />{" "}
-            Running away from home
+            {t('runningAwayFromHome', language)}
           </div>
 
           <div>
@@ -586,7 +589,7 @@ const RiskLevelPrediction = () => {
               checked={formData["ACE_Broken home or single parenting"]}
               onChange={handleInputChange}
             />{" "}
-            Broken home or single parenting
+            {t('brokenHomeOrSingleParenting', language)}
           </div>
 
           <div>
@@ -597,7 +600,7 @@ const RiskLevelPrediction = () => {
               checked={formData["ACE_Early parental loss"]}
               onChange={handleInputChange}
             />{" "}
-            Early parental loss
+            {t('earlyParentalLoss', language)}
           </div>
 
           <div>
@@ -608,7 +611,7 @@ const RiskLevelPrediction = () => {
               checked={formData["ACE_Scholastic backwardness"]}
               onChange={handleInputChange}
             />{" "}
-            Scholastic backwardness
+            {t('scholasticBackwardness', language)}
           </div>
 
           <div>
@@ -619,12 +622,12 @@ const RiskLevelPrediction = () => {
               checked={formData["ACE_Poverty or severe debts"]}
               onChange={handleInputChange}
             />{" "}
-            Poverty or severe debts
+            {t('povertyOrSevereDebts', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>Stressors</label>
+          <label>{t('stressors', language)}</label>
 
           <div>
             <input
@@ -634,7 +637,7 @@ const RiskLevelPrediction = () => {
               checked={formData["S_Family or relationship issues"]}
               onChange={handleInputChange}
             />{" "}
-            Family or relationship issues
+            {t('familyOrRelationshipIssues', language)}
           </div>
 
           <div>
@@ -645,7 +648,7 @@ const RiskLevelPrediction = () => {
               checked={formData["S_Financial Stress"]}
               onChange={handleInputChange}
             />{" "}
-            Financial Stress
+            {t('financialStress', language)}
           </div>
 
           <div>
@@ -656,7 +659,7 @@ const RiskLevelPrediction = () => {
               checked={formData["S_Work related stress"]}
               onChange={handleInputChange}
             />{" "}
-            Work related stress
+            {t('workRelatedStress', language)}
           </div>
 
           <div>
@@ -669,12 +672,12 @@ const RiskLevelPrediction = () => {
               }
               onChange={handleInputChange}
             />{" "}
-            Reports Stressed but doesn’t know where or what
+            {t('reportsStressedButDoesNotKnow', language)}
           </div>
         </div>
 
         <div class="question">
-          <label>AAO for alcohol in years : </label>
+          <label>{t('aaoForAlcoholInYears', language)}</label>
           <div>
             <input
               type="number"
@@ -687,7 +690,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Age : </label>
+          <label>{t('age', language)}</label>
           <div>
             <input
               type="number"
@@ -699,7 +702,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>Weight while admission (In Kg) : </label>
+          <label>{t('weightWhileAdmission', language)}</label>
           <div>
             <input
               type="number"
@@ -711,7 +714,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>duration of use of alcohol : </label>
+          <label>{t('durationOfUseOfAlcohol', language)}</label>
           <div>
             <input
               type="number"
@@ -723,7 +726,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>duration of excessive use of alcohol : </label>
+          <label>{t('durationOfExcessiveUseOfAlcohol', language)}</label>
           <div>
             <input
               type="number"
@@ -735,7 +738,7 @@ const RiskLevelPrediction = () => {
         </div>
 
         <div class="question">
-          <label>At what age did you start working? : </label>
+          <label>{t('atWhatAgeDidYouStartWorking', language)}</label>
           <div>
             <input
               type="number"
@@ -748,7 +751,7 @@ const RiskLevelPrediction = () => {
 
         <div class="question">
           <label>
-            How many first degree relatives had Substance addiction :{" "}
+            {t('howManyFirstDegreeRelativesHadSubstanceAddiction', language)}{" "}
           </label>
           <div>
             <input
@@ -764,11 +767,11 @@ const RiskLevelPrediction = () => {
           </div>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit">{t('submit', language)}</button>
       </form>
       {outputData && (
         <div className="output-box">
-          <h4>Risk Level: {outputData}</h4>
+          <h4>{t('riskLevel', language)}: {outputData}</h4>
         </div>
       )}
     </div>
