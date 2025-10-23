@@ -445,7 +445,7 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
           <input
             type="text"
             className="form-control"
-            placeholder={t('specificDrug', language)}
+            placeholder={t('enterAllergyKnowledge', language)}
             value={allergyKnowledge}
             onChange={(e) => setAllergyKnowledge(e.target.value)}
           />
@@ -477,7 +477,7 @@ function BasicInfo2({ prevData, data, setData, setStep, setLoading }) {
           <input
             type="text"
             className="form-control"
-            placeholder="Enter specific drug details"
+            placeholder={t('enterSpecificDrugDetails', language)}
             value={specificDrug}
             onChange={(e) => setSpecificDrug(e.target.value)}
           />
