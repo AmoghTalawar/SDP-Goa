@@ -8,23 +8,23 @@ import BasicInfo5 from "../../../component/FacultyPanel/AddPatient/BasicInfo5";
 import TabChange from "../../../component/TabChange/TabChange";
 
 const tabList = [{
-  name: "Basic Info",
+  name: "basicInfo",
   step: 1
 },
 {
-  name: "Medical History",
+  name: "medicalHistory",
   step: 2
 },
 {
-  name: "Family History",
+  name: "familyHistory",
   step: 3
 },
 {
-  name: "Past Treatment History",
+  name: "pastTreatmentHistory",
   step: 4
 },
 {
-  name: "Counselor Section",
+  name: "counsellorSection",
   step: 5
 },
 ]
