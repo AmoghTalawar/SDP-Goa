@@ -134,13 +134,13 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
 
             if (datum) {
                 // setLoading(false)
-                toast.success("Patient Updated successfully");
+                toast.success(t('patientUpdatedSuccessfully', language));
                 navigate("/faculty");
             }
         } catch (err) {
             // setLoading(false)
 
-            toast.error("some error occured please try again");
+            toast.error(t('errorOccurred', language));
             console.log(err);
         }
     };
@@ -179,12 +179,12 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                         onChange={(e) => setWithdrawl(e.target.value)}
                         value={withdrawl}
                     >
-                        <option>Please select</option>
+                        <option>{t('selectOption', language)}</option>
                         {choice &&
                             choice.map((data, key) => {
                                 return (
-                                    <option key={key} value={data}>
-                                        {data}
+                                    <option key={key} value={t(data, language)}>
+                                        {t(data, language)}
                                     </option>
                                 );
                             })}
@@ -196,7 +196,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                      <input
                          type="text"
                          className="form-control"
-                         placeholder="Enter the incident"
+                         placeholder={t('enterIncidentPlaceholder', language)}
                          value={incidentDescription}
                          onChange={(e) => setIncidentDescription(e.target.value)}
                      />
@@ -211,7 +211,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                      <input
                          type="text"
                          className="form-control"
-                         placeholder="Enter the action"
+                         placeholder={t('enterActionPlaceholder', language)}
                          value={incidentAction}
                          onChange={(e) => setIncidentAction(e.target.value)}
                      />
@@ -228,7 +228,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter the name"
+                        placeholder={t('enterNamePlaceholder', language)}
                         value={hospitalName}
                         onChange={(e) => setHospitalName(e.target.value)}
                     />
@@ -240,7 +240,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter the year"
+                        placeholder={t('enterYearPlaceholder', language)}
                         value={treatmentYear}
                         onChange={(e) => setTreatmentYear(e.target.value)}
                     />
@@ -256,13 +256,13 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                         onChange={(e) => setTreatmentPeriod(e.target.value)}
                         value={treatmentPeriod}
                     >
-                        <option>Please select</option>
-                        <option>1 month</option>
-                        <option>2 month</option>
-                        <option>3 month</option>
-                        <option>4 month</option>
-                        <option>5 month</option>
-                        <option>6 month</option>
+                        <option>{t('selectOption', language)}</option>
+                        <option value={t('oneMonth', language)}>{t('oneMonth', language)}</option>
+                        <option value={t('twoMonth', language)}>{t('twoMonth', language)}</option>
+                        <option value={t('threeMonth', language)}>{t('threeMonth', language)}</option>
+                        <option value={t('fourMonth', language)}>{t('fourMonth', language)}</option>
+                        <option value={t('fiveMonth', language)}>{t('fiveMonth', language)}</option>
+                        <option value={t('sixMonth', language)}>{t('sixMonth', language)}</option>
 
                     </select>
 
@@ -273,7 +273,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter the period"
+                        placeholder={t('enterPeriodPlaceholder', language)}
                         value={soberPeriod}
                         onChange={(e) => setSoberPeriod(e.target.value)}
                     />
@@ -288,7 +288,7 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Enter the remarks"
+                        placeholder={t('enterRemarksPlaceholder', language)}
                         value={treatmentRemarks}
                         onChange={(e) => setTreatmentRemarks(e.target.value)}
                     />
@@ -296,10 +296,10 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                 </div>
 
                 <div className="col-sm-12 mb-3 col-lg-6">
-                    <label className="input-lebel">Reason for Replapse</label>
+                    <label className="input-lebel">{t('reasonForRelapse', language)}</label>
                     <textarea
                         className="form-control"
-                        placeholder="Enter reason for relapse"
+                        placeholder={t('enterReasonForRelapsePlaceholder', language)}
                         value={relapseReason}
                         onChange={(e) => setRelapseReason(e.target.value)}
                     ></textarea>
@@ -313,23 +313,23 @@ function BasicInfo4({ prevData, data, setData, setStep, setLoading }) {
                 <div className="col-12">
                     <div className="form_buttons">
                         <button className="btn btn-primary" onClick={() => setStep(3)}>
-                            Prev
+                            {t('prevButton', language)}
                         </button>
 
                         <button className="btn btn-primary" onClick={() => nextStep()}>
-                            Next
+                            {t('nextButton', language)}
                         </button>
 
 
                         {/* {prevData ? (
-              <button className="btn btn-primary" onClick={() => update()}>
-                Update
-              </button>
-            ) : (
-              <button className="btn btn-primary" onClick={() => submit()}>
-                Submit
-              </button>
-            )} */}
+                          <button className="btn btn-primary" onClick={() => update()}>
+                            {t('updateButton', language)}
+                          </button>
+                        ) : (
+                          <button className="btn btn-primary" onClick={() => submit()}>
+                            {t('submitButton', language)}
+                          </button>
+                        )} */}
                     </div>
                 </div>
             </div>

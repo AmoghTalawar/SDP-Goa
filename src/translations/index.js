@@ -361,6 +361,34 @@ export const translations = {
 
     // Buttons
     addButton: "+ Add",
+    prevButton: "Prev",
+    nextButton: "Next",
+    updateButton: "Update",
+    submitButton: "Submit",
+
+    // Placeholders
+    enterIncidentPlaceholder: "Enter the incident",
+    enterActionPlaceholder: "Enter the action",
+    enterNamePlaceholder: "Enter the name",
+    enterYearPlaceholder: "Enter the year",
+    enterPeriodPlaceholder: "Enter the period",
+    enterRemarksPlaceholder: "Enter the remarks",
+    enterReasonForRelapsePlaceholder: "Enter reason for relapse",
+
+    // Options
+    oneMonth: "1 month",
+    twoMonth: "2 month",
+    threeMonth: "3 month",
+    fourMonth: "4 month",
+    fiveMonth: "5 month",
+    sixMonth: "6 month",
+
+    // Labels
+    reasonForRelapse: "Reason for Relapse",
+
+    // Toast messages
+    patientUpdatedSuccessfully: "Patient Updated successfully",
+    errorOccurred: "some error occured please try again",
     drugType: "Drug Type",
     drug: "Drug",
     ageOfFirstUse: "Age of First Use",
@@ -976,6 +1004,34 @@ export const translations = {
 
     // Buttons (Kannada)
     addButton: "+ ಸೇರಿಸಿ",
+    prevButton: "ಹಿಂದೆ",
+    nextButton: "ಮುಂದೆ",
+    updateButton: "ನವೀಕರಿಸಿ",
+    submitButton: "ಸಲ್ಲಿಸಿ",
+
+    // Placeholders (Kannada)
+    enterIncidentPlaceholder: "ಘಟನೆಯನ್ನು ನಮೂದಿಸಿ",
+    enterActionPlaceholder: "ಕ್ರಿಯೆಯನ್ನು ನಮೂದಿಸಿ",
+    enterNamePlaceholder: "ಹೆಸರನ್ನು ನಮೂದಿಸಿ",
+    enterYearPlaceholder: "ವರ್ಷವನ್ನು ನಮೂದಿಸಿ",
+    enterPeriodPlaceholder: "ಅವಧಿಯನ್ನು ನಮೂದಿಸಿ",
+    enterRemarksPlaceholder: "ಟಿಪ್ಪಣಿಗಳನ್ನು ನಮೂದಿಸಿ",
+    enterReasonForRelapsePlaceholder: "ಮರುಕಳಿಕೆಗೆ ಕಾರಣವನ್ನು ನಮೂದಿಸಿ",
+
+    // Options (Kannada)
+    oneMonth: "1 ತಿಂಗಳು",
+    twoMonth: "2 ತಿಂಗಳು",
+    threeMonth: "3 ತಿಂಗಳು",
+    fourMonth: "4 ತಿಂಗಳು",
+    fiveMonth: "5 ತಿಂಗಳು",
+    sixMonth: "6 ತಿಂಗಳು",
+
+    // Labels (Kannada)
+    reasonForRelapse: "ಮರುಕಳಿಕೆಗೆ ಕಾರಣ",
+
+    // Toast messages (Kannada)
+    patientUpdatedSuccessfully: "ರೋಗಿ ಯಶಸ್ವಿಯಾಗಿ ನವೀಕರಿಸಲಾಗಿದೆ",
+    errorOccurred: "ಕೆಲವು ದೋಷ ಸಂಭವಿಸಿದೆ ದಯವಿಟ್ಟು ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ",
     reasonContinueOptions: "ಮುಂದುವರಿಸಲು ಕಾರಣಗಳು",
     anyUntowardIncident: "ಯಾವುದೇ ಅನಪೇಕ್ಷಿತ ಘಟನೆ",
     drugType: "ಮಾದಕವಸ್ತು ಪ್ರಕಾರ",
