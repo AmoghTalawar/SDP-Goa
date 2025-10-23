@@ -132,10 +132,10 @@ function Camp({
                     </td>*/
                       <td>
                         {" "}
-                        {data?.unallocatedPatientsList?.map((data, k) => {
+                        {data?.unallocatedPatientsList?.map((patientId, k) => {
                           for (var i of unallocatedPatients) {
                             console.log("i: ", i);
-                            if (data == i.value) return <p>{i.label}</p>;
+                            if (patientId == i.value) return <p key={k}>{i.label}</p>;
                           }
                         })}{" "}
                       </td>
