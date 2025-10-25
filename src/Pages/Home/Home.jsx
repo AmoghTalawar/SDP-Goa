@@ -1,15 +1,16 @@
 import React from "react";
 import "./Home.scss";
 import Navbar from "../../component/Navbar/Navbar"
-import cr1 from "../../assets/msg890718968-14704.jpg";
+// import cr1 from "../../assets/img1.jpg";
+// import cr2 from "../../assets/img2.jpg";
 import { useLanguage } from "../../context/LanguageContext";
 import { t } from "../../translations";
-import cr2 from "../../assets/msg890718968-14697.jpg";
-import cr3 from "../../assets/msg890718968-14686.jpg";
-import cr4 from "../../assets/msg890718968-14695.jpg";
-import cr5 from "../../assets/msg890718968-14692.jpg";
-import cr6 from "../../assets/msg890718968-14689.jpg";
-import cr7 from "../../assets/msg890718968-14699.jpg";
+
+
+import img1 from "../../assets/img1.jpg";
+import img2 from "../../assets/img2.jpg";
+// import img3 from "../../assets/img23.jpg";
+
 
 
 
@@ -25,47 +26,37 @@ function Home() {
       <div className="scroller">
         <div
           id="carouselExampleControls"
-          class="carousel slide"
+          className="carousel slide"
           data-bs-ride="carousel"
         >
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src={cr1} class="d-block w-100" alt="..." />
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={img1} className="d-block w-100" alt="..." />
             </div>
-            
-            <div class="carousel-item">
-              <img src={cr2} class="d-block w-100" alt="..." />
+
+            <div className="carousel-item">
+              <img src={img2} className="d-block w-100" alt="..." />
             </div>
-            <div class="carousel-item">
-              <img src={cr3} class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src={cr4} class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src={cr5} class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src={cr6} class="d-block w-100" alt="..." />
-            </div>
+          
+
           </div>
           <button
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
           <button
-            class="carousel-control-next"
+            className="carousel-control-next"
             type="button"
             data-bs-target="#carouselExampleControls"
             data-bs-slide="next"
           >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -129,7 +120,7 @@ function Home() {
 
         <div className="item">
           <div className="left">
-            <img src={cr7} alt="" />
+            {/* <img src={cr7} alt="" /> */}
           </div>
           <div className="right">
             <h4>{t('contactUs', language)}</h4>
