@@ -10,8 +10,7 @@ import cr4 from "../../assets/msg890718968-14695.jpg";
 import cr5 from "../../assets/msg890718968-14692.jpg";
 import cr6 from "../../assets/msg890718968-14689.jpg";
 import cr7 from "../../assets/msg890718968-14699.jpg";
-import cr8 from "../../assets/img1.jpg";
-import cr9 from "../../assets/img2.jpg";
+
 
 
 
@@ -48,12 +47,6 @@ function Home() {
             </div>
             <div class="carousel-item">
               <img src={cr6} class="d-block w-100" alt="..." />
-            </div>
-            <div class="carousel-item">
-              <img src={cr8} class="d-block w-100" alt="..." />
-            </div>
-             <div class="carousel-item">
-              <img src={cr9} class="d-block w-100" alt="..." />
             </div>
           </div>
           <button
